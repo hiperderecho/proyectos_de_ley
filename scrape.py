@@ -18,7 +18,7 @@ import string
 import os.path
 
 random.seed();  
-tor = True
+tor = False
 debug = False
 
 if tor:
@@ -51,6 +51,7 @@ def generate_html():
     f.close()
 
     html = string.replace(base_html, "{% content %}", prettify(data))
+    html = string.replace(html, "{% titulo %}", "<h1>Proyectos de Ley</h1>")
 
     f = codecs.open("proyectos_de_ley.html", "w", "utf-8")
     f.write(html)
@@ -77,6 +78,13 @@ def prettify(data):
         else:
             out += " <a class='btn btn-lg btn-primary disabled'"
             out += " href='#' role='button'>Sin EXPEDIENTE</a>"
+
+        html_file = item['numero_proyecto'].replace("/", "_") + ".html"
+        html_file = os.path.join("pdf", html_file)
+        if os.path.isfile(html_file): 
+            out += " <a class='btn btn-lg btn-primary'"
+            out += " href='" + html_file + "' role='button'>OCR</a>\n"
+
         out += "</div>\n"
         out += "<hr>\n"
     return out
@@ -160,11 +168,8 @@ def processed_links():
         return processed_links
 
 
-    if data == "empty":
-        return processed_links
-    else:
-        for item in data:
-            processed_links.append(item['link'])
+    for item in data:
+        processed_links.append(item['link'])
 
     return processed_links
 

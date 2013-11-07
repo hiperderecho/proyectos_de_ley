@@ -18,7 +18,7 @@ import string
 import os.path
 
 random.seed();  
-tor = False
+tor = True
 debug = False
 
 if tor:
@@ -83,7 +83,6 @@ def prettify(data):
         
 
 def extract_pdf_url(link):
-    #link = "http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/02787?opendocument"
     try:
         pdf_soup = get(link)
         for i in pdf_soup.find_all("a"):
@@ -128,12 +127,12 @@ def extract_metadata(dic):
     link_to_pdf += metadata['codigo'] + '?opendocument'
     metadata['link_to_pdf'] = link_to_pdf
     metadata['pdf_url'] = extract_pdf_url(link_to_pdf)
+    get_pdf(metadata['pdf_url'], metadata['numero_proyecto'])
 
     # Algunos proyectos de Ley no tienen links hacia PDFs
     if metadata['pdf_url'] == "none":
         del metadata['pdf_url']
         del metadata['link_to_pdf']
-    print metadata
     return metadata
 
 def extract_doc_links(soup):
@@ -169,6 +168,21 @@ def processed_links():
 
     return processed_links
 
+
+# downloads PDF and saves to current folder
+def get_pdf(url, numero_proyecto):
+    if not os.path.isdir("pdf"):
+        os.mkdir("pdf")
+
+    r = requests.get(url)
+    numero_proyecto = re.sub("/", "_", numero_proyecto)
+    try:
+        with open(os.path.join("pdf", numero_proyecto + ".pdf"), "wb") as fd:
+            for chunk in r.iter_content(100):
+                fd.write(chunk)
+    except:
+        print "** Couldn't get PDF file"
+    
 
 def get(url):
     n = random.random()*5;  

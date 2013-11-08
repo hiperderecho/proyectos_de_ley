@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-import socks
+#import socks
 import cookielib
 import socket
 from bs4 import BeautifulSoup

@@ -9,9 +9,10 @@ import sys
 import string
 import re
 
+def myjson(data):
+    return json.dumps(data, sort_keys=True, indent=4, separators=(',', ':'))
+
 def prettify(item):
-    print item
-    sys.exit()
     out = ""
     out += "\n<div>\n"
     out += "<p><b>" + item['numero_proyecto'] + "</b>\n"
@@ -56,8 +57,6 @@ def generate_congre_html(congre_data):
         i = i + 1
     path = os.path.join("congresista", path)
     filename = os.path.join(path, "index.html")
-    print path
-    print filename
 
     # html files should go into its own folder
     if not os.path.exists(path):
@@ -67,13 +66,13 @@ def generate_congre_html(congre_data):
     base_html = f.read()
     f.close()
 
+    content = ""
+    for i in congre_data['data']:
+        content += prettify(i)
     html = string.replace(base_html, 
                     "{% titulo %}",
                     "<h1>" + congre_data['name'] + "</h1>")
-    content = ""
-    if "data" in congre_data:
-        print prettify(congre_data['data'])
-    #html = string.replace(base_html, "{% content %}", prettify(data))
+    html = string.replace(html, "{% content %}", content)
 
     f = codecs.open(filename, "w", "utf-8")
     f.write(html)
@@ -99,23 +98,23 @@ def get_link(names):
         congre_data = {'name': congre}
         congre_data['data'] = []
         for item in data:
+            to_data = {}
             if congre in item['congresistas']: 
                 if 'titulo' in item:
-                    congre_data['data'].append({"titulo": item['titulo']})
+                    to_data['titulo'] = item['titulo']
                 if 'numero_proyecto' in item:
-                    congre_data['data'].append({"numero_proyecto":
-                            item['numero_proyecto']})
+                    to_data['numero_proyecto'] = item['numero_proyecto']
                 if 'pdf_url' in item:
-                    congre_data['data'].append({"pdf_url": item['pdf_url']})
+                    to_data['pdf_url'] = item['pdf_url']
                 if 'link_to_pdf' in item:
-                    congre_data['data'].append({"link_to_pdf":
-                            item['link_to_pdf']})
+                    to_data['link_to_pdf'] = item['link_to_pdf']
                 if 'fecha_presentacion' in item:
-                    congre_data['data'].append({"fecha_presentacion":
-                            item['fecha_presentacion']})
+                    to_data['fecha_presentacion'] = item['fecha_presentacion']
+                if 'congresistas' in item:
+                    to_data['congresistas'] = item['congresistas']
+                congre_data['data'].append(to_data) 
         # now make a HTML for this congresista
         generate_congre_html(congre_data)
-    sys.exit()
 
 
 if __name__ == "__main__":

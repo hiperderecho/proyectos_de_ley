@@ -15,7 +15,7 @@ necesitan que las siguientes dependencias estén instaladas.
 * pip: ``sudo apt-get install python-pip``
 * bs4: ``sudo apt-get install python-bs4``
 * pyatom: ``sudo pip install pyatom``
-* tesseract: ``sudo apt-get install tesseract-ocr-spa tesseract-ocr``
+* requests: ``sudo apt-get install python-requests``
 
 # Modo de ejecución
 
@@ -23,7 +23,7 @@ necesitan que las siguientes dependencias estén instaladas.
 
 * El script ``scrape.py`` se encarga de cosechar la información del servidor del
 congreso.
-* Elabora un HTML con la lista de proyectos ``proyectos_de_ley.html``,
+* Elabora un HTML con la lista de proyectos ``index.html``,
 información básica (título, autores, código) y enlaces al expediente y PDF del
 proyecto. 
 * También descarga los PDFs y los almacena en el folder ``pdf/``.
@@ -31,10 +31,9 @@ proyecto.
   ``proyectos_data.json`` el cual actúa como "base de datos" (no es realmente
   base de datos). Este archivo permite llevar la cuenta de qué proyectos ya han
   sido procesados y se evitan procesarlos otra vez.
-* También actualiza el HTML de la lista de proyectos de ley al incluir enlaces
-  a las páginas HTML conteniendo el texto producto de pasarlos por OCR.
 
 ## script do_ocr.py
+[We don't want OCR yet]
 
 * El script ``do_ocr.py`` se encarga de convertir los PDFs del folder ``pdf/``
   a HTML previo proceso OCR usando ``tesseract``.

@@ -63,7 +63,7 @@ def prettify(data):
         out += "\n<div>\n"
         out += "<p><b>" + item['numero_proyecto'] + "</b>\n"
         out += "<h4>" + item['titulo'] +  "</h4>\n"
-        out += "<p>" + parse_names(item['congresistas']) + "</p>\n"
+        out += "<p>" + item['congresistas'] + "</p>\n"
 
         if 'pdf_url' in item:
             out += "<a class='btn btn-lg btn-primary'"
@@ -123,7 +123,7 @@ def extract_metadata(dic):
         #if item['name'] == "NombreDeLaComision":
             #metadata['comision'] = item['value']
         if item['name'] == "NomCongre":
-            metadata['congresistas'] = item['value']
+            metadata['congresistas'] = parse_names(item['value'])
             print "* congresistas: %s" % metadata['congresistas']
         if item['name'] == "CodIni":
             metadata['codigo'] = item['value']

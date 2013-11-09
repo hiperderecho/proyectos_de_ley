@@ -16,6 +16,7 @@ import time
 import random
 import string
 import os.path
+import congresista # script to create pages for each one
 
 random.seed();  
 tor = False
@@ -53,7 +54,7 @@ def generate_html():
     html = string.replace(base_html, "{% content %}", prettify(data))
     html = string.replace(html, "{% titulo %}", "<h1>Proyectos de Ley</h1>")
 
-    f = codecs.open("proyectos_de_ley.html", "w", "utf-8")
+    f = codecs.open("index.html", "w", "utf-8")
     f.write(html)
     f.close()
 
@@ -135,7 +136,9 @@ def extract_metadata(dic):
     link_to_pdf += metadata['codigo'] + '?opendocument'
     metadata['link_to_pdf'] = link_to_pdf
     metadata['pdf_url'] = extract_pdf_url(link_to_pdf)
-    get_pdf(metadata['pdf_url'], metadata['numero_proyecto'])
+
+    # don't do this for now as OCR is not so critical
+    #get_pdf(metadata['pdf_url'], metadata['numero_proyecto'])
 
     # Algunos proyectos de Ley no tienen links hacia PDFs
     if metadata['pdf_url'] == "none":
@@ -246,6 +249,7 @@ def main():
             save_project(metadata)
             
             generate_html()
+            congresista.get_link(metadata['congresistas'])
         else:
             print "* we got already that link: %s" % link
 

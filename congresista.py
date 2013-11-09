@@ -48,35 +48,37 @@ def generate_congre_html(congre_data):
     name = congre_data['name'].replace(",", "").lower()
     name = name.encode("ascii", "ignore")
     name = name.split(" ")
-    i = 0
-    path = ""
-    while( i < 3 ):
-        path += name[i]
-        if i < 2:
-            path += "_"
-        i = i + 1
-    path = os.path.join("congresista", path)
-    filename = os.path.join(path, "index.html")
+    
+    if len(name) > 2:
+        i = 0
+        path = ""
+        while( i < 3 ):
+            path += name[i]
+            if i < 2:
+                path += "_"
+            i = i + 1
+        path = os.path.join("congresista", path)
+        filename = os.path.join(path, "index.html")
 
-    # html files should go into its own folder
-    if not os.path.exists(path):
-        os.makedirs(path)
+        # html files should go into its own folder
+        if not os.path.exists(path):
+            os.makedirs(path)
 
-    f = codecs.open("base.html", "r", "utf-8")
-    base_html = f.read()
-    f.close()
+        f = codecs.open("base.html", "r", "utf-8")
+        base_html = f.read()
+        f.close()
 
-    content = ""
-    for i in congre_data['data']:
-        content += prettify(i)
-    html = string.replace(base_html, 
+        content = ""
+        for i in congre_data['data']:
+            content += prettify(i)
+        html = string.replace(base_html, 
                     "{% titulo %}",
                     "<h1>" + congre_data['name'] + "</h1>")
-    html = string.replace(html, "{% content %}", content)
+        html = string.replace(html, "{% content %}", content)
 
-    f = codecs.open(filename, "w", "utf-8")
-    f.write(html)
-    f.close()
+        f = codecs.open(filename, "w", "utf-8")
+        f.write(html)
+        f.close()
 
 def get_link(names):
     json_file = "proyectos_data.json"

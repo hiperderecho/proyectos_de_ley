@@ -63,6 +63,18 @@ def generate_html():
     f.write(html)
     f.close()
 
+def update_search_engine():
+    f = codecs.open("search.js", "r", "utf-8")
+    base_html = f.read()
+    f.close()
+
+    if config.base_url:
+        html = string.replace(base_html, "{% base_url %}", "/" + config.base_url)
+
+    f = codecs.open("search.js", "w", "utf-8")
+    f.write(html)
+    f.close()
+
 def hiperlink_congre(congresistas):
     # tries to make a hiperlink for each congresista name to its own webpage
     for name in congresistas.split("; "):
@@ -288,11 +300,11 @@ def main():
             save_project(metadata)
             
             generate_html()
+            update_search_engine()
             congresista.get_link(metadata['congresistas'])
         else:
             print "* we got already that link: %s" % link
 
-    f.close()
 
 
 

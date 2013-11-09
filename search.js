@@ -8,7 +8,7 @@ $( 'form' ).submit(function(e) {
         $("#contenido").append(out);
 
         var out = '';
-        $.getJSON( "proyectos_data.json", function( data ) {
+        $.getJSON( "/hiperderecho/proyectos_data.json", function( data ) {
             $.each(data, function(i, v) {
         
                 if( v.titulo.search(new RegExp(keyword, 'i')) != -1 ) {

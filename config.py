@@ -5,9 +5,10 @@
 Cambiar esta variable for la dirección URL que se usará para servir las páginas
 Ejemplo:  
     Si la direccion web es:
-        http://mi_dominio.org/proyectos_de_ley
+        http://mi_dominio.org/ley
     Poner:
-        base_url = "proyectos_de_ley"
+        base_url = "ley"
 """
-base_url = "hiperderecho"
+base_folder = "/var/www/ley/"
+base_url = "192.241.249.64/ley/"
 

@@ -14,7 +14,6 @@ necesitan que las siguientes dependencias estén instaladas.
 * Python
 * pip: ``sudo apt-get install python-pip``
 * bs4: ``sudo apt-get install python-bs4``
-* pyatom: ``sudo pip install pyatom``
 * requests: ``sudo apt-get install python-requests``
 
 # Modo de ejecución

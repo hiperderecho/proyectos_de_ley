@@ -50,16 +50,16 @@ def generate_html():
     base_html = f.read()
     f.close()
 
-    f = codecs.open("proyectos_data.json", "r", "utf-8")
+    f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "r", "utf-8")
     data = json.loads(f.read())
     f.close()
 
     html = string.replace(base_html, "{% content %}", prettify(data))
     if config.base_url:
         html = string.replace(html, "{% base_url %}", "/" + config.base_url)
-    html = string.replace(html, "{% titulo %}", "<h1>Proyectos de Ley</h1>")
+        html = string.replace(html, "{% titulo %}", "<h1>Proyectos de Ley</h1>")
 
-    f = codecs.open("index.html", "w", "utf-8")
+    f = codecs.open(os.path.join(config.base_folder, "index.html"), "w", "utf-8")
     f.write(html)
     f.close()
 
@@ -71,7 +71,7 @@ def update_search_engine():
     if config.base_url:
         html = string.replace(base_html, "{% base_url %}", "/" + config.base_url)
 
-    f = codecs.open("search.js", "w", "utf-8")
+    f = codecs.open(os.path.join(config.base_folder, "search.js"), "w", "utf-8")
     f.write(html)
     f.close()
 
@@ -80,10 +80,11 @@ def hiperlink_congre(congresistas):
     for name in congresistas.split("; "):
         filename = convert_name_to_filename(name)
         if filename:
+            filename = os.path.join(config.base_folder, filename)
             if os.path.isfile(filename):
                 filename = filename.replace("index.html", "")
+                filename = "http://" + filename.replace(config.base_folder, config.base_url)
                 link = "<a href='"
-                link += os.path.dirname(__file__)
                 link += filename
                 link += "' title='ver todos sus proyectos'>"
                 link += name + "</a>"
@@ -130,12 +131,6 @@ def prettify(data):
         else:
             out += " <a class='btn btn-lg btn-primary disabled'"
             out += " href='#' role='button'>Sin EXPEDIENTE</a>"
-
-        html_file = item['numero_proyecto'].replace("/", "_") + ".html"
-        html_file = os.path.join("pdf", html_file)
-        if os.path.isfile(html_file): 
-            out += " <a class='btn btn-lg btn-primary'"
-            out += " href='" + html_file + "' role='button'>OCR</a>\n"
 
         out += "</div>\n"
         out += "<hr>\n"
@@ -212,8 +207,8 @@ def extract_doc_links(soup):
 def processed_links():
     processed_links = []
     # Returns a list of links found in our data file "proyectos_data.json"
-    if os.path.isfile("proyectos_data.json"):
-        f = codecs.open("proyectos_data.json", "r", "utf-8")
+    if os.path.isfile(os.path.join(config.base_folder, "proyectos_data.json")):
+        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "r", "utf-8")
         try: 
             data = json.loads(f.read());
         except:
@@ -255,8 +250,8 @@ def get(url):
 
 # save proyecto data into file
 def save_project(metadata):
-    if os.path.isfile("proyectos_data.json"):
-        f = codecs.open("proyectos_data.json", "r", "utf-8")
+    if os.path.isfile(os.path.join(config.base_folder, "proyectos_data.json")):
+        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "r", "utf-8")
         data = f.read()
         if len(data) < 2:
             file_empty = True
@@ -269,15 +264,15 @@ def save_project(metadata):
     if file_empty == True:
         data = []
         data.append(metadata)
-        f = codecs.open("proyectos_data.json", "w", "utf-8")
+        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "w", "utf-8")
         f.write(json.dumps(data, sort_keys=True, indent=4, separators=(',', ':')))
         f.close()
     else:
-        f = codecs.open("proyectos_data.json", "r", "utf-8")
+        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "r", "utf-8")
         data = json.loads(f.read())
         f.close()
         data.append(metadata)
-        f = codecs.open("proyectos_data.json", "w", "utf-8")
+        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "w", "utf-8")
         f.write(json.dumps(data, sort_keys=True, indent=4, separators=(',', ':')))
         f.close()
 

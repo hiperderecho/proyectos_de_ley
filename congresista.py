@@ -26,6 +26,7 @@ def convert_name_to_filename(name):
             i = i + 1
         path = os.path.join("congresista", path)
         filename = os.path.join(path, "index.html")
+        filename = os.path.join(config.base_folder, filename)
         return filename
 
 def hiperlink_congre(congresistas):
@@ -35,8 +36,8 @@ def hiperlink_congre(congresistas):
         if filename:
             if os.path.isfile(filename):
                 filename = filename.replace("index.html", "")
-                link = "<a href='"
-                link += os.path.join("../..", filename)
+                link = "<a href='http://"
+                link += filename.replace(config.base_folder, config.base_url)
                 link += "' title='ver todos sus proyectos'>"
                 link += name + "</a>"
                 congresistas = congresistas.replace(name, link)
@@ -91,7 +92,10 @@ def generate_congre_html(congre_data):
                 path += "_"
             i = i + 1
         path = os.path.join("congresista", path)
+        path = os.path.join(config.base_folder, path)
+
         filename = os.path.join(path, "index.html")
+        filename = os.path.join(config.base_folder, filename)
 
         # html files should go into its own folder
         if not os.path.exists(path):
@@ -116,7 +120,7 @@ def generate_congre_html(congre_data):
         f.close()
 
 def get_link(names):
-    json_file = "proyectos_data.json"
+    json_file = os.path.join(config.base_folder, "proyectos_data.json")
     if os.path.isfile(json_file):
         f = codecs.open(json_file, "r", "utf-8")
         data = json.loads(f.read())

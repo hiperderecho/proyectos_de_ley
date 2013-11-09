@@ -16,7 +16,10 @@ import time
 import random
 import string
 import os.path
+import urlparse
 import congresista # script to create pages for each one
+import config
+
 
 random.seed();  
 tor = False
@@ -52,6 +55,8 @@ def generate_html():
     f.close()
 
     html = string.replace(base_html, "{% content %}", prettify(data))
+    if config.base_url:
+        html = string.replace(html, "{% base_url %}", "/" + config.base_url)
     html = string.replace(html, "{% titulo %}", "<h1>Proyectos de Ley</h1>")
 
     f = codecs.open("index.html", "w", "utf-8")
@@ -64,6 +69,7 @@ def hiperlink_congre(congresistas):
         filename = convert_name_to_filename(name)
         if filename:
             if os.path.isfile(filename):
+                filename = filename.replace("index.html", "")
                 link = "<a href='"
                 link += os.path.dirname(__file__)
                 link += filename

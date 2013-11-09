@@ -8,6 +8,7 @@ import json
 import sys
 import string
 import re
+import config
 
 def convert_name_to_filename(name):
     # takes a congresista name and returns its html filename
@@ -33,6 +34,7 @@ def hiperlink_congre(congresistas):
         filename = convert_name_to_filename(name)
         if filename:
             if os.path.isfile(filename):
+                filename = filename.replace("index.html", "")
                 link = "<a href='"
                 link += os.path.join("../..", filename)
                 link += "' title='ver todos sus proyectos'>"
@@ -104,8 +106,10 @@ def generate_congre_html(congre_data):
             content += prettify(i)
         html = string.replace(base_html, 
                     "{% titulo %}",
-                    "<h1>" + congre_data['name'] + "</h1>")
+                    "<h2>" + congre_data['name'] + "</h2>")
         html = string.replace(html, "{% content %}", content)
+        if config.base_url:
+            html = string.replace(html, "{% base_url %}", "/" + config.base_url)
 
         f = codecs.open(filename, "w", "utf-8")
         f.write(html)

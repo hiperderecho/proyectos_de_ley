@@ -13,10 +13,20 @@ $( 'form' ).submit(function(e) {
         
                 if( v.titulo.search(new RegExp(keyword, 'i')) != -1 ) {
                     out += '\n<p>' + v.titulo;
-                    out += ' <span class="glyphicon glyphicon-cloud-download"></span>';
-                    out += ' <a href="' + v.pdf_url + '">PDF</a>';
-                    out += ' <span class="glyphicon glyphicon-link"></span>';
-                    out += ' <a href="' + v.link_to_pdf + '">Expediente</a>';
+                    if( v.pdf_url ) {
+                        out += ' <span class="glyphicon glyphicon-cloud-download"></span>';
+                        out += ' <a href="' + v.pdf_url + '">PDF</a>';
+                    }
+                    else {
+                        out += ' [sin PDF]';
+                    }
+                    if( v.link_to_pdf ) {
+                        out += ' <span class="glyphicon glyphicon-link"></span>';
+                        out += ' <a href="' + v.link_to_pdf + '">Expediente</a>';
+                    }
+                    else {
+                        out += ' [sin Expediente]';
+                    }
                     out += '</p>'
                     //console.log(v);
                     //console.log(v.titulo);

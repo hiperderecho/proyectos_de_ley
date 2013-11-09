@@ -297,6 +297,14 @@ def main():
             generate_html()
             update_search_engine()
             congresista.get_link(metadata['congresistas'])
+
+            congre_dummy_index = os.path.join(config.base_folder, "congresista")
+            congre_dummy_index = os.path.join(congre_dummy_index, "index.html")
+            if not os.path.isfile(congre_dummy_index):
+                f = codecs.open(congre_dummy_index, "w", "utf-8")
+                f.write("<html><head></head><body></body></html>")
+                f.close()
+
         else:
             print "* we got already that link: %s" % link
 

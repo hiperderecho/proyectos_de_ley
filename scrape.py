@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import json
@@ -18,7 +18,7 @@ import string
 import os.path
 import urlparse
 import congresista # script to create pages for each one
-import config
+import config # our folder paths
 
 
 random.seed();  
@@ -46,7 +46,7 @@ def parse_names(string):
     return names
 
 def generate_html():
-    f = codecs.open("base.html", "r", "utf-8")
+    f = codecs.open(os.path.join(config.current_folder, "base.html"), "r", "utf-8")
     base_html = f.read()
     f.close()
 
@@ -64,7 +64,7 @@ def generate_html():
     f.close()
 
 def update_search_engine():
-    f = codecs.open("search.js", "r", "utf-8")
+    f = codecs.open(os.path.join(config.current_folder, "search.js"), "r", "utf-8")
     base_html = f.read()
     f.close()
 
@@ -158,39 +158,42 @@ def extract_metadata(dic):
     else:
         project_soup = get(dic['link'])
 
-    metadata = {}
-    metadata['titulo'] = dic['titulo']
-    print "* titulo: %s" % metadata['titulo']
+    this_metadata = dict()
+    this_metadata['titulo'] = dic['titulo']
+    print "* titulo: "
     for item in project_soup.find_all("input"):
         if item['name'] == "CodIni_web_1":
-            metadata['numero_proyecto'] = item['value']
-            print "* numero_proyecto: %s" % metadata['numero_proyecto']
+            this_metadata['numero_proyecto'] = item['value']
+            print "* numero_proyecto: %s" % this_metadata['numero_proyecto']
         #if item['name'] == "DesGrupParla":
             #metadata['grupo_parlamentario'] = item['value']
         #if item['name'] == "NombreDeLaComision":
             #metadata['comision'] = item['value']
         if item['name'] == "NomCongre":
-            metadata['congresistas'] = parse_names(item['value'])
-            print "* congresistas: %s" % metadata['congresistas']
+            this_metadata['congresistas'] = parse_names(item['value'])
         if item['name'] == "CodIni":
-            metadata['codigo'] = item['value']
-            print "* codigo: %s" % metadata['codigo']
+            this_metadata['codigo'] = item['value']
+            print "* codigo: %s" % this_metadata['codigo']
         if item['name'] == "fechapre":
-            metadata['fecha_presentacion'] = item['value']
-            print "* fecha_presentacion: %s" % metadata['fecha_presentacion']
-    link_to_pdf = 'http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/'
-    link_to_pdf += metadata['codigo'] + '?opendocument'
-    metadata['link_to_pdf'] = link_to_pdf
-    metadata['pdf_url'] = extract_pdf_url(link_to_pdf)
+            this_metadata['fecha_presentacion'] = item['value']
+            print "* fecha_presentacion: %s" % this_metadata['fecha_presentacion']
+    link_to_pdf = 'http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/' + this_metadata['codigo'] + '?opendocument'
+    try:
+        this_metadata['link_to_pdf'] = link_to_pdf
+        print this_metadata['link_to_pdf']
+
+        this_metadata['pdf_url'] = extract_pdf_url(link_to_pdf)
+    except:
+        print "no link to pdf"
 
     # don't do this for now as OCR is not so critical
     #get_pdf(metadata['pdf_url'], metadata['numero_proyecto'])
 
     # Algunos proyectos de Ley no tienen links hacia PDFs
-    if metadata['pdf_url'] == "none":
-        del metadata['pdf_url']
-        del metadata['link_to_pdf']
-    return metadata
+    if this_metadata['pdf_url'] == "none":
+        del this_metadata['pdf_url']
+        del this_metadata['link_to_pdf']
+    return this_metadata
 
 def extract_doc_links(soup):
     our_links = []
@@ -296,6 +299,7 @@ def main():
             
             generate_html()
             update_search_engine()
+            print "updated search engine"
             congresista.get_link(metadata['congresistas'])
 
             congre_dummy_index = os.path.join(config.base_folder, "congresista")

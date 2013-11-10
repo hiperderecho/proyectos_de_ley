@@ -101,7 +101,7 @@ def generate_congre_html(congre_data):
         if not os.path.exists(path):
             os.makedirs(path)
 
-        f = codecs.open("base.html", "r", "utf-8")
+        f = codecs.open(os.path.join(config.current_folder, "base.html"), "r", "utf-8")
         base_html = f.read()
         f.close()
 

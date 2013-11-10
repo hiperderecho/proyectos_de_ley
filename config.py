@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -11,4 +12,5 @@ Ejemplo:
 """
 base_folder = "/var/www/ley/"
 base_url = "192.241.249.64/ley/"
+current_folder = "/home/script_user/scripts/"
 

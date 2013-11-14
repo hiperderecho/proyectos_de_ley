@@ -142,7 +142,8 @@ def extract_pdf_url(link):
         pdf_soup = get(link)
         for i in pdf_soup.find_all("a"):
             if i['href'].endswith('pdf'):
-                return i['href']
+                my_pdf_link = str(i['href'])
+                return my_pdf_link
     except:
         # Algunos proyectos de ley no tienen link hacia PDFs
         return "none"
@@ -221,7 +222,8 @@ def processed_links():
 
 
     for item in data:
-        processed_links.append(item['link'])
+        if "link_to_pdf" in item:
+            processed_links.append(item['link'])
 
     return processed_links
 
@@ -274,10 +276,30 @@ def save_project(metadata):
         f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "r", "utf-8")
         data = json.loads(f.read())
         f.close()
-        data.append(metadata)
-        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "w", "utf-8")
-        f.write(json.dumps(data, sort_keys=True, indent=4, separators=(',', ':')))
-        f.close()
+
+        # check if need to update item
+        saved = False
+        new_data = []
+        for i in data:
+            if i['codigo'] == metadata['codigo']:
+                # update our item
+                print "# update our item"
+                i = metadata
+                saved = True
+            new_data.append(i)
+
+        if len(new_data) > 0: 
+            f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "w", "utf-8")
+            f.write(json.dumps(new_data, sort_keys=True, indent=4, separators=(',', ':')))
+            f.close()
+            saved = True
+
+        if not saved:
+            # append our item then
+            data.append(metadata)
+            f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "w", "utf-8")
+            f.write(json.dumps(data, sort_keys=True, indent=4, separators=(',', ':')))
+            f.close()
 
 
 

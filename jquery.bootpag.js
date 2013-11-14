@@ -95,7 +95,7 @@
         return this.each(function(){
 
             var $bootpag, lp, me = $(this),
-                p = ['<ul class="bootpag">'];
+                p = ['<ul class="pagination pagination-lg">'];
 
             if(settings.prev){
                 p.push('<li data-lp="1" class="prev"><a href="'+href(1)+'">'+settings.prev+'</a></li>');
@@ -109,9 +109,9 @@
                 p.push('<li data-lp="'+lp+'" class="next"><a href="'+href(lp)+'">'+settings.next+'</a></li>');
             }
             p.push('</ul>');
-            me.find('ul.bootpag').remove();
+            me.find('ul.pagination').remove();
             me.append(p.join('')).addClass('pagination');
-            $bootpag = me.find('ul.bootpag');
+            $bootpag = me.find('ul.pagination');
             me.find('li').click(function paginationClick(){
             
                 var me = $(this);

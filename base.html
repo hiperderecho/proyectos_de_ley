@@ -71,13 +71,18 @@ email: aniversarioperu1@gmail.com
     </div>
 
 
+        {% titulo %}
     <div id="contenido" class="container">
 
-        {% titulo %}
 
-        {% content %}
 
     </div> <!-- /container -->
+
+    
+    <!-- paginator goes here -->
+    <div class="container" style="text-align: center;">
+        <div id="page-selection" class="container"></div>
+    </div>
 
 
     <!-- Bootstrap core JavaScript
@@ -85,6 +90,8 @@ email: aniversarioperu1@gmail.com
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+    <script src="http:/{% base_url %}jquery.bootpag.js"></script>
+    <script src="http:/{% base_url %}paginator.js"></script>
     <script src="http:/{% base_url %}search.js"></script>
   </body>
 </html>

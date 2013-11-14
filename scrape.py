@@ -54,9 +54,13 @@ def generate_html():
     data = json.loads(f.read())
     f.close()
 
-    html = string.replace(base_html, "{% content %}", prettify(data))
+    # save as json object instead
+    f = codecs.open(os.path.join(config.base_folder, "html.json"), "w", "utf-8")
+    f.write(json.dumps(prettify(data).strip().split("----------"), sort_keys=True, indent=4, separators=(',', ':')))
+    f.close()
+
     if config.base_url:
-        html = string.replace(html, "{% base_url %}", "/" + config.base_url)
+        html = string.replace(base_html, "{% base_url %}", "/" + config.base_url)
         html = string.replace(html, "{% titulo %}", "<h1>Proyectos de Ley</h1>")
 
     f = codecs.open(os.path.join(config.base_folder, "index.html"), "w", "utf-8")
@@ -134,6 +138,7 @@ def prettify(data):
 
         out += "</div>\n"
         out += "<hr>\n"
+        out += "----------"
     return out
         
 

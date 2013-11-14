@@ -780,11 +780,38 @@ email: aniversarioperu1@gmail.com
     </div> <!-- /container -->
 
 
+
+    <div id="page-selection">Pagination goes here</div>
+
+
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
-    <script src="/hiperderecho/search.js"></script>
+    <script src="jquery.bootpag.js"></script>
+    <script>
+        $.getJSON( "html.json", function(data){
+            var myarray = [];
+            $.each( data, function( key, val) {
+                myarray.push(val);
+            });
+
+            // init bootpag
+            $('#page-selection').bootpag({
+                total: 10,
+                page: 1,
+                maxVisible: 10
+            }).on("page", function(event, /* page number here */ num){
+                var start = 10;
+                var end = start*num;
+                console.log(myarray.slice(end - 10, end));
+                $("#contenido").html(myarray.slice(end - 10, end)); // some ajax content loading...
+            });
+        });
+    </script>
+    <script src="search.js"></script>
   </body>
 </html>

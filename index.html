@@ -808,7 +808,9 @@ email: aniversarioperu1@gmail.com
                 var start = 10;
                 var end = start*num;
                 console.log(myarray.slice(end - 10, end));
-                $("#contenido").html(myarray.slice(end - 10, end)); // some ajax content loading...
+                $("#contenido").fadeOut("fast", function() {
+                    $("#contenido").fadeIn("slow", function(){}).html(myarray.slice(end - 10, end)); // some ajax content loading...
+                });
             });
         });
     </script>

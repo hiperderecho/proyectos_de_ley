@@ -10,12 +10,12 @@ Ejemplo:
     Poner:
         base_url = "ley"
 """
-base_folder = "/var/www/ley/"
-base_url = "192.241.249.64/ley/"
-current_folder = "/home/script_user/scripts/"
+#base_folder = "/var/www/ley/"
+#base_url = "192.241.249.64/ley/"
+#current_folder = "/home/script_user/scripts/"
 
 
 ### 
-#base_folder = "/data/projects/aniversario_peru_github/hiperderecho_proyectos_de_ley/"
-#base_url = "localhost/hiperderecho/"
-#current_folder = "/data/projects/aniversario_peru_github/hiperderecho_proyectos_de_ley/"
+base_folder = "/data/projects/aniversario_peru_github/hiperderecho_proyectos_de_ley/"
+base_url = "localhost/hiperderecho/"
+current_folder = "/data/projects/aniversario_peru_github/hiperderecho_proyectos_de_ley/"

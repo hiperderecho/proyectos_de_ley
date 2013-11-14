@@ -255,8 +255,9 @@ def get(url):
 
 # save proyecto data into file
 def save_project(metadata):
-    if os.path.isfile(os.path.join(config.base_folder, "proyectos_data.json")):
-        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "r", "utf-8")
+    json_file = os.path.join(config.base_folder, "proyectos_data.json")
+    if os.path.isfile(json_file):
+        f = codecs.open(json_file, "r", "utf-8")
         data = f.read()
         if len(data) < 2:
             file_empty = True
@@ -266,14 +267,14 @@ def save_project(metadata):
     else:
         file_empty = True
 
-    if file_empty == True:
+    if file_empty:
         data = []
         data.append(metadata)
-        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "w", "utf-8")
+        f = codecs.open(json_file, "w", "utf-8")
         f.write(json.dumps(data, sort_keys=True, indent=4, separators=(',', ':')))
         f.close()
     else:
-        f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "r", "utf-8")
+        f = codecs.open(json_file, "r", "utf-8")
         data = json.loads(f.read())
         f.close()
 
@@ -286,7 +287,7 @@ def save_project(metadata):
                 print "# update our item"
                 i = metadata
                 saved = True
-            new_data.append(i)
+                new_data.append(i)
 
         if len(new_data) > 0: 
             f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "w", "utf-8")

@@ -20,6 +20,7 @@ $.getJSON( "html.json", function(data){
         console.log(myarray.slice(end - 20, end));
         $("#contenido").fadeOut("fast", function() {
             $("#contenido").fadeIn("slow", function(){}).html(myarray.slice(end - 20, end)); // some ajax content loading...
+            $('html, body').animate({ scrollTop: 0 }, 0);
         });
     });
 });

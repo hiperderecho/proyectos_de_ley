@@ -328,43 +328,43 @@ def main():
             'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=800',
             'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=900'
             ]
-    links = []
     for url in urls:
+        print "Doing URL %s" % url
         soup = get(url)
-        links += extract_doc_links(soup)
+        links = extract_doc_links(soup)
 
-    for item in links:
-        link = item['link']
-        if link not in processed_links():
-            print "* getting link: %s" % link
-            metadata = extract_metadata(item)
-            metadata['link'] = link
+        for item in links:
+            link = item['link']
+            if link not in processed_links():
+                print "* getting link: %s" % link
+                metadata = extract_metadata(item)
+                metadata['link'] = link
 
-            # save proyecto data into file
-            save_project(metadata)
-            
-            generate_html()
-            update_search_engine()
-            print "updated search engine"
-            congresista.get_link(metadata['congresistas'])
+                # save proyecto data into file
+                save_project(metadata)
+                
+                generate_html()
+                update_search_engine()
+                print "updated search engine"
+                congresista.get_link(metadata['congresistas'])
 
-            # copy files
-            if not os.path.isfile(os.path.join(config.base_folder, "paginator.js")):
-                shutil.copy2(os.path.join(config.current_folder, "paginator.js"),
-                            os.path.join(config.base_folder, "paginator.js"))
-            if not os.path.isfile(os.path.join(config.base_folder, "jquery.bootpag.js")):
-                shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
-                            os.path.join(config.base_folder, "jquery.bootpag.js"))
-            congre_dummy_index = os.path.join(config.base_folder, "congresista")
-            congre_dummy_index = os.path.join(congre_dummy_index, "index.html")
-            if not os.path.isfile(congre_dummy_index):
-                f = codecs.open(congre_dummy_index, "w", "utf-8")
-                f.write("<html><head></head><body></body></html>")
-                f.close()
+                # copy files
+                if not os.path.isfile(os.path.join(config.base_folder, "paginator.js")):
+                    shutil.copy2(os.path.join(config.current_folder, "paginator.js"),
+                                os.path.join(config.base_folder, "paginator.js"))
+                if not os.path.isfile(os.path.join(config.base_folder, "jquery.bootpag.js")):
+                    shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
+                                os.path.join(config.base_folder, "jquery.bootpag.js"))
+                congre_dummy_index = os.path.join(config.base_folder, "congresista")
+                congre_dummy_index = os.path.join(congre_dummy_index, "index.html")
+                if not os.path.isfile(congre_dummy_index):
+                    f = codecs.open(congre_dummy_index, "w", "utf-8")
+                    f.write("<html><head></head><body></body></html>")
+                    f.close()
 
 
-        else:
-            print "* we got already that link: %s" % link
+            else:
+                print "* we got already that link: %s" % link
 
 
 

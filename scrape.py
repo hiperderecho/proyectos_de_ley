@@ -62,7 +62,7 @@ def generate_html():
 
     if config.base_url:
         html = string.replace(base_html, "{% base_url %}", "/" + config.base_url)
-        html = string.replace(html, "{% titulo %}", "<h1>Proyectos de Ley</h1>")
+        html = string.replace(html, "{% titulo %}", "<h1 id='proyectos_de_ley'>Proyectos de Ley</h1>")
 
     f = codecs.open(os.path.join(config.base_folder, "index.html"), "w", "utf-8")
     f.write(html)

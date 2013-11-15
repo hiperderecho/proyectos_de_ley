@@ -33,6 +33,8 @@ $( 'form' ).submit(function(e) {
                     console.log(out);
                 }
             });
+            $("h2").remove();
+            $("h1#proyectos_de_ley").remove();
             $("#contenido").append(out);
         });
     }

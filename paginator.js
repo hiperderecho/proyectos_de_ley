@@ -1,8 +1,3 @@
-var loc = window.location.pathname.split("/");
-var reg = /congresista/;
-if(reg.test($(this).val())) {
-    alert(loc[1]);
-}
 $.getJSON( "html.json", function(data){
     var myarray = [];
     $.each( data, function( key, val) {

@@ -107,13 +107,18 @@ def generate_congre_html(congre_data):
 
         content = ""
         for i in congre_data['data']:
-            content += prettify(i)
+            content += prettify(i) + "----------"
         html = string.replace(base_html, 
                     "{% titulo %}",
                     "<h2>" + congre_data['name'] + "</h2>")
         html = string.replace(html, "{% content %}", content)
         if config.base_url:
             html = string.replace(html, "{% base_url %}", "/" + config.base_url)
+
+        # save as json object instead
+        f = codecs.open(os.path.join(path, "html.json"), "w", "utf-8")
+        f.write(json.dumps(content.strip().split("----------"), sort_keys=True, indent=4, separators=(',', ':')))
+        f.close()
 
         f = codecs.open(filename, "w", "utf-8")
         f.write(html)

@@ -336,10 +336,12 @@ def main():
             congresista.get_link(metadata['congresistas'])
 
             # copy files
-            shutil.copy2(os.path.join(config.current_folder, "paginator.js"),
-                        os.path.join(config.base_folder, "paginator.js"))
-            shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
-                        os.path.join(config.base_folder, "jquery.bootpag.js"))
+            if not os.path.isfile(os.path.join(config.base_folder, "paginator.js")):
+                shutil.copy2(os.path.join(config.current_folder, "paginator.js"),
+                            os.path.join(config.base_folder, "paginator.js"))
+            if not os.path.isfile(os.path.join(config.base_folder, "jquery.bootpag.js")):
+                shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
+                            os.path.join(config.base_folder, "jquery.bootpag.js"))
             congre_dummy_index = os.path.join(config.base_folder, "congresista")
             congre_dummy_index = os.path.join(congre_dummy_index, "index.html")
             if not os.path.isfile(congre_dummy_index):

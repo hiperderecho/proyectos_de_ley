@@ -35,6 +35,7 @@ $( 'form' ).submit(function(e) {
             });
             $("h2").remove();
             $("h1#proyectos_de_ley").remove();
+            $("div#page-selection").remove();
             $("#contenido").append(out);
         });
     }

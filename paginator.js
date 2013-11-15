@@ -2,8 +2,9 @@ $.getJSON( "html.json", function(data){
     var myarray = [];
     $.each( data, function( key, val) {
         myarray.push(val);
-        //console.log(val);
     });
+    //console.log(myarray.sort().reverse());
+    myarray.sort().reverse();
     $("#contenido").html(myarray.slice(0,20));
 
     // number of pages (20 items per page)

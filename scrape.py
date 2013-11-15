@@ -118,7 +118,7 @@ def convert_name_to_filename(name):
 def prettify(data):
     out = ""
     for item in data:
-        out += "\n<div>\n"
+        out += "<div>\n"
         out += "<p><b>" + item['numero_proyecto'] + "</b>\n"
         out += "<h4>" + item['titulo'] +  "</h4>\n"
         out += "<p>" + hiperlink_congre(item['congresistas']) + "</p>\n"

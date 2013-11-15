@@ -214,6 +214,7 @@ def extract_doc_links(soup):
     return our_links
 
 def processed_links():
+    f = False
     processed_links = []
     # Returns a list of links found in our data file "proyectos_data.json"
     if os.path.isfile(os.path.join(config.base_folder, "proyectos_data.json")):
@@ -225,6 +226,9 @@ def processed_links():
     else:
         return processed_links
 
+
+    if f:
+        f.close()
 
     for item in data:
         if "link_to_pdf" in item:

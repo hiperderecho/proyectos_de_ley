@@ -223,6 +223,8 @@ def processed_links():
         try: 
             data = json.loads(f.read());
         except:
+            if f:
+                f.close()
             return processed_links
     else:
         return processed_links
@@ -269,6 +271,7 @@ def save_project(metadata):
     if os.path.isfile(json_file):
         f = codecs.open(json_file, "r", "utf-8")
         data = f.read()
+        f.close()
         if len(data) < 2:
             file_empty = True
         else:

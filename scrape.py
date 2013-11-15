@@ -4,6 +4,7 @@
 import json
 #import socks
 import cookielib
+import shutil
 import socket
 from bs4 import BeautifulSoup
 import requests
@@ -334,12 +335,18 @@ def main():
             print "updated search engine"
             congresista.get_link(metadata['congresistas'])
 
+            # copy files
+            shutil.copy2(os.path.join(config.current_folder, "paginator.js"),
+                        os.path.join(config.base_folder, "paginator.js"))
+            shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
+                        os.path.join(config.base_folder, "jquery.bootpag.js"))
             congre_dummy_index = os.path.join(config.base_folder, "congresista")
             congre_dummy_index = os.path.join(congre_dummy_index, "index.html")
             if not os.path.isfile(congre_dummy_index):
                 f = codecs.open(congre_dummy_index, "w", "utf-8")
                 f.write("<html><head></head><body></body></html>")
                 f.close()
+
 
         else:
             print "* we got already that link: %s" % link

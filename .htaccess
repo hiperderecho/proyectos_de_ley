@@ -1,0 +1,18 @@
+####################
+# GZIP COMPRESSION #
+####################
+<ifModule mod_gzip.c>
+mod_gzip on Yes
+mod_gzip_dechunk Yes
+mod_gzip_item_include file ^application/x-javascript.*
+mod_gzip_item_include file ^application/javascript.*
+mod_gzip_item_include file ^application/x-json.*
+mod_gzip_item_include file ^application/json.*
+</ifModule>
+
+<ifModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 1 day"
+ExpiresByType application/javascript "access plus 1 week"
+ExpiresByType application/json "access plus 1 day"
+</ifModule>

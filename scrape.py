@@ -321,18 +321,14 @@ def save_project(metadata):
 
 ## ------------------------------------------------
 def main():
-    urls = [
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=100',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=200',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=300',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=400',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=500',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=600',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=700',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=800',
-            'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView&Start=900'
-            ]
+    url_inicio = 'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView'
+    urls = [url_inicio]
+
+    # from 100 to 2900 to get from 0001/2011-CR
+    for i in range(100, 3000, 100):
+        urls.append(url_inicio + "&Start=" + str(i))
+
+
     for url in urls:
         print "Doing URL %s" % url
         soup = get(url)

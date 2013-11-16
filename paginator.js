@@ -18,7 +18,7 @@ $.getJSON( "html.json", function(data){
     }).on("page", function(event, /* page number here */ num){
         var start = 20;
         var end = start*num;
-        console.log(myarray.slice(end - 20, end));
+        //console.log(myarray.slice(end - 20, end));
         $("#contenido").fadeOut("fast", function() {
             $("#contenido").fadeIn("slow", function(){}).html(myarray.slice(end - 20, end)); // some ajax content loading...
             $('html, body').animate({ scrollTop: 0 }, 0);

@@ -2,7 +2,7 @@ $( 'form' ).submit(function(e) {
     e.preventDefault();
     var keyword = $("input:first").val();
     if( keyword != "" ) {
-        console.log(keyword);
+        //console.log(keyword);
         $("#contenido").html("");
         var out = '<h1>Resultados de búsqueda</h1>\n';
         $("#contenido").append(out);
@@ -30,7 +30,7 @@ $( 'form' ).submit(function(e) {
                     out += '</p>'
                     //console.log(v);
                     //console.log(v.titulo);
-                    console.log(out);
+                    //console.log(out);
                 }
             });
             $("h2").remove();

@@ -365,7 +365,8 @@ def main():
 
 
             else:
-                print "* we got already that link: %s" % link
+                pass
+                #print "* we got already that link: %s" % link
 
 
 

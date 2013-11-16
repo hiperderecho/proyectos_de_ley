@@ -56,9 +56,44 @@ def generate_html():
     f.close()
 
     # save as json object instead
-    f = codecs.open(os.path.join(config.base_folder, "html.json"), "w", "utf-8")
-    f.write(json.dumps(prettify(data).strip().split("----------"), sort_keys=True, indent=4, separators=(',', ':')))
-    f.close()
+    html_json_empty = False
+    html_json = os.path.join(config.base_folder, "html.json")
+    if os.path.isfile(html_json):
+        f = codecs.open(html_json, "r", "utf-8")
+        html_data = f.read()
+        f.close()
+        try:
+            html_data = json.loads(html_data)
+        except:
+            html_json_empty = True
+    else:
+        html_json_empty = True
+
+    if html_json_empty:
+        f = codecs.open(html_json, "w", "utf-8")
+        print len(data)
+        f.write(json.dumps(prettify(data).strip().split("----------"), sort_keys=True, indent=4, separators=(',', ':')))
+        f.close()
+    else:
+        # read the codes that are already in our file
+        codigos_list = []
+        for i in html_data:
+            try:
+                codigo = re.search("<b>([0-9]+)/", i).groups()[0]
+                codigos_list.append(codigo)
+            except:
+                pass
+        for i in data:
+            if i['codigo'] not in codigos_list:
+                f = codecs.open(html_json, "a", "utf-8")
+                to_write = prettify([i])
+                f.close()
+                print to_write;
+                sys.exit()
+
+
+
+
 
     if config.base_url:
         html = string.replace(base_html, "{% base_url %}", "/" + config.base_url)
@@ -146,8 +181,9 @@ def prettify(data):
 def extract_pdf_url(link):
     try:
         pdf_soup = get(link)
+        print link
         for i in pdf_soup.find_all("a"):
-            if i['href'].endswith('pdf'):
+            if re.search("pdf$", i['href'], re.I):
                 my_pdf_link = str(i['href'])
                 return my_pdf_link
     except:
@@ -370,9 +406,6 @@ def main():
                 print "* we got already that link: %s" % link
 
 
-
-
-    
 
 if __name__ == "__main__":
     main()

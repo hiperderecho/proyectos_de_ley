@@ -24,7 +24,7 @@ import config # our folder paths
 
 random.seed();  
 tor = False
-debug = False
+debug = True
 
 if tor:
     socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 9050)
@@ -159,12 +159,15 @@ def extract_pdf_url(link):
 
 def extract_metadata(dic):
     if debug:
+        print ""
+        project_soup = get(dic['link'])
         #f = open("fibri.html", "r")
-        f = open("PAporNumeroInverso.html", "r")
-        html_doc = f.read()
-        f.close()
-        project_soup = BeautifulSoup(html_doc)
+        #f = open("PAporNumeroInverso.html", "r")
+        #html_doc = f.read()
+        #f.close()
+        #project_soup = BeautifulSoup(html_doc)
     else:
+        print "Project soup"
         project_soup = get(dic['link'])
 
     this_metadata = dict()
@@ -224,6 +227,8 @@ def processed_links():
         f = codecs.open(os.path.join(config.base_folder, "proyectos_data.json"), "r", "utf-8")
         try: 
             data = json.loads(f.read());
+            if debug:
+                print "Found %i items in file proyectos_data.json" % len(data)
         except:
             if f:
                 f.close()
@@ -258,13 +263,46 @@ def get_pdf(url, numero_proyecto):
     
 
 def get(url):
-    n = random.random()*5;  
+    #n = random.random()*5;  
     #time.sleep(n);  
     #print "* sleep for %f" % n
+    if debug:
+        print "This url %s" % url
+        if not os.path.isdir(os.path.join(config.current_folder, "pages")):
+            os.mkdir(os.path.join(config.current_folder, "pages"))
+        if re.search("(OpenView)(&Start=)?([0-9]*)", url):
+            s = re.search("(OpenView)(&Start=)?([0-9]*)", url)
+            filename = os.path.join(config.current_folder, "pages") + "/" + s.groups()[0] + s.groups()[2] + ".html"
+        elif re.search("(\w+)\?opendocument", url):
+            s = re.search("(\w+)\?opendocument", url)
+            filename = os.path.join(config.current_folder, "pages") + "/" + s.groups()[0] + ".html"
+
+        print "This filename %s" % filename
+        if not os.path.isfile(filename):
+            f = codecs.open(filename, "w", "utf-8")
+            request = urllib2.Request(url)
+            request.add_header('Cache-Control','max-age=0')
+            response = opener.open(request)
+            this_page = response.read().decode("utf-8")
+            f.write(this_page)
+            f.close()
+            soup = BeautifulSoup(this_page)
+            return soup
+        else:
+            print "Getting info from local file %s" % filename
+            f = codecs.open(filename, "r", "utf-8")
+            this_page = f.read()
+            f.close()
+            soup = BeautifulSoup(this_page)
+            return soup
+            
+
     request = urllib2.Request(url)
     request.add_header('Cache-Control','max-age=0')
     response = opener.open(request)
-    soup = BeautifulSoup(response.read().decode("utf-8"))
+    this_page = response.read().decode("utf-8")
+
+    soup = BeautifulSoup(this_page)
     return soup
 
 # save proyecto data into file
@@ -333,6 +371,8 @@ def main():
         print "Doing URL %s" % url
         soup = get(url)
         links = extract_doc_links(soup)
+        if debug:
+            print "Found %i links" % len(links)
 
         for item in links:
             link = item['link']

@@ -278,7 +278,7 @@ def get(url):
             filename = os.path.join(config.current_folder, "pages") + "/" + s.groups()[0] + ".html"
 
         print "This filename %s" % filename
-        if not os.path.isfile(filename):
+        if not os.path.isfile(filename) or os.stat(filename).st_size < 2:
             f = codecs.open(filename, "w", "utf-8")
             request = urllib2.Request(url)
             request.add_header('Cache-Control','max-age=0')

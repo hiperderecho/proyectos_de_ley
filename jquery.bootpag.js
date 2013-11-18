@@ -95,7 +95,7 @@
         return this.each(function(){
 
             var $bootpag, lp, me = $(this),
-                p = ['<ul class="pagination pagination-lg">'];
+                p = ['<ul class="pagination pagination-mg">'];
 
             if(settings.prev){
                 p.push('<li data-lp="1" class="prev"><a href="'+href(1)+'">'+settings.prev+'</a></li>');

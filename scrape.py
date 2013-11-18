@@ -376,6 +376,8 @@ def main():
 
         for item in links:
             link = item['link']
+            get(link)
+"""
             if link not in processed_links():
                 print "* getting link: %s" % link
                 metadata = extract_metadata(item)
@@ -407,6 +409,7 @@ def main():
             else:
                 pass
                 #print "* we got already that link: %s" % link
+"""
 
 
 

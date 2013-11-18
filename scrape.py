@@ -363,7 +363,7 @@ def main():
     urls = [url_inicio]
 
     # from 100 to 2900 to get from 0001/2011-CR
-    for i in range(100, 3000, 100):
+    for i in range(1500, 3000, 100):
         urls.append(url_inicio + "&Start=" + str(i))
 
 

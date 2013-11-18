@@ -377,6 +377,9 @@ def main():
         for item in links:
             link = item['link']
             get(link)
+
+    # We need to download the expediente page for each link page
+
 """
             if link not in processed_links():
                 print "* getting link: %s" % link

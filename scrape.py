@@ -322,16 +322,18 @@ def get(url):
 
 def download_exp_pagina(link):
     # link = [url, codigo]
-    request = urllib2.Request(link[0])
-    request.add_header('Cache-Control','max-age=0')
-    response = opener.open(request)
-    this_page = response.read().decode("utf-8")
 
     filename = os.path.join(config.current_folder, "pages")
     filename = os.path.join(filename, link[1] + ".html")
-    f = codecs.open(filename, "w", "utf-8")
-    f.write(this_page)
-    f.close()
+    if not os.path.isfile(filename) or os.stat(filename).st_size < 2:
+        request = urllib2.Request(link[0])
+        request.add_header('Cache-Control','max-age=0')
+        response = opener.open(request)
+        this_page = response.read().decode("utf-8")
+
+        f = codecs.open(filename, "w", "utf-8")
+        f.write(this_page)
+        f.close()
 
 # save proyecto data into file
 def save_project(metadata):
@@ -416,10 +418,9 @@ def main():
             local_exp_pagina = os.path.join(local_exp_pagina, link[1] + ".html")
             print local_exp_pagina
     
-            if not os.path.isfile(local_exp_pagina):
-                # We dont have it locally, download
-                print link
-                download_exp_pagina(link)
+            # Try to download if we dont have it locally
+            print link
+            download_exp_pagina(link)
 """
         if re.search("^[0-9]{5}\.html", page):
             print page

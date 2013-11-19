@@ -3,7 +3,8 @@ import laley
 import os.path
 import config
 import shutil
-
+import codecs
+from bs4 import BeautifulSoup
 
 class LaleyTest(unittest.TestCase):
 
@@ -42,6 +43,15 @@ class LaleyTest(unittest.TestCase):
 
         shutil.rmtree(page_folder)
 
+    def test_extract_doc_links(self):
+        f = codecs.open("Laley/OpenView.html", "r", "utf-8")
+        html = f.read()
+        f.close()
+        soup = BeautifulSoup(html)
+        result = laley.extract_doc_links(soup)
+
+        self.assertEqual(len(result), 100)
+        
 
 if __name__ == "__main__":
     runner = unittest.TextTestRunner(verbosity = 2)

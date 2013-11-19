@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Expedientes Virtuales</title>
+<script language="JavaScript" type="text/javascript">
+<!-- 
+function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t) {
+  var returnValue = false;
+  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/01134?OpenDocument&Click=" + v;
+  if (o.href != null) {
+    o.href = url;
+    returnValue = true;
+  } else {
+    if (t == null)
+      t = document._domino_target;
+    window.open(url, t);
+  }
+  return returnValue;
+}
+// -->
+</script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
+<! here starts the portal code>
+<style>
+<!--
+a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
+a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
+-->
+</style>
+<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
+</head>
+<body>
+<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="677" colspan="2">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+</table>
+</td></tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+
+<tr valign="top"><td width="552">
+<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
+<div align="center"><b><u><font size="2" face="Verdana">Expediente del Proyecto de Ley 01134</font></u></b><br>
+<br>
+<br>
+<br>
+<b><font size="2" face="Verdana">LEY DE REFORMA MAGISTERIAL</font></b>
+<p><br>
+<br>
+<b><font size="2" face="Verdana">Ley 29944</font></b><br>
+</div><br>
+
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/8e06bac218f336d005257ac9006fc1b8/$FILE/FE%20DE%20ERRATAS29944.pdf"><b><font size="1" face="Verdana">Fe de Erratas de la ley 29944</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">29/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/6ae529b1f426616a05257b7b0051119a/$FILE/Oficio%20417.pdf"><b><font size="1" face="Verdana">Oficio N°417-201296-2013-OM/CR del Oficial Mayor del Congreso de la República,se publique la fe de erratas de la ley 29944</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">25/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/c551fb1c95f3079505257ac20050d330/$FILE/L29944.pdf"><b><font size="1" face="Verdana">Publicación de la ley 29944</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">23/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/e694268869f4e17605257ac00016d37b/$FILE/AU00856231112..PDF"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/617d440025ad043705257afb005d9626/$FILE/ESV0085622112012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Exoneración de la segunda votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/2672014af3ba6f1e05257afb005d6d87/$FILE/AV0085622112012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Primera votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/cb6c96df675e469f05257abe0020b9ad/$FILE/TS00856211112.-.pdf"><b><font size="1" face="Verdana">Texto sustitutorio de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/39973278400f6ee405257abc00837676/$FILE/00856DCMIN201112.pdf"><b><font size="1" face="Verdana">Texto sustitutorio al dictamen en Minoría de la Comisión de Educación, Juventud y Deporte del congresista Y. Lescano A.</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/e7ae6febaeba827f05257abc007188d4/$FILE/AJP00856201112.PDF"><b><font size="1" face="Verdana">Junta de Portavoces - Exoneración de dictamen de la Comisión de Economía, Banca, Finanzas e Financieras respecto del proyecto de Ley 856 y la exoneración de dictamen de la Comisión de Presupuesto y Cuenta General de la República respecto de los proyectos de Ley 1118 y 1440</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/75817c49dc3cd21305257ab80002156b/$FILE/00856DC10MIN151112.PDF"><b><font size="1" face="Verdana">Dictamen en Minoría de la Comisión de Educación, Juventud y Deporte del congresista Y. Lescano A.</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/d7933215dcd3cd7405257ab700759298/$FILE/00856DC10MAY151112.PDF"><b><font size="1" face="Verdana">Dictamen de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/731ad849a1fdfc1705257ab70077cb9a/$FILE/AJP01388151112.PDF"><b><font size="1" face="Verdana">Junta de Portavoces - Exoneración del plazo de publicación en el portal del Congreso del dictamen y la ampliación de agenda</font></b></a></td></tr>
+</table>
+<br>
+<br>
+<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
+<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
+<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00856</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/03/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/6c167351073a9afa052579bf0050bc18/$FILE/PL00856050312.pdf"><b><font size="1" face="Verdana">Ley que restituye la plena vigencia de los artículos 48, 51 y 52 de la Ley 24029, modificada por la Ley 25212</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01118</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/05/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/12ec7e6716c54587052579fb000b7d37/$FILE/PL01118100512.pdf"><b><font size="1" face="Verdana">Proyecto de Ley que reconoce la deuda social magisterial</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01134</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">17/05/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/f4f454650a853ea105257a0100759a75/$FILE/PL01134170512.pdf"><b><font size="1" face="Verdana">Ley que deja sin efecto el artículo 10 del Decreto Supremo N° 051-91-PCM y crea una comisión especial sectorial para determinar la deuda por bonificación especial mensual por preparación de clases y evaluación de los profesores de la Ley 24029</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01160</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/05/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/5c18edaef965a14105257a06005d9db2/$FILE/PL01160220512.pdf"><b><font size="1" face="Verdana">Ley que garantiza la continuidad del dictado de clases en las instituciones educativas públicas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01300</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">26/06/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/72fbbda51087822d05257a2b0071bcbd/$FILE/PL01300260612.pdf"><b><font size="1" face="Verdana">Nueva Ley del Profesorado</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01388</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/08/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/276c51c272e512e705257a54001c1d46/$FILE/PL01388070812.pdf"><b><font size="1" face="Verdana">Ley de Reforma Magisterial</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01440</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/08/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/c66726c0225e605205257a60007ad909/$FILE/PL01440200812.PDF"><b><font size="1" face="Verdana">Proyecto de Ley de derechos y beneficios laborales del personal docente contratado que presta sus servicios al Estado Peruano</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01469</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">03/09/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/40fde5c34a0bcf9005257a6f00601a84/$FILE/PL01469030912.PDF"><b><font size="1" face="Verdana">Proyecto de Ley que mejora la Ley del Profesorado en lo referido a su carrera pública</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01504</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/09/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/5302615f6c09d12a05257a780076ba25/$FILE/PL01504130912.PDF"><b><font size="1" face="Verdana">Ley que modifica los artículos 7, 8, 36 y 63 de la Ley 29062, que modifica la Ley del Profesorado en lo referido a la Carrera Pública Magisterial</font></b></a></td></tr>
+</table>
+<br>
+<br>
+<b><font size="1">Documentación Anexa</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">18/07/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/3e1cb488eb80a4c805257ac20052b270/$FILE/00856PL180713.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso de la Ley 29944</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">28/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/9370cb7afdf5695705257b590072f2ba/$FILE/DA00856281212.pdf"><b><font size="1" face="Verdana">Decreto de Archivamiento de la Comisión de Economía, Banca, Finanzas e Inteligencia Financiera del Proyecto 00856</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/0627fbf6da892fb905257b7b0054e280/$FILE/BAU0085622112012.pdf"><b><font size="1" face="Verdana">Autografa de ley revisado por el Presidente de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257ABE005EE49F/$FILE/PLO-2012-22.pdf"><b><font size="1" face="Verdana">Diario de los debates - Sesión de Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/63c768928e63876b05257b7b005781c0/$FILE/Oficio%20516.pdf"><b><font size="1" face="Verdana">Oficio N°516-2012-2013-CEJD/CR presentado por el Presidente de la Comisión de Juventud y Deporte</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">09/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/6710af15cad42df805257abb006ce86e/$FILE/Oficio%20247.pdf"><b><font size="1" face="Verdana">Oficio 247-2012-PCM-DM  solicita priorizar los proyectos remitidos  por el Poder Ejecutivo</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/f8f9ccb41569389805257aaf006fb523/$FILE/OF49401388071112.-.pdf"><b><font size="1" face="Verdana">Oficio 494-2012-2013-CEJD/CR solicita el retiro de la agenda el proyecto 01388</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">19/09/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/6662b7e3df6536c805257a8400560848/$FILE/OF12001440190912.PDF"><b><font size="1" face="Verdana">Oficio 120-2012/JHZ-CR   Congresista Jesús Hurtado Zamudio se adhiere al proyecto 01440</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">14/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/b072fc0f2ad3b32005257b7b005d596e/$FILE/Oficio%20598.pdf"><b><font size="1" face="Verdana">Oficio N°598-2012/CPPe presentado por el Colegio de Profesores del Perú</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/07/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/988d9457e3d0f3c905257a3d0051a08f/$FILE/O1118.PDF"><b><font size="1" face="Verdana">Oficio 01257-2011-2012/DC-LHN-CR  Congresista Leonidas Huayama Neira se adhiere al proyecto 1118</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">25/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/247d1c2cc7597b9305257a1300718906/$FILE/OFV3231118250512.PDF"><b><font size="1" face="Verdana">Carta 323-2011-2012-DP-VZS-CR,   Congresista Vicente Zeballos Salinas se adhiere al proyecto 1118</font></b></a></td></tr>
+</table>
+<br>
+
+</div> 
+</td></tr>
+</table>
+<br>
+<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
+
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
+<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
+<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<input name="NombreDelEstado" type="hidden" value="Si">
+<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
+<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
+<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
+<input name="IdO" type="hidden" value="079B804FD081312705257A01006D0DB0">
+<input name="Fecha_1" type="hidden" value="">
+<input name="nombre" type="hidden" value="">
+<input name="fechasign" type="hidden" value="">
+<input name="publi" type="hidden" value="">
+<input name="fechapub" type="hidden" value="">
+<input name="fecha" type="hidden" value="">
+<input name="dia" type="hidden" value="">
+<input name="modi" type="hidden" value="06/12/2013 07:26:47 AM">
+<input name="estado" type="hidden" value="">
+<input name="parlamento" type="hidden" value="2011-2016">
+<input name="Periodo" type="hidden" value="">
+<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/EXPVIRT_2011.nsf/vf07web/079B804FD081312705257A01006D0DB0?opendocument">
+<input name="tesauro" type="hidden" value="">
+<input name="nivel1" type="hidden" value="Proyecto de Ley">
+<input name="titulo" type="hidden" value="Ley de Reforma Magisterial">
+<input name="numexp" type="hidden" value="01134">
+<input name="num" type="hidden" value="">
+<input name="nivel2" type="hidden" value="">
+<input name="numley" type="hidden" value="">
+<input name="control2" type="hidden" value="">
+<input name="control21" type="hidden" value="">
+<input name="control22" type="hidden" value="">
+<input name="control" type="hidden" value="No">
+<input name="control11" type="hidden" value="">
+<input name="control12" type="hidden" value="">
+<input name="control13" type="hidden" value="">
+<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
+<input name="bd2" type="hidden" value="Sicr/TraDocEstProc/EXPVIRT_2011.nsf">
+<input name="servidor" type="hidden" value="W2KLEG01">
+<input name="usuario" type="hidden" value="Anonymous">
+<input name="edita" type="hidden" value="0">
+<input name="asig" type="hidden" value="0">
+<input name="logregistro" type="hidden" value=""></form>
+</body>
+</html>

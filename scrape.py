@@ -21,6 +21,7 @@ import os.path
 import urlparse
 import congresista # script to create pages for each one
 import config # our folder paths
+import sqlite3 as lite
 
 
 random.seed();  
@@ -158,22 +159,14 @@ def extract_pdf_url(link):
         return "none"
 
 
-def extract_metadata(dic):
-    if debug:
-        print ""
-        project_soup = get(dic['link'])
-        #f = open("fibri.html", "r")
-        #f = open("PAporNumeroInverso.html", "r")
-        #html_doc = f.read()
-        #f.close()
-        #project_soup = BeautifulSoup(html_doc)
-    else:
-        print "Project soup"
-        project_soup = get(dic['link'])
+def extract_metadata(filename):
+    f = codecs.open(filename, "r", "utf-8")
+    html = f.read()
+    f.close()
+
+    project_soup = BeautifulSoup(html)
 
     this_metadata = dict()
-    this_metadata['titulo'] = dic['titulo']
-    print "* titulo: "
     for item in project_soup.find_all("input"):
         if item['name'] == "CodIni_web_1":
             this_metadata['numero_proyecto'] = item['value']
@@ -233,6 +226,43 @@ def extract_doc_links(soup):
                 our_link = re.sub("//Sicr","/Sirc", our_link)
                 our_links.append({'link': our_link, 'titulo':title})
     return our_links
+
+def create_database():
+    con = None
+    try:
+        con = lite.connect(os.path.join(config.current_folder, 'leyes.db'))
+        cur = con.cursor()
+        cur.execute('''CREATE TABLE IF NOT EXISTS proyectos(codigo, 
+                    numero_proyecto,
+                    congresistas,
+                    fecha_presentacion,
+                    link,
+                    link_to_pdf,
+                    pdf_url,
+                    titulo
+                    );''')
+    except lite.Error, e:
+        return e.args[0]
+        sys.exit(1)
+    finally:
+        if con:
+            con.close()
+
+def insert_data():
+    folder = os.path.join(config.current_folder, "pages")
+    files = glob.glob(os.path.join(folder, "*html"))
+
+    for file in files:
+        if re.search("(.{32})", os.path.basename(file)):
+            print file
+    """
+    con = lite.connect(os.path.join(config.current_folder, 'leyes.db'))
+    
+    with con:
+        cur = con.cursor()
+    """
+
+
 
 def processed_links():
     f = False
@@ -429,6 +459,10 @@ def main():
             # Try to download if we dont have it locally
             print link
             download_exp_pagina(link)
+
+    # We need to add info to our SQLite database
+    create_database()
+    insert_data()
 """
         if re.search("^[0-9]{5}\.html", page):
             print page

@@ -43,6 +43,7 @@ class LaleyTest(unittest.TestCase):
 
         shutil.rmtree(page_folder)
 
+
     def test_extract_doc_links(self):
         f = codecs.open("Laley/OpenView.html", "r", "utf-8")
         html = f.read()
@@ -52,6 +53,29 @@ class LaleyTest(unittest.TestCase):
 
         self.assertEqual(len(result), 100)
         
+
+    def test_create_database(self):
+        laley.create_database()
+        result = os.path.isfile(os.path.join(config.current_folder, "leyes.db"))
+        os.remove(os.path.join(config.current_folder, "leyes.db"))
+        self.assertEqual(result, 1)
+
+
+    def test_insert_data(self):
+        current_folder = os.path.dirname(os.path.realpath(__file__))
+        page_folder = os.path.join(current_folder, "pages")
+        if not os.path.isdir(page_folder):
+            os.mkdir(page_folder)
+
+        laley.insert_data()
+
+    def test_extract_metadata(self):
+        filename = "Laley/3F06B090353436A90525797C005B72B4.html"
+        result = laley.extract_metadata(filename)
+
+        self.assertEqual(result['codigo'], "00686")
+
+
 
 if __name__ == "__main__":
     runner = unittest.TextTestRunner(verbosity = 2)

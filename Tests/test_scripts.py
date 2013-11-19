@@ -35,9 +35,12 @@ class LaleyTest(unittest.TestCase):
 
         laley.download_exp_pagina(link)
         result = os.path.isfile(filename)
-        shutil.rmtree(page_folder)
         self.assertEqual(result, 1)
 
+        result = laley.download_exp_pagina(link)
+        self.assertEqual(result, "downloaded already")
+
+        shutil.rmtree(page_folder)
 
 
 if __name__ == "__main__":

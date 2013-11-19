@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+import os.path
 """
 Cambiar esta variable for la dirección URL que se usará para servir las páginas
 Ejemplo:  
@@ -18,4 +18,4 @@ Ejemplo:
 ### 
 base_folder = "/data/projects/aniversario_peru_github/hiperderecho_proyectos_de_ley/"
 base_url = "localhost/hiperderecho/"
-current_folder = "/data/projects/aniversario_peru_github/hiperderecho_proyectos_de_ley/"
+current_folder = os.path.dirname(os.path.realpath(__file__))

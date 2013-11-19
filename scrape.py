@@ -408,6 +408,12 @@ def main():
             link = item['link']
             get(link)
 
+    # Create needed folders
+    page_folder = os.path.join(config.current_folder, "pages")
+    if not os.path.isdir(page_folder):
+        os.mkdir(page_folder)
+
+
     # We need to download the expediente page for each link page
     folder = os.path.join(config.current_folder, "pages")
     pages = glob.glob(os.path.join(folder, "*html"))

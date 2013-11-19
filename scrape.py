@@ -12,6 +12,7 @@ import sys
 import re
 from os import listdir
 import codecs
+import glob
 import urllib2
 import time
 import random
@@ -207,6 +208,20 @@ def extract_metadata(dic):
         del this_metadata['link_to_pdf']
     return this_metadata
 
+def extract_expediente_link(page):
+    f = open(page, "r")
+    html_doc = f.read()
+    f.close()
+    soup = BeautifulSoup(html_doc)
+
+    for item in soup.find_all("input"):
+        if item['name'] == "CodIni":
+            codigo = item['value']
+            print "* codigo: %s" % codigo
+            expediente_link = 'http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/' + codigo + '?opendocument'
+            return [expediente_link, codigo]
+
+
 def extract_doc_links(soup):
     our_links = []
     for link in soup.find_all("a"):
@@ -305,6 +320,19 @@ def get(url):
     soup = BeautifulSoup(this_page)
     return soup
 
+def download_exp_pagina(link):
+    # link = [url, codigo]
+    request = urllib2.Request(link[0])
+    request.add_header('Cache-Control','max-age=0')
+    response = opener.open(request)
+    this_page = response.read().decode("utf-8")
+
+    filename = os.path.join(config.current_folder, "pages")
+    filename = os.path.join(filename, link[1] + ".html")
+    f = codecs.open(filename, "w", "utf-8")
+    f.write(this_page)
+    f.close()
+
 # save proyecto data into file
 def save_project(metadata):
     json_file = os.path.join(config.base_folder, "proyectos_data.json")
@@ -363,7 +391,7 @@ def main():
     urls = [url_inicio]
 
     # from 100 to 2900 to get from 0001/2011-CR
-    for i in range(1500, 3000, 100):
+    for i in range(2800, 3000, 100):
         urls.append(url_inicio + "&Start=" + str(i))
 
 
@@ -379,8 +407,24 @@ def main():
             get(link)
 
     # We need to download the expediente page for each link page
-
+    folder = os.path.join(config.current_folder, "pages")
+    pages = glob.glob(os.path.join(folder, "*html"))
+    for page in pages:
+        link = extract_expediente_link(page)
+        if link:
+            local_exp_pagina = os.path.join(config.current_folder, "pages")
+            local_exp_pagina = os.path.join(local_exp_pagina, link[1] + ".html")
+            print local_exp_pagina
+    
+            if not os.path.isfile(local_exp_pagina):
+                # We dont have it locally, download
+                print link
+                download_exp_pagina(link)
 """
+        if re.search("^[0-9]{5}\.html", page):
+            print page
+            sys.exit()
+
             if link not in processed_links():
                 print "* getting link: %s" % link
                 metadata = extract_metadata(item)

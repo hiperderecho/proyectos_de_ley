@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Expedientes Virtuales</title>
+<script language="JavaScript" type="text/javascript">
+<!-- 
+function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t) {
+  var returnValue = false;
+  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00360?OpenDocument&Click=" + v;
+  if (o.href != null) {
+    o.href = url;
+    returnValue = true;
+  } else {
+    if (t == null)
+      t = document._domino_target;
+    window.open(url, t);
+  }
+  return returnValue;
+}
+// -->
+</script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
+<! here starts the portal code>
+<style>
+<!--
+a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
+a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
+-->
+</style>
+<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
+</head>
+<body>
+<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="677" colspan="2">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+</table>
+</td></tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+
+<tr valign="top"><td width="552">
+<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
+<div align="center"><font size="2" face="Verdana"> </font><b><font size="2" face="Verdana">LEY DE REINSERCIÓN ECONÓMICA Y SOCIAL PARA EL MIGRANTE RETORNADO</font></b><br>
+<br>
+<b><font size="2" face="Verdana">Ley N° 30001</font></b><br>
+</div><br>
+
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">14/03/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/1e7a1390e873c75505257b2e004f0428/$FILE/30001.pdf"><b><font size="1" face="Verdana">Publicación de la Ley 30001</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/03/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/2f64d9ab850624be05257b2b0067d859/$FILE/AU00360110313.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/03/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/e1f38eb11016a54505257b39005aea9c/$FILE/ESV0036007032013.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Exoneración de segunda votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/03/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/f21341b181d3935905257b39005aa829/$FILE/AV0036007032013.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Primera  votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/03/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/1f589417b21abcf405257b27006aa3ce/$FILE/TC00360070313.pdf"><b><font size="1" face="Verdana">Texto sustitutorio consensuado de las Comisiones de Economía, Banca, Finanzas e Inteligencia Financiera; y de Relaciones Exteriores</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/02/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/beb156a34b60ec9305257b09007e3665/$FILE/JP00360050213.pdf"><b><font size="1" face="Verdana">Junta de Portavoces - Ampliación de agenda</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/fff30d15101b246905257ad20058cf76/$FILE/00360DC20MAY121212.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Relaciones Exteriores</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/b44f86d5434e08fd05257abe005e58a5/$FILE/01540DC09MAY221112.PDF"><b><font size="1" face="Verdana">Dictamen de la Comisión de Economía, Banca, Finanzas e Inteligencia Financiera </font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/08dc774a67457e9305257a06006e652d/$FILE/00360DC09MAY220512.-.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Economía, Banca, Finanzas e Inteligencia Financiera sobre el proyecto de ley 00360</font></b></a></td></tr>
+</table>
+<div align="center"></div><b><font size="1" face="Verdana">Proyectos de ley</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
+<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
+<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00360</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/10/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/c35c4634458780ca052579280079845e/$FILE/PL00360131011.pdf"><b><font size="1" face="Verdana">Ley que modifica diversos artículos de la Ley 28182, Ley de Incentivos Migratorios</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01540</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">29/09/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/d491241b9e052f7405257a880072999a/$FILE/PL01540290912.PDF"><b><font size="1" face="Verdana">Ley de reinserción económica y social para el migrante retornado</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01542</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">03/10/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/47c6ea2a7b41d7f305257a8c00620799/$FILE/PL01542031012.-.pdf"><b><font size="1" face="Verdana">Ley que modifica diversos artículos de la Ley 28182 - Ley de Incentivos Migratorios y la Ley 29508 - Ley que restablece la vigencia de la Ley 28182</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01596</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/10/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/327dac62cc843c2205257a9500633dd5/$FILE/PL01596121012.PDF"><b><font size="1" face="Verdana">Ley que establece incentivos y medidas para facilitar el retorno de los peruanos residentes en el extranjero</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01610</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">18/10/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/cabfbac3976f461905257a9b0060af98/$FILE/PL01610181012.PDF"><b><font size="1" face="Verdana">Ley de incentivos para el retorno de ciudadanos peruanos emigrados y de creación del Instituto Nacional de Migraciones</font></b></a></td></tr>
+</table>
+<br>
+<b><font size="1">Documentación Anexa</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">18/07/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/bb1bac83f75464a505257b2e0057b11f/$FILE/00360PL18072013.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso de la Ley 30001</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">08/03/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/215cedd2d7745c7805257bac0052610f/$FILE/BAU0036008032013.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley revisada por el Presidente de la Comisión de Economía, Banca,  Finanzas e Inteligencia Financiera</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/03/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257B28005C78EE/$FILE/SLO-2012-2.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/02/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/ea6a2324ba53fce505257bb30059da9e/$FILE/APL01542060213.pdf"><b><font size="1" face="Verdana">Oficio N° 1331-2013/MEC/CR, Congresista Marisol Espinoza Cruz solicita adherirse al proyecto de ley 01542</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/02/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/622d71fde11f2b4705257bac00535442/$FILE/Oficio%2048.pdf"><b><font size="1" face="Verdana">Oficio N° 48-2012-2013-GPSN/CR, solicita incluir dictamen en la agenda de la Comisión Permanente </font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">24/01/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/9d092c1ca8e9526305257bac0053eafd/$FILE/Oficio%20436.pdf"><b><font size="1" face="Verdana">Oficio N° 436-2012-2013-DP-VZS/CR, solicita se incluya dictamen en la agenda de la Comisión Permanente</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/4769901cd2b2e68805257bac005490e4/$FILE/Oficio%20291.pdf"><b><font size="1" face="Verdana">Oficio N° 291-2012-2013-CRREE-CR, solicita dispensa del plazo de publicación del dictamen en el Portal del Congreso de la República</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc02_2011_2.nsf/0/a3cd3d0a98d17aa705257c0c0052e67b/$FILE/TSCRE101212.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Relaciones Exteriores</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">21/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc02_2011_2.nsf/0/c5536a1cbf0d15b205257c150058946d/$FILE/TSCEBFIF211112.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Economía, Banca Finanzas e Inteligencia Financiera </font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">09/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/6710af15cad42df805257abb006ce86e/$FILE/Oficio%20247.pdf"><b><font size="1" face="Verdana">Oficio N° 247-2012-PCM-DM  solicita priorizar los proyectos remitidos  por el Poder Ejecutivo </font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/40d77e52fb719cb905257a9900003fc7/$FILE/OF11701540151012.-.pdf"><b><font size="1" face="Verdana">Oficio N° 117-2012-2013-CRREE-CR,    solicita pase de proyecto de ley 01540 a la Comisión de Relaciones Exteriores </font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/07/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/a1851822dba0141305257a45005760ca/$FILE/OF105600360200712.PDF"><b><font size="1" face="Verdana">Oficio N° 1056-2011-2012/JHZ-CR  Congresista Jesús Hurtado Zamudio se adhiere al proyecto de ley 00360</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">09/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/f9425354cc04430905257a1d00481c3c/$FILE/CEBFIF00360090512.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Economía, Banca Finanzas e Inteligencia Financiera (Proyecto de ley 00360 )</font></b></a></td></tr>
+</table>
+<br>
+
+</div> 
+</td></tr>
+</table>
+<br>
+<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
+
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
+<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
+<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<input name="NombreDelEstado" type="hidden" value="Si">
+<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
+<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
+<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
+<input name="IdO" type="hidden" value="1500010D01A538460525792800762840">
+<input name="Fecha_1" type="hidden" value="">
+<input name="nombre" type="hidden" value="">
+<input name="fechasign" type="hidden" value="">
+<input name="publi" type="hidden" value="">
+<input name="fechapub" type="hidden" value="">
+<input name="fecha" type="hidden" value="">
+<input name="dia" type="hidden" value="">
+<input name="modi" type="hidden" value="11/06/2013 10:01:38 AM">
+<input name="estado" type="hidden" value="">
+<input name="parlamento" type="hidden" value="2011-2016">
+<input name="Periodo" type="hidden" value="">
+<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Expvirt_2011.nsf/vf07web/1500010D01A538460525792800762840?opendocument">
+<input name="tesauro" type="hidden" value="">
+<input name="nivel1" type="hidden" value="Proyecto de Ley">
+<input name="titulo" type="hidden" value="Ley de reinserción económica y social para el migrante retornado">
+<input name="numexp" type="hidden" value="00360">
+<input name="num" type="hidden" value="00360">
+<input name="nivel2" type="hidden" value="Ley">
+<input name="numley" type="hidden" value="30001">
+<input name="control2" type="hidden" value="Si">
+<input name="control21" type="hidden" value="06/11/2013">
+<input name="control22" type="hidden" value="Pepe Ludmir Gomero Alvarado">
+<input name="control" type="hidden" value="Si">
+<input name="control11" type="hidden" value="06/11/2013">
+<input name="control12" type="hidden" value="Julian Saul Ramos Paulett">
+<input name="control13" type="hidden" value="">
+<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
+<input name="bd2" type="hidden" value="Sicr/TraDocEstProc/Expvirt_2011.nsf">
+<input name="servidor" type="hidden" value="W2KLEG01">
+<input name="usuario" type="hidden" value="Anonymous">
+<input name="edita" type="hidden" value="0">
+<input name="asig" type="hidden" value="0">
+<input name="logregistro" type="hidden" value=""></form>
+</body>
+</html>

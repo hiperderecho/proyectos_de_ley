@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Expedientes Virtuales</title>
+<script language="JavaScript" type="text/javascript">
+<!-- 
+function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t) {
+  var returnValue = false;
+  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00397?OpenDocument&Click=" + v;
+  if (o.href != null) {
+    o.href = url;
+    returnValue = true;
+  } else {
+    if (t == null)
+      t = document._domino_target;
+    window.open(url, t);
+  }
+  return returnValue;
+}
+// -->
+</script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
+<! here starts the portal code>
+<style>
+<!--
+a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
+a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
+-->
+</style>
+<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
+</head>
+<body>
+<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="677" colspan="2">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+</table>
+</td></tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+
+<tr valign="top"><td width="552">
+<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
+<div align="center"><b><font size="2" face="Verdana">LEY QUE MODIFICA LA LEY 27933, LEY DEL SISTEMA NACIONAL DE SEGURIDAD CIUDADANA, LA LEY 27972, LEY ORGÁNICA DE MUNICIPALIDADES Y LA LEY 27867, LEY ORGÁNICA DE GOBIERNOS REGIONALES</font></b><br>
+<br>
+<br>
+<b><font size="2" face="Verdana">Ley N° 30055</font></b><br>
+<br>
+</div><br>
+
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/06/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/a6e063b43624e5a905257b9b005ecb7a/$FILE/30055.pdf"><b><font size="1" face="Verdana">Publicación de la Ley 30055</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/06/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/492a812b6189024f05257b8a000411d4/$FILE/AU00026130613.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/05/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/b5947e5042611eff05257b8800650760/$FILE/AV0002630062013.pdf"><b><font size="1" face="Verdana">Asistencia y Votación - Allanamiento</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">04/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/088727453d9d826f05257aca006b91fc/$FILE/00026DC07MAY041212.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">21/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/d635d8022c8613ee05257abd006a2b48/$FILE/OBAU00026211112.PDF"><b><font size="1" face="Verdana">Observación a la Autógrafa de Ley por el Poder Ejecutivo</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">29/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/e9926e81425df3e105257aa6007c8958/$FILE/AU00026291012.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">17/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/e30fb02e0a4d6cd705257abb005bd286/$FILE/ESV0002617102012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Exoneración de la segunda votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">17/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a632ade8b1f574b805257abb005bac3c/$FILE/AV0002617102012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Primera votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">17/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/df265e8dd1a01c4605257a9b00127cd6/$FILE/TS00026171012.pdf"><b><font size="1" face="Verdana">Texto sustitutorio</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/b5572e2e04952a5705257a9400038037/$FILE/00026DC07MAY101012.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+</table>
+<br>
+<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
+<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
+<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00026</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/08/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/0e7f3eb57f27213e052578e90078d2f0/$FILE/PL00026110811.pdf"><b><font size="1" face="Verdana">Ley que modifica la Ley 27933, Ley del Sistema Nacional de Seguridad Ciudadana</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00084</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/08/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/e316bf364d91ec3f052578f500086f61/$FILE/PL00084220811.pdf"><b><font size="1" face="Verdana">Ley que impone sanción a las autoridades que no instalen ni convoquen a Consejo de Seguridad Ciudadana</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00328</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/10/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/3ef5467589de9dee0525792200526c4a/$FILE/PL00328061011.pdf"><b><font size="1" face="Verdana">Ley que modifica el artículo 7 de la Ley 27933, Ley del Sistema Nacional de Seguridad Ciudadana</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00397</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/10/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/b85aafc2c3e35b450525792f005f81d3/$FILE/PL00397201011.pdf"><b><font size="1" face="Verdana">Ley que modifica los artículos 6 y 7 e incorpora el artículo 18-A en la Ley 27933 -  Ley del Sistema Nacional de Seguridad Ciudadana</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00471</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">03/11/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/e4b8c41445b4c4e10525793d007e43b7/$FILE/PL00471031111.pdf"><b><font size="1" face="Verdana">Ley que establece como falta grave el incumplimiento de la Ley 27933, Ley del Sistema Nacional de Seguridad Ciudadana</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01010</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/04/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/6860db752bdc1d32052579de00807178/$FILE/PL01010120412.pdf"><b><font size="1" face="Verdana">Ley que modifica la Ley Orgánica de Gobiernos Regionales Ley 27867 y la Ley Orgánica de Municipalidades Ley 27972</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01029</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">19/04/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/3f345c71fb62a19b052579e5007472c5/$FILE/PL01029190412.pdf"><b><font size="1" face="Verdana">Ley del Sistema Nacional de Información de la Violencia y el Delito - SINAVIDE -</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01179</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">24/05/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/88a0885428b32b0405257a08007c7f73/$FILE/PL01179240512.pdf"><b><font size="1" face="Verdana">Ley que ordena que los bienes y dinero decomisados en los juicios por delitos de trafico ilícito de Drogas, se utilicen exclusivamente para mejorar el equipamiento de la Policía Nacional del Perú </font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01409</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/08/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/6f9284f4d30362ed05257a5c00503765/$FILE/PL01409150812.pdf"><b><font size="1" face="Verdana">Ley que modifica el inciso F del Artículo 9 de la Ley 27933, Ley de Seguridad Ciudadana</font></b></a></td></tr>
+</table>
+<br>
+<b><font size="1">Documentación Anexa</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/07/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/fb1b1aa4e1407c4905257b9f0058e6ba/$FILE/00026PL05072013.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso de la ley 30055</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/05/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257B7C005C4754/$FILE/SLO-2012-5.pdf"><b><font size="1" face="Verdana">Diario de los Debates  - Sesión de Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">27/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc02_2011_2.nsf/0/089797b59ea2a2fa05257be80060c3b9/$FILE/CDNOIDALCD00026271112.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Defensa Nacional,  y Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">17/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257A9B0057AE5A/$FILE/PLO-2012-18.pdf"><b><font size="1" face="Verdana">Diarios de los Debates - Sesión de Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">09/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc02_2011_2.nsf/0/40dd4edac809734305257be8005ceb73/$FILE/CDNOIDALCD00026091012.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Defensa Nacional,  y Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/09/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/6092cf0e088bcb6605257aec006ec040/$FILE/OF-081-2012-2013-JCEN-CR.pdf"><b><font size="1" face="Verdana">OF-081-2012-2013-JCEN-CR, solicita la prioridad del proyecto 00471</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/15abab6127c55cab05257aed0000eba1/$FILE/OF-062-2012-2013-JCEN-CR.pdf"><b><font size="1" face="Verdana">Oficio - 062-2012-2013-JCEN-CR, solicita prioridad del proyecto 00245</font></b></a></td></tr>
+</table>
+<br>
+
+</div> 
+</td></tr>
+</table>
+<br>
+<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
+
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
+<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
+<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<input name="NombreDelEstado" type="hidden" value="Si">
+<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
+<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
+<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
+<input name="IdO" type="hidden" value="FE42AC595CE772860525792F00593163">
+<input name="Fecha_1" type="hidden" value="">
+<input name="nombre" type="hidden" value="">
+<input name="fechasign" type="hidden" value="">
+<input name="publi" type="hidden" value="">
+<input name="fechapub" type="hidden" value="">
+<input name="fecha" type="hidden" value="">
+<input name="dia" type="hidden" value="">
+<input name="modi" type="hidden" value="09/16/2013 12:02:37 PM">
+<input name="estado" type="hidden" value="">
+<input name="parlamento" type="hidden" value="2011-2016">
+<input name="Periodo" type="hidden" value="">
+<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/EXPVIRT_2011.nsf/vf07web/FE42AC595CE772860525792F00593163?opendocument">
+<input name="tesauro" type="hidden" value="">
+<input name="nivel1" type="hidden" value="Proyecto de Ley">
+<input name="titulo" type="hidden" value="Ley que modifica la Ley 27933, Ley del Sistema Nacional de Seguridad Ciudadana, la Ley 27972, Ley Orgánica de Municipalidades y la Ley 27867, Ley Orgánica de Gobiernos Regionales">
+<input name="numexp" type="hidden" value="00397">
+<input name="num" type="hidden" value="00397">
+<input name="nivel2" type="hidden" value="Ley">
+<input name="numley" type="hidden" value="">
+<input name="control2" type="hidden" value="">
+<input name="control21" type="hidden" value="">
+<input name="control22" type="hidden" value="">
+<input name="control" type="hidden" value="No">
+<input name="control11" type="hidden" value="">
+<input name="control12" type="hidden" value="">
+<input name="control13" type="hidden" value="">
+<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
+<input name="bd2" type="hidden" value="Sicr/TraDocEstProc/EXPVIRT_2011.nsf">
+<input name="servidor" type="hidden" value="W2KLEG01">
+<input name="usuario" type="hidden" value="Anonymous">
+<input name="edita" type="hidden" value="0">
+<input name="asig" type="hidden" value="0">
+<input name="logregistro" type="hidden" value=""></form>
+</body>
+</html>

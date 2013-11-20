@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Expedientes Virtuales</title>
+<script language="JavaScript" type="text/javascript">
+<!-- 
+function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t) {
+  var returnValue = false;
+  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00190?OpenDocument&Click=" + v;
+  if (o.href != null) {
+    o.href = url;
+    returnValue = true;
+  } else {
+    if (t == null)
+      t = document._domino_target;
+    window.open(url, t);
+  }
+  return returnValue;
+}
+// -->
+</script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
+<! here starts the portal code>
+<style>
+<!--
+a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
+a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
+-->
+</style>
+<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
+</head>
+<body>
+<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="677" colspan="2">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+</table>
+</td></tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+
+<tr valign="top"><td width="552">
+<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
+<div align="center"><b><u><font size="2" face="Verdana">Expediente del Proyecto de Ley 00190</font></u></b><br>
+<br>
+<br>
+<b><font size="2" face="Verdana">LEY QUE OTORGA AMNISTÍA POR LA POSESIÓN IRREGULAR O ILEGAL DE ARMAS DE USO CIVIL, ARMAS DE USO DE GUERRA, MUNICIONES, GRANADAS DE GUERRA O EXPLOSIVOS Y REGULARIZA SU TENENCIA</font></b><br>
+<br>
+<b><font size="2" face="Verdana">Ley N° 29858</font></b><br>
+</div><br>
+
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">03/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/f4c81aa0f30532c3052579f70055e251/$FILE/L29858.pdf"><b><font size="1" face="Verdana">Publicación de la Ley 29858</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/7ef530dfc7bc4740052579e6006921ae/$FILE/AU00144200412.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley promulgada por el Presidente del Congreso de la República y remitida para su publicación </font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/c623a05e279bb29a05257a0500529f97/$FILE/AV0014412042012.pdf"><b><font size="1" face="Verdana">Asistencia y votación -  Allanamiento de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/e9460497e57b201f05257a05005257ff/$FILE/AV0014412042012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Insistencia de la Comisión de Justicia y Derechos Humanos (Rechazado)</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/3197348b16d2d4bb052579dd0080046f/$FILE/AJP00144110412.pdf"><b><font size="1" face="Verdana">Junta de Portavoces.- Exoneración del plazo de publicación del dictamen de la Comisión de Justicia y Derechos Humanos en el Portal del Congreso y la ampliación de agenda</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/bd5d9f3fc70bd524052579dd00632644/$FILE/00144DC15MAY110412---.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Justicia y Derechos Humanos</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">27/02/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/0a986c15b4d27672052579b10071c9d6/$FILE/00144DC07MAY270212.-.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/02/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/55f2589dd3e2c379052579a600517c78/$FILE/AUOB00144150212.pdf"><b><font size="1" face="Verdana">Observación a la Autógrafa de Ley por el Poder Ejecutivo</font></b></a><b><font size="1" face="Verdana"> </font></b></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">24/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/b78f8b9fbf57e3eb0525798f0060e84c/$FILE/AU00144240112.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/0c89f53efc2b0d190525798700720534/$FILE/ESV0014411012012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Exoneración de segunda votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/05525b879dca65df052579870072286b/$FILE/AV0014411012012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Primera votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/fd2c1f7c4fbe91f3052579830010c34e/$FILE/TSC00144110112...pdf"><b><font size="1" face="Verdana">Texto sustitutorio consensuado</font></b><font size="1" face="Verdana"> </font><b><font size="1" face="Verdana">de las Comisiones de Justicia y Derechos Humanos; y de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas (21:14 p.m.)</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/b307a411fbce3f060525798200811bd7/$FILE/TSC00144110112.pdf"><b><font size="1" face="Verdana">Texto sustitutorio consensuado</font></b><font size="1" face="Verdana"> </font><b><font size="1" face="Verdana">de las Comisiones de Justicia y Derechos Humanos; y de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas (17:31 p.m.)</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">08/11/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a57de53c7e60751205257942006fe4e9/$FILE/00144DC15MIN081111.pdf"><b><font size="1" face="Verdana">Dictamen en Minoría de la Comisión de Justicia y Derechos Humanos</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/10/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/4b84b4eaf9b64e5205257928007543bd/$FILE/00144DC07MAY131011.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/10/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/fe2edb4e9f86be8e052579280002afab/$FILE/00144DC13MAY121011.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Justicia y Derechos Humanos</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/10/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/13b9a25a557ca9f60525792100080a0d/$FILE/AJP0019051011.pdf"><b><font size="1" face="Verdana">Junta de Portavoces - Exoneración de dictamen de las Comisiones de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas; y de Justicia y Derechos Humanos, ampliación de agenda y prioridad en el debate sobre el proyecto de ley 00190</font></b></a><font size="1" face="Verdana"> </font></td></tr>
+</table>
+<br>
+<br>
+<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
+<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
+<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00144</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/09/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/f6eafb2811e04ca305257902005c2afb/$FILE/PL00144050911.pdf"><b><font size="1" face="Verdana">Ley que dicta medidas relacionadas a la tenencia de armas de uso civil, armas de uso de guerra, municiones, granadas o explosivos</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00190</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">14/09/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/93244fb8bfc3be6a0525790c0002243a/$FILE/PL00190140911..pdf"><b><font size="1" face="Verdana">Ley que fomenta el desarme por posesión ilegal o irregular de armas de fuego y otros y modifica diversos artículos del Código Penal</font></b></a></td></tr>
+</table>
+<br>
+<br>
+<b><font size="1">Documentación Anexa</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="80%" bgcolor="#D0B1A1"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/4d78dd1c295fe445052579f7005a32f7/$FILE/00144PL30052012.-.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso  de la Ley 29858</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">18/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/6af23c73dddcaa1705257a0e00539878/$FILE/BAU0014418042012.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley revisada por el Presidente de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE9052579DF000F05A4/$FILE/SLO-2011-8.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a457e39f31379dc205257a160059531b/$FILE/OFV00144110412.pdf"><b><font size="1" face="Verdana">Oficio N° 947-2011-2012-CJ-DDHH/CR, solicita dispensa de publicación de dictamen en el Portal del Congreso y prioridad en la agenda</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/e65de142bb4bd5be05257a1a00451000/$FILE/CJDH00144200312.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Justicia y Derechos Humanos</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">27/02/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/2b738463ec23562505257a01005c905d/$FILE/CDNOIDALCD001440212.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/ab403ce7f910d04405257a0e00592376/$FILE/BAU0014413012012.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley revisada por el Presidente de la Comisión de Justicia y Derechos Humanos</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/ca473088a81763a105257a0e00597436/$FILE/BAU0014413012012.-.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley revisada por el Presidente de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/d7b7387ed62485e3052579870069da2e/$FILE/TSP280073911012012.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">29/12/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/5f33e037c31d535805257a0e005b1578/$FILE/Oficio.pdf"><b><font size="1" face="Verdana">Oficio N° 00232-2011-2012/RRB-PCEMSC, solicita el retiro de los dictámenes</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/11/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/5d586407ca800bb50525795d00545db1/$FILE/TSP190056030112011.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/11/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/95ce2d94feed5bdf05257982006f0547/$FILE/RCP00144301111.pdf"><b><font size="1" face="Verdana">Oficio N° 177-2011-OSM/CR, solicita retiro de cuestión previa</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/10/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/ac6422c5632a960a052579420070dcc4/$FILE/CJDH00144111011.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Justicia y Derechos Humanos</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/10/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/6e3ef8e3b5e6acbf0525794200708c92/$FILE/CDNOIDALCD00144101011.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Defensa Nacional, Orden Interno, Desarrollo Alternativo y Lucha contra las Drogas</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/10/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/55651fafdecb4f3505257928006624f5/$FILE/TSP130009206102011.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">21/09/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/5a9ad3e691c64c1005257a0e005bcc97/$FILE/Oficio.pdf"><b><font size="1" face="Verdana">Oficio N° 0027-2011-2012/RRB-OCEMSC, solicita la exoneración del trámite de comisiones del proyecto de ley 00190</font></b></a></td></tr>
+</table>
+
+</div> 
+</td></tr>
+</table>
+<br>
+<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
+
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
+<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
+<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<input name="NombreDelEstado" type="hidden" value="Si">
+<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
+<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
+<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
+<input name="IdO" type="hidden" value="C7CDFDC781CB4EA20525790C0002590B">
+<input name="Fecha_1" type="hidden" value="">
+<input name="nombre" type="hidden" value="">
+<input name="fechasign" type="hidden" value="">
+<input name="publi" type="hidden" value="">
+<input name="fechapub" type="hidden" value="">
+<input name="fecha" type="hidden" value="">
+<input name="dia" type="hidden" value="">
+<input name="modi" type="hidden" value="06/07/2012 04:38:07 PM">
+<input name="estado" type="hidden" value="">
+<input name="parlamento" type="hidden" value="2011-2016">
+<input name="Periodo" type="hidden" value="">
+<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/vf07web/C7CDFDC781CB4EA20525790C0002590B?opendocument">
+<input name="tesauro" type="hidden" value="">
+<input name="nivel1" type="hidden" value="Proyecto de Ley">
+<input name="titulo" type="hidden" value="Ley que fomenta el desarme por posesión ilegal o irregular de armas de fuego y otros y modifica diversos artículos del Código Penal">
+<input name="numexp" type="hidden" value="00190">
+<input name="num" type="hidden" value="">
+<input name="nivel2" type="hidden" value="">
+<input name="numley" type="hidden" value="">
+<input name="control2" type="hidden" value="">
+<input name="control21" type="hidden" value="">
+<input name="control22" type="hidden" value="">
+<input name="control" type="hidden" value="No">
+<input name="control11" type="hidden" value="">
+<input name="control12" type="hidden" value="">
+<input name="control13" type="hidden" value="">
+<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
+<input name="bd2" type="hidden" value="sicr/tradocestproc/Expvirt_2011.nsf">
+<input name="servidor" type="hidden" value="W2KLEG01">
+<input name="usuario" type="hidden" value="Anonymous">
+<input name="edita" type="hidden" value="0">
+<input name="asig" type="hidden" value="0">
+<input name="logregistro" type="hidden" value=""></form>
+</body>
+</html>

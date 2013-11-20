@@ -120,31 +120,29 @@ def convert_name_to_filename(name):
         return filename
 
 
-def prettify(data):
+def prettify(item):
     out = ""
-    for item in data:
-        out += "<div>\n"
-        out += "<p><b>" + item['numero_proyecto'] + "</b>\n"
-        out += "<h4>" + item['titulo'] +  "</h4>\n"
-        out += "<p>" + hiperlink_congre(item['congresistas']) + "</p>\n"
+    out += "<div>\n"
+    out += "<p><b>" + item['numero_proyecto'] + "</b>\n"
+    out += "<h4>" + item['titulo'] +  "</h4>\n"
+    out += "<p>" + hiperlink_congre(item['congresistas']) + "</p>\n"
 
-        if 'pdf_url' in item:
-            out += "<a class='btn btn-lg btn-primary'"
-            out += " href='" + item['pdf_url'] + "' role='button'>PDF</a>"
-        else:
-            out += "<a class='btn btn-lg btn-primary disabled'"
-            out += " href='#' role='button'>Sin PDF</a>"
+    if 'pdf_url' in item:
+        out += "<a class='btn btn-lg btn-primary'"
+        out += " href='" + item['pdf_url'] + "' role='button'>PDF</a>"
+    else:
+        out += "<a class='btn btn-lg btn-primary disabled'"
+        out += " href='#' role='button'>Sin PDF</a>"
 
-        if 'link_to_pdf' in item:
-            out += " <a class='btn btn-lg btn-primary'"
-            out += " href='" + item['link_to_pdf'] + "' role='button'>EXPEDIENTE</a>"
-        else:
-            out += " <a class='btn btn-lg btn-primary disabled'"
-            out += " href='#' role='button'>Sin EXPEDIENTE</a>"
+    if 'link_to_pdf' in item:
+        out += " <a class='btn btn-lg btn-primary'"
+        out += " href='" + item['link_to_pdf'] + "' role='button'>EXPEDIENTE</a>"
+    else:
+        out += " <a class='btn btn-lg btn-primary disabled'"
+        out += " href='#' role='button'>Sin EXPEDIENTE</a>"
 
-        out += "</div>\n"
-        out += "<hr>\n"
-        out += "----------"
+    out += "</div>\n"
+    out += "<hr>\n"
     return out
         
 

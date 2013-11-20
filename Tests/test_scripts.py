@@ -86,6 +86,14 @@ class LaleyTest(unittest.TestCase):
         os.remove("pages/00686.html")
         self.assertEqual(result, pdf_url)
 
+    def test_extract_pdf_url_from_local_file(self):
+        link = "http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00686?opendocument"
+        pdf_url = "http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/9d97058b24ac5c0e0525797c00097d25/$FILE/PL00686412012.pdf"
+        # also downloads to local folder
+        laley.extract_pdf_url(link)
+        filename = "pages/00686.html"
+        result = laley.extract_pdf_url_from_local_file(filename)
+        self.assertEqual(result, pdf_url)
 
 
 

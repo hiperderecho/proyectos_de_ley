@@ -147,6 +147,7 @@ def prettify(data):
         
 
 def extract_pdf_url(link):
+    # also downloads to local folder
     codigo = re.search("([0-9]{5})\?", link).groups()[0]
     filename = os.path.join(config.current_folder, "pages")
     filename = os.path.join(filename, codigo + ".html")
@@ -169,6 +170,21 @@ def extract_pdf_url(link):
     except:
         # Algunos proyectos de ley no tienen link hacia PDFs
         return "none"
+
+def extract_pdf_url_from_local_file(filename):
+    f = codecs.open(filename, "r", "utf-8")
+    html = f.read()
+    f.close()
+    pdf_soup = BeautifulSoup(html)
+    try:
+        for i in pdf_soup.find_all("a"):
+            if re.search("pdf$", i['href'], re.I):
+                my_pdf_link = str(i['href'])
+                return my_pdf_link
+    except:
+        # Algunos proyectos de ley no tienen link hacia PDFs
+        return "none"
+
 
 
 def extract_metadata(filename):
@@ -263,8 +279,11 @@ def insert_data():
     files = glob.glob(os.path.join(folder, "*html"))
 
     for file in files:
-        if re.search("(.{32})", os.path.basename(file)):
-            print file
+        res = re.search("^(.+)\.html", os.path.basename(file))
+        if res and len(res.groups()[0]) == 32:
+            metadata = extract_metadata(file)
+            print metadata
+            sys.exit()
     """
     con = lite.connect(os.path.join(config.current_folder, 'leyes.db'))
     
@@ -432,6 +451,7 @@ def save_project(metadata):
 
 ## ------------------------------------------------
 def main():
+    """
     url_inicio = 'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView'
     urls = [url_inicio]
 
@@ -470,6 +490,7 @@ def main():
             download_exp_pagina(link)
 
     # We need to add info to our SQLite database
+    """
     create_database()
     insert_data()
 """

@@ -71,9 +71,22 @@ class LaleyTest(unittest.TestCase):
 
     def test_extract_metadata(self):
         filename = "Laley/3F06B090353436A90525797C005B72B4.html"
+        link_to_pdf = "http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00686?opendocument"
         result = laley.extract_metadata(filename)
 
         self.assertEqual(result['codigo'], "00686")
+        self.assertEqual(result['link_to_pdf'], link_to_pdf)
+
+    def test_extract_pdf_url(self):
+        link = "http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00686?opendocument"
+        pdf_url = "http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/9d97058b24ac5c0e0525797c00097d25/$FILE/PL00686412012.pdf"
+        result = laley.extract_pdf_url(link)
+        self.assertEqual(result, pdf_url)
+
+        os.remove("pages/00686.html")
+        self.assertEqual(result, pdf_url)
+
+
 
 
 

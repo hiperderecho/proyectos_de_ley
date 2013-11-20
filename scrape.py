@@ -147,9 +147,21 @@ def prettify(data):
         
 
 def extract_pdf_url(link):
+    codigo = re.search("([0-9]{5})\?", link).groups()[0]
+    filename = os.path.join(config.current_folder, "pages")
+    filename = os.path.join(filename, codigo + ".html")
+    if not os.path.isfile(filename):
+        try:
+            pdf_soup = get(link)
+        except:
+            # Algunos proyectos de ley no tienen link hacia PDFs
+            return "none"
+    else:
+        f = codecs.open(filename, "r", "utf-8")
+        html = f.read()
+        f.close()
+        pdf_soup = BeautifulSoup(html)
     try:
-        pdf_soup = get(link)
-        print link
         for i in pdf_soup.find_all("a"):
             if re.search("pdf$", i['href'], re.I):
                 my_pdf_link = str(i['href'])
@@ -179,7 +191,6 @@ def extract_metadata(filename):
             this_metadata['congresistas'] = parse_names(item['value'])
         if item['name'] == "CodIni":
             this_metadata['codigo'] = item['value']
-            print "* codigo: %s" % this_metadata['codigo']
         if item['name'] == "fechapre":
             this_metadata['fecha_presentacion'] = item['value']
             print "* fecha_presentacion: %s" % this_metadata['fecha_presentacion']
@@ -210,7 +221,6 @@ def extract_expediente_link(page):
     for item in soup.find_all("input"):
         if item['name'] == "CodIni":
             codigo = item['value']
-            print "* codigo: %s" % codigo
             expediente_link = 'http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/' + codigo + '?opendocument'
             return [expediente_link, codigo]
 
@@ -356,6 +366,7 @@ def download_exp_pagina(link):
     filename = os.path.join(config.current_folder, "pages")
     filename = os.path.join(filename, link[1] + ".html")
     if not os.path.isfile(filename) or os.stat(filename).st_size < 2:
+        print "Downloading %s" % link[0]
         request = urllib2.Request(link[0])
         request.add_header('Cache-Control','max-age=0')
         response = opener.open(request)
@@ -454,10 +465,8 @@ def main():
         if link:
             local_exp_pagina = os.path.join(config.current_folder, "pages")
             local_exp_pagina = os.path.join(local_exp_pagina, link[1] + ".html")
-            print local_exp_pagina
     
             # Try to download if we dont have it locally
-            print link
             download_exp_pagina(link)
 
     # We need to add info to our SQLite database

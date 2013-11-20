@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import dataset
+import sqlalchemy
 import json
 #import socks
 import cookielib
@@ -196,6 +198,8 @@ def extract_metadata(filename):
 
     this_metadata = dict()
     for item in project_soup.find_all("input"):
+        if item['name'] == "SumIni":
+            this_metadata['titulo'] = item['value']
         if item['name'] == "CodIni_web_1":
             this_metadata['numero_proyecto'] = item['value']
             print "* numero_proyecto: %s" % this_metadata['numero_proyecto']
@@ -254,42 +258,46 @@ def extract_doc_links(soup):
     return our_links
 
 def create_database():
-    con = None
-    try:
-        con = lite.connect(os.path.join(config.current_folder, 'leyes.db'))
-        cur = con.cursor()
-        cur.execute('''CREATE TABLE IF NOT EXISTS proyectos(codigo, 
-                    numero_proyecto,
-                    congresistas,
-                    fecha_presentacion,
-                    link,
-                    link_to_pdf,
-                    pdf_url,
-                    titulo
-                    );''')
-    except lite.Error, e:
-        return e.args[0]
-        sys.exit(1)
-    finally:
-        if con:
-            con.close()
+    database_file = os.path.join(config.base_folder, "leyes.db")
+    if not os.path.isfile(database_file):
+        try:
+            db = dataset.connect('sqlite:///leyes.db')
+            table = db.create_table("proyectos")
+            table.create_column('codigo', sqlalchemy.String)
+            table.create_column('numero_proyecto', sqlalchemy.String)
+            table.create_column('congresistas', sqlalchemy.Text)
+            table.create_column('fecha_presentacion', sqlalchemy.String)
+            table.create_column('link_to_pdf', sqlalchemy.Text)
+            table.create_column('pdf_url', sqlalchemy.Text)
+            table.create_column('titulo', sqlalchemy.Text)
+        except:
+            pass
 
 def insert_data():
     folder = os.path.join(config.current_folder, "pages")
     files = glob.glob(os.path.join(folder, "*html"))
 
+    db = dataset.connect('sqlite:///leyes.db')
+    table = db['proyectos']
+
     for file in files:
         res = re.search("^(.+)\.html", os.path.basename(file))
         if res and len(res.groups()[0]) == 32:
-            metadata = extract_metadata(file)
-            print metadata
-            sys.exit()
-    """
-    con = lite.connect(os.path.join(config.current_folder, 'leyes.db'))
-    
-    with con:
-        cur = con.cursor()
-    """
+            met = extract_metadata(file)
+            print congresista.myjson(met)
+            data_to_insert = []
+            if not table.find_one(codigo=met['codigo']):
+                data_to_insert.append(dict(
+                            codigo = met['codigo'],
+                            numero_proyecto = met['numero_proyecto'],
+                            congresistas = met['congresistas'],
+                            fecha_presentacion = met['fecha_presentacion'],
+                            link_to_pdf = met['link_to_pdf'],
+                            pdf_url = met['pdf_url'],
+                            titulo = met['titulo']
+                            ))
+
+            table.insert_many(data_to_insert)    
 
 
 

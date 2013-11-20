@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Expedientes Virtuales</title>
+<script language="JavaScript" type="text/javascript">
+<!-- 
+function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t) {
+  var returnValue = false;
+  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00486?OpenDocument&Click=" + v;
+  if (o.href != null) {
+    o.href = url;
+    returnValue = true;
+  } else {
+    if (t == null)
+      t = document._domino_target;
+    window.open(url, t);
+  }
+  return returnValue;
+}
+// -->
+</script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
+<! here starts the portal code>
+<style>
+<!--
+a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
+a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
+-->
+</style>
+<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
+</head>
+<body>
+<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="677" colspan="2">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+</table>
+</td></tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+
+<tr valign="top"><td width="552">
+<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
+<div align="center"><b><u><font size="2" face="Verdana">Expediente del Proyecto de Ley 00486</font></u></b><br>
+<br>
+<br>
+<b><font size="2" face="Verdana">Ley que modifica la Ley 23733, Ley Universitaria, para establecer la elección de las autoridades universitarias mediante el voto universal, personal, obligatorio, directo y secreto</font></b><br>
+<br>
+</div><br>
+
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/05/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/106e4978cd542d8905257b880061af31/$FILE/AVCP0015430052013.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Cuestión previa para que retorne a la Comisión</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/06/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/5cb1f565b6c362df05257a240056ab30/$FILE/TS00154200612.pdf"><b><font size="1" face="Verdana">Texto sustitutorio de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">14/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/3d1e3ea2e63c13d8052579fe006e9d6b/$FILE/00353DC02MAY140512.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Ciencia, Innovación y Tecnología</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a6e5451c6dc6213f052579c0007ab12e/$FILE/00154DCMIN130312.pdf"><b><font size="1" face="Verdana">Dictamen en Minoría de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/72b8a5295f4060720525797d0058e78e/$FILE/00154DC10MAY060112.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
+</table>
+<br>
+<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
+<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
+<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00154</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/09/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/b68d2b2fda14038b0525790300555a38/$FILE/PL00154050911..pdf"><b><font size="1" face="Verdana">Ley que modifica la Ley Universitaria 23733, para permitir la democratización de la elección de las autoridades de la universidad peruana</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00353</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/10/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/f02cbd1188c891e50525792700614bbd/$FILE/PL00353121011.pdf"><b><font size="1" face="Verdana">Ley que modifica los artículos 22 y 36 de la Ley Universitaria para optar título profesional</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00368</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">14/10/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/0fba093516ceb99e0525792900578e1a/$FILE/PL00368141011.pdf"><b><font size="1" face="Verdana">Ley que modifica los artículos 29, 34, 35, 36 y 37 de la Ley Universitaria, Ley 29733, referente a la elección universal y directa de las autoridades universitarias</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00484</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">08/11/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/41cd78f36b33e8b205257942006aeb8f/$FILE/PL00484081111.PDF"><b><font size="1" face="Verdana">Ley que modifica la Ley Universitaria 23733, para permitir el voto directo estudiantil, la vacancia y revocatoria de autoridades universitarias y propone beneficios universitarios y a favor de las personas con discapacidad</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00486</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">08/11/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/93c079dbd29587eb052579420076a2d2/$FILE/PL00486081111.pdf"><b><font size="1" face="Verdana">Ley que establece la elección de las autoridades universitarias a través del voto universal, personal, obligatorio, directo y secreto</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00501</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/11/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/3d95e64737d7d1980525794400683002/$FILE/PL00501101111..pdf"><b><font size="1" face="Verdana">Ley que modifica los artículos 29 inciso b), 34, 35, 36 y 37 de la Ley 23733 - Ley Universitaria, con la finalidad de elegir de manera universal y directa a las autoridades universitarias de las universidades públicas y particulares no adecuadas al Decreto Legislativo 882</font></b></a></td></tr>
+</table>
+<br>
+<b><font size="1">Documentación Anexa</font></b>
+<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
+<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/05/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a92640e8da4aca7405257b8800734192/$FILE/AVR00015430052013.pdf"><b><font size="1" face="Verdana">Asistencia y Votación - Reconsideración de la votación</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/05/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257B7C005C4754/$FILE/SLO-2012-5.pdf"><b><font size="1" face="Verdana">Diario de los Debates  - Sesión de Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/4bdf8d581a5b813605257b3a004fd744/$FILE/Daniel%20Mora%20Zeballos.pdf"><b><font size="1" face="Verdana">Oficio N° 1049-2012-2013-CEJD/CR, Presidente de la Comisión de Educación, Juventud y Deporte solicita el retorno del dictamen</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">04/09/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/e69d34c3797a13c105257aec0079ef4f/$FILE/OF-067-2012-2013-CEJD-CR.pdf"><b><font size="1" face="Verdana">Oficio 067-2012-2013-CEJD-CR, solicita se priorice dictamen en la Agenda del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">25/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/17043c47196b109505257a0c0046d85e/$FILE/AD00368250512.PDF"><b><font size="1" face="Verdana">Oficio 577-2011-2012/TZB-CR, Congresista Tomás Zamudio Briceño solicita adherirse al proyecto de ley 00368</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">14/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/21af226d8d7223a205257a0d007b2526/$FILE/Oficio%201050.pdf"><b><font size="1" face="Verdana">Oficio N° 1050-2012-CEJD-CR, solicita se priorice dictamen en la Agenda del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">09/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/882f66df45e17d2c05257a36005d339a/$FILE/Oficio%20625-2011-2012-COD-CR.pdf"><b><font size="1" face="Verdana">Oficio 625-2011-2012-COD-CR,  solicita se priorice dictamen en la Agenda del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://w2kleg02/Sicr/DiarioDebates/pubcomis.nsf/comisionesportal/05256EEE006FC0D805257A2400558FB1"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Ciencia, Innovación y Tecnología del </font></b></a><br>
+<a href="http://w2kleg02/Sicr/DiarioDebates/pubcomis.nsf/comisionesportal/05256EEE006FC0D805257A2400558FB1"><b><font size="1" face="Verdana">proy. 353</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">02/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/aaaca2442a9a02e9052579f30005f24a/$FILE/00154.pdf"><b><font size="1" face="Verdana">Oficio N° 698-2011-2012-CEJD/CR, comunica memorial de la UNASAM solicitando se priorice dictamen en la Agenda del Pleno</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">14/12/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/167d4cb3dcf17bd00525798e0057b2e5/$FILE/CEJD00154141211.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
+
+<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">12/12/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/8f697e9f986c474d0525798e0057b387/$FILE/CEJD00154121211.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
+</table>
+<br>
+
+</div> 
+</td></tr>
+</table>
+<br>
+<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
+<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
+<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
+<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="ids = document.forms[0].IdO.value;ruta3 = &quot;http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/Documentos?OpenForm&amp;ParentUnid=&quot;+ids+&quot;&amp;view&quot;;window.open( ruta3 ,ids ,&quot;top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=450,width=800&quot;)return false;" href=""><font size="1" face="Verdana">Opinión Ciudadana Presente su Aporte</font></a></div></td></tr>
+</table>
+<br></td></tr>
+
+<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
+<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
+<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<input name="NombreDelEstado" type="hidden" value="Si">
+<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
+<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
+<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
+<input name="IdO" type="hidden" value="FB2701D875EAFAAC0525794200752BB3">
+<input name="Fecha_1" type="hidden" value="">
+<input name="nombre" type="hidden" value="">
+<input name="fechasign" type="hidden" value="">
+<input name="publi" type="hidden" value="">
+<input name="fechapub" type="hidden" value="">
+<input name="fecha" type="hidden" value="">
+<input name="dia" type="hidden" value="">
+<input name="modi" type="hidden" value="07/01/2013 01:43:24 PM">
+<input name="estado" type="hidden" value="">
+<input name="parlamento" type="hidden" value="2011-2016">
+<input name="Periodo" type="hidden" value="">
+<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Expvirt_2011.nsf/vf07web/FB2701D875EAFAAC0525794200752BB3?opendocument">
+<input name="tesauro" type="hidden" value="">
+<input name="nivel1" type="hidden" value="Proyecto de Ley">
+<input name="titulo" type="hidden" value="Ley que modifica la Ley 23733, Ley Universitaria, para establecer la elección de las autoridades Universitarias mediante el voto Universal, Personal, Obligatorio, Directo y Secreto">
+<input name="numexp" type="hidden" value="00486">
+<input name="num" type="hidden" value="">
+<input name="nivel2" type="hidden" value="">
+<input name="numley" type="hidden" value="">
+<input name="control2" type="hidden" value="">
+<input name="control21" type="hidden" value="">
+<input name="control22" type="hidden" value="">
+<input name="control" type="hidden" value="No">
+<input name="control11" type="hidden" value="">
+<input name="control12" type="hidden" value="">
+<input name="control13" type="hidden" value="">
+<input name="ultimoestado" type="hidden" value="En comisión">
+<input name="bd2" type="hidden" value="Sicr/TraDocEstProc/Expvirt_2011.nsf">
+<input name="servidor" type="hidden" value="W2KLEG01">
+<input name="usuario" type="hidden" value="Anonymous">
+<input name="edita" type="hidden" value="0">
+<input name="asig" type="hidden" value="0">
+<input name="logregistro" type="hidden" value=""></form>
+</body>
+</html>

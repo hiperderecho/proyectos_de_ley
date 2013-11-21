@@ -8,7 +8,7 @@ $( 'form' ).submit(function(e) {
         $("#contenido").append(out);
 
         var out = '';
-        $.getJSON( "data_handler.py", { search: keyword } )
+        $.getJSON( "http://{% base_url %}data_handler.py", { search: keyword } )
             .done(function(data) {
             console.log(data);
             $.each(data, function(i, v) {

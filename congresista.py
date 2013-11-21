@@ -34,13 +34,12 @@ def hiperlink_congre(congresistas):
     for name in congresistas.split("; "):
         filename = convert_name_to_filename(name)
         if filename:
-            if os.path.isfile(filename):
-                filename = filename.replace("index.html", "")
-                link = "<a href='http://"
-                link += filename.replace(config.base_folder, config.base_url)
-                link += "' title='ver todos sus proyectos'>"
-                link += name + "</a>"
-                congresistas = congresistas.replace(name, link)
+            filename = filename.replace("index.html", "")
+            link = "<a href='http://"
+            link += filename.replace(config.base_folder, config.base_url)
+            link += "' title='ver todos sus proyectos'>"
+            link += name + "</a>"
+            congresistas = congresistas.replace(name, link)
     return congresistas
 
 def myjson(data):
@@ -111,7 +110,6 @@ def generate_congre_html(congre_data):
         html = string.replace(base_html, 
                     "{% titulo %}",
                     "<h2>" + congre_data['name'] + "</h2>")
-        html = string.replace(html, "{% content %}", content)
         if config.base_url:
             html = string.replace(html, "{% base_url %}", "/" + config.base_url)
 

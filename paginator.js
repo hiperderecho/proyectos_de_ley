@@ -32,13 +32,13 @@ if (loc.indexOf("congresista") >= 0) {
 }
 else {
 
-    $.getJSON( "data_handler.py", { start: '0', end: '20' } )
+    $.getJSON( "http://{% base_url %}data_handler.py", { start: '0', end: '20' } )
     .done(function(data) {
         //console.log(data);
         $("#contenido").html(data.output);
     });
 
-    $.getJSON( "data_handler.py", { get: "number_of_pages" } )
+    $.getJSON( "http://{% base_url %}data_handler.py", { get: "number_of_pages" } )
         .done(function(data) {
             var myarray = data.number_of_pages;
             var n_pages = parseInt(myarray / 20) + 1;
@@ -54,7 +54,7 @@ else {
                 console.log(end - 20);
                 console.log(end);
 
-                $.getJSON( "data_handler.py", { start: end - 20, end: end } )
+                $.getJSON( "http://{% base_url %}data_handler.py", { start: end - 20, end: end } )
                     .done(function(data) {
                         //console.log(myarray.slice(end - 20, end));
                         $("#contenido").fadeOut("fast", function() {

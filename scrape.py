@@ -39,6 +39,49 @@ opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 opener.addheaders = [('Accept-Charset', 'utf-8')]
 
 
+
+def generate_congresista_json():
+    print "Generating html.json files for congresista"
+    db = dataset.connect("sqlite:///leyes.db")
+    res = db.query("SELECT DISTINCT congresistas FROM proyectos")
+    congresistas = []
+    for i in res:
+        nombres = i['congresistas'].split(";")
+        congresistas += nombres
+    #clean names
+    new_congresistas = []
+    for i in congresistas:
+        i = i.strip()
+        if i not in new_congresistas and i != "Sin Grupo" and i != "":
+            new_congresistas.append(i)
+
+    for i in new_congresistas:
+        query = "SELECT * FROM proyectos WHERE congresistas like '%" + i + "%'"
+        res = db.query(query)
+
+        congre_data = {'name': i}
+        congre_data['data'] = []
+        for item in res:
+            to_data = {}
+            if i in item['congresistas']: 
+                if 'titulo' in item:
+                    to_data['titulo'] = item['titulo']
+                if 'numero_proyecto' in item:
+                    to_data['numero_proyecto'] = item['numero_proyecto']
+                if 'pdf_url' in item:
+                    to_data['pdf_url'] = item['pdf_url']
+                if 'link_to_pdf' in item:
+                    to_data['link_to_pdf'] = item['link_to_pdf']
+                if 'fecha_presentacion' in item:
+                    to_data['fecha_presentacion'] = item['fecha_presentacion']
+                if 'congresistas' in item:
+                    to_data['congresistas'] = item['congresistas']
+                congre_data['data'].append(to_data) 
+        congresista.generate_congre_html(congre_data)
+
+
+
+
 def parse_names(string):
     """ 
     Parse string of names.
@@ -256,6 +299,7 @@ def extract_doc_links(soup):
     return our_links
 
 def create_database():
+    print "Creating database"
     database_file = os.path.join(config.base_folder, "leyes.db")
     if not os.path.isfile(database_file):
         try:
@@ -272,6 +316,7 @@ def create_database():
             pass
 
 def insert_data():
+    print "Inserting data to database"
     folder = os.path.join(config.current_folder, "pages")
     files = glob.glob(os.path.join(folder, "*html"))
 
@@ -457,14 +502,20 @@ def save_project(metadata):
 
 ## ------------------------------------------------
 def main():
-    """
     url_inicio = 'http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso?OpenView'
     urls = [url_inicio]
 
     # from 100 to 2900 to get from 0001/2011-CR
-    for i in range(2800, 3000, 100):
+    for i in range(100, 100, 100):
         urls.append(url_inicio + "&Start=" + str(i))
 
+    # remove most recent pages from local disk
+    if os.path.isfile("pages/OpenView.html"):
+        os.remove("pages/OpenView.html")
+    if os.path.isfile("pages/OpenView100.html"):
+        os.remove("pages/OpenView100.html")
+    if os.path.isfile("pages/OpenView200.html"):
+        os.remove("pages/OpenView200.html")
 
     for url in urls:
         print "Doing URL %s" % url
@@ -493,12 +544,56 @@ def main():
             local_exp_pagina = os.path.join(local_exp_pagina, link[1] + ".html")
     
             # Try to download if we dont have it locally
-            download_exp_pagina(link)
+            print download_exp_pagina(link)
 
     # We need to add info to our SQLite database
-    """
     create_database()
     insert_data()
+
+    generate_congresista_json()
+
+    # copy files
+    print "Copying files to base_folder..."
+    f = codecs.open("paginator.js", "r", "utf-8")
+    base_html = f.read()
+    f.close()
+    html = string.replace(base_html, "{% base_url %}", config.base_url)
+    f = codecs.open(os.path.join(config.base_folder, "paginator.js"), "w", "utf-8")
+    f.write(html)
+    f.close()
+
+    f = codecs.open("search.js", "r", "utf-8")
+    base_html = f.read()
+    f.close()
+    html = string.replace(base_html, "{% base_url %}", config.base_url)
+    f = codecs.open(os.path.join(config.base_folder, "search.js"), "w", "utf-8")
+    f.write(html)
+    f.close()
+
+    shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
+                    os.path.join(config.base_folder, "jquery.bootpag.js"))
+    shutil.copy2(os.path.join(config.current_folder, "highlighter.js"),
+                    os.path.join(config.base_folder, "highlighter.js"))
+    shutil.copy2(os.path.join(config.current_folder, ".htaccess"),
+                    os.path.join(config.base_folder, ".htaccess"))
+    shutil.copy2(os.path.join(config.current_folder, "data_handler.py"),
+                    os.path.join(config.base_folder, "data_handler.py"))
+    shutil.copy2(os.path.join(config.current_folder, "scrape.py"),
+                    os.path.join(config.base_folder, "scrape.py"))
+    shutil.copy2(os.path.join(config.current_folder, "congresista.py"),
+                    os.path.join(config.base_folder, "congresista.py"))
+    shutil.copy2(os.path.join(config.current_folder, "config.py"),
+                    os.path.join(config.base_folder, "config.py"))
+    shutil.copy2(os.path.join(config.current_folder, "leyes.db"),
+                    os.path.join(config.base_folder, "leyes.db"))
+    congre_dummy_index = os.path.join(config.base_folder, "congresista")
+    congre_dummy_index = os.path.join(congre_dummy_index, "index.html")
+
+    f = codecs.open(congre_dummy_index, "w", "utf-8")
+    f.write("<html><head></head><body></body></html>")
+    f.close()
+    print "Copied all files to base_folder..."
+    print "ready"
 """
         if re.search("^[0-9]{5}\.html", page):
             print page
@@ -517,19 +612,6 @@ def main():
                 print "updated search engine"
                 congresista.get_link(metadata['congresistas'])
 
-                # copy files
-                if not os.path.isfile(os.path.join(config.base_folder, "paginator.js")):
-                    shutil.copy2(os.path.join(config.current_folder, "paginator.js"),
-                                os.path.join(config.base_folder, "paginator.js"))
-                if not os.path.isfile(os.path.join(config.base_folder, "jquery.bootpag.js")):
-                    shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
-                                os.path.join(config.base_folder, "jquery.bootpag.js"))
-                congre_dummy_index = os.path.join(config.base_folder, "congresista")
-                congre_dummy_index = os.path.join(congre_dummy_index, "index.html")
-                if not os.path.isfile(congre_dummy_index):
-                    f = codecs.open(congre_dummy_index, "w", "utf-8")
-                    f.write("<html><head></head><body></body></html>")
-                    f.close()
 
 
             else:

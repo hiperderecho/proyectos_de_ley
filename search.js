@@ -13,7 +13,6 @@ $( 'form' ).submit(function(e) {
                 console.log(data);
             $.each(data, function(i, v) {
         
-                if( v.titulo.search(new RegExp(keyword, 'i')) != -1 ) {
                     out += '\n<p>' + v.titulo;
                     if( v.pdf_url ) {
                         out += ' <span class="glyphicon glyphicon-cloud-download"></span>';
@@ -33,7 +32,6 @@ $( 'form' ).submit(function(e) {
                     //console.log(v);
                     //console.log(v.titulo);
                     //console.log(out);
-                }
             });
             $("h2").remove();
             $("h1#proyectos_de_ley").remove();

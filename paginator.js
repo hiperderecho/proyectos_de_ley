@@ -1,6 +1,6 @@
 $.getJSON( "data_handler.py", { start: '0', end: '20' } )
 .done(function(data) {
-    console.log(data);
+    //console.log(data);
     $("#contenido").html(data.output);
 });
 

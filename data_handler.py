@@ -35,5 +35,18 @@ elif 'start' in data:
         out += scrape.prettify(i)
     print "Content-Type: application/json\n"
     print json.dumps({"output": out})
+elif 'search' in data:
+    keyword = data['search'].value
+
+    db = dataset.connect("sqlite:///leyes.db")
+    query = "SELECT titulo, pdf_url, link_to_pdf FROM proyectos WHERE "
+    query += "titulo like '%" + keyword + "%' ORDER BY codigo DESC" 
+    res = db.query(query)
+    out = []
+    for i in res:
+        out.append(i)
+    print "Content-Type: application/json\n"
+    print json.dumps(out)
+
 else:
     pass

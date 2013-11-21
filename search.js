@@ -10,7 +10,7 @@ $( 'form' ).submit(function(e) {
         var out = '';
         $.getJSON( "data_handler.py", { search: keyword } )
             .done(function(data) {
-                console.log(data);
+            console.log(data);
             $.each(data, function(i, v) {
         
                     out += '\n<p>' + v.titulo;
@@ -37,6 +37,7 @@ $( 'form' ).submit(function(e) {
             $("h1#proyectos_de_ley").remove();
             $("div#page-selection").remove();
             $("#contenido").append(out);
+            $("#contenido").highlight(keyword);
         });
     }
 });

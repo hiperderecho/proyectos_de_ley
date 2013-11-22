@@ -327,7 +327,7 @@ def insert_data():
         res = re.search("^(.+)\.html", os.path.basename(file))
         if res and len(res.groups()[0]) == 32:
             met = extract_metadata(file)
-            print congresista.myjson(met)
+            #print congresista.myjson(met)
             data_to_insert = []
             if not table.find_one(codigo=met['codigo']):
                 data_to_insert.append(dict(
@@ -514,8 +514,6 @@ def main():
         os.remove("pages/OpenView.html")
     if os.path.isfile("pages/OpenView100.html"):
         os.remove("pages/OpenView100.html")
-    if os.path.isfile("pages/OpenView200.html"):
-        os.remove("pages/OpenView200.html")
 
     for url in urls:
         print "Doing URL %s" % url
@@ -527,9 +525,11 @@ def main():
         for item in links:
             link = item['link']
             get(link)
+            print ""
 
     # Create needed folders
     page_folder = os.path.join(config.current_folder, "pages")
+    print "Working on folder ``pages``"
     if not os.path.isdir(page_folder):
         os.mkdir(page_folder)
 
@@ -544,6 +544,7 @@ def main():
             local_exp_pagina = os.path.join(local_exp_pagina, link[1] + ".html")
     
             # Try to download if we dont have it locally
+            print "Need page %s" % link[1]
             print download_exp_pagina(link)
 
     # We need to add info to our SQLite database

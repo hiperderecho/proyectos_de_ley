@@ -1,5 +1,8 @@
 $( 'form' ).submit(function(e) {
     e.preventDefault();
+    $("h2").remove();
+    $("h1#proyectos_de_ley").remove();
+    $("div#page-selection").remove();
     var keyword = $("input:first").val();
     if( keyword != "" ) {
         //console.log(keyword);
@@ -33,9 +36,6 @@ $( 'form' ).submit(function(e) {
                     //console.log(v.titulo);
                     //console.log(out);
             });
-            $("h2").remove();
-            $("h1#proyectos_de_ley").remove();
-            $("div#page-selection").remove();
             $("#contenido").append(out);
             $("#contenido").highlight(keyword);
         });

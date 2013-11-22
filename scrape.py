@@ -595,30 +595,6 @@ def main():
     f.close()
     print "Copied all files to base_folder..."
     print "ready"
-"""
-        if re.search("^[0-9]{5}\.html", page):
-            print page
-            sys.exit()
-
-            if link not in processed_links():
-                print "* getting link: %s" % link
-                metadata = extract_metadata(item)
-                metadata['link'] = link
-
-                # save proyecto data into file
-                save_project(metadata)
-                
-                generate_html()
-                update_search_engine()
-                print "updated search engine"
-                congresista.get_link(metadata['congresistas'])
-
-
-
-            else:
-                pass
-                #print "* we got already that link: %s" % link
-"""
 
 
 

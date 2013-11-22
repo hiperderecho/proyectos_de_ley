@@ -1,12 +1,3 @@
-# Ideas
-
-* Nos gustaría que todo eso se refleje en una página independiente donde se listen todos los Proyectos de ley y los nombres completos.
-* Ya si podría pasársele OCR automáticamente a todos sería un hit.
-
-* Se me ocurre que este programa podría generar y actualizar una pagina web con la lista de proyectos de ley y con su información pertinente.
-* Si en caso el OCR funciona bien, podría generarse una página para cada projecto, conteniendo el contenido del PDF en texto, o en todo caso el PDF mismo.
-* Además al tener cada proyecto de ley como una pagina .html se podría generar un RSS feed para que los interesados se puedan subscribir al servicio.
-
 # Dependencias
 Estos scripts ha sido probados en una computadora usando Ubuntu 13.10 y
 necesitan que las siguientes dependencias estén instaladas.
@@ -15,6 +6,7 @@ necesitan que las siguientes dependencias estén instaladas.
 * pip: ``sudo apt-get install python-pip``
 * bs4: ``sudo apt-get install python-bs4``
 * requests: ``sudo apt-get install python-requests``
+* dataset: ``sudo pip install dataset``
 
 # Modo de ejecución
 
@@ -25,15 +17,15 @@ congreso.
 * Elabora un HTML con la lista de proyectos ``index.html``,
 información básica (título, autores, código) y enlaces al expediente y PDF del
 proyecto. 
-* También descarga los PDFs y los almacena en el folder ``pdf/``.
-* Toda la información cosechada se almancena en el archivo
-  ``proyectos_data.json`` el cual actúa como "base de datos" (no es realmente
-  base de datos). Este archivo permite llevar la cuenta de qué proyectos ya han
-  sido procesados y se evitan procesarlos otra vez.
+* Toda la información cosechada se almancena en una base de datos SQLite3. El
+  código en javascript se encarga de obtener los datos de esta base de datos
+  usando JQuery y AJAX.
 
 ## script do_ocr.py
 [We don't want OCR yet]
 
+Esto se ha implentado al incio del proyecto pero es posible que no funcione
+ya que no se ha actualizado recientemente.
 * El script ``do_ocr.py`` se encarga de convertir los PDFs del folder ``pdf/``
   a HTML previo proceso OCR usando ``tesseract``.
 * También crea un ATOM Feed ``feed.xml`` conteniendo los proyectos de ley que

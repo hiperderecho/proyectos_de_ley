@@ -243,7 +243,7 @@ def extract_metadata(filename):
             this_metadata['titulo'] = item['value']
         if item['name'] == "CodIni_web_1":
             this_metadata['numero_proyecto'] = item['value']
-            print "* numero_proyecto: %s" % this_metadata['numero_proyecto']
+            #print "* numero_proyecto: %s" % this_metadata['numero_proyecto']
         #if item['name'] == "DesGrupParla":
             #metadata['grupo_parlamentario'] = item['value']
         #if item['name'] == "NombreDeLaComision":
@@ -254,7 +254,7 @@ def extract_metadata(filename):
             this_metadata['codigo'] = item['value']
         if item['name'] == "fechapre":
             this_metadata['fecha_presentacion'] = item['value']
-            print "* fecha_presentacion: %s" % this_metadata['fecha_presentacion']
+            #print "* fecha_presentacion: %s" % this_metadata['fecha_presentacion']
     link_to_pdf = 'http://www2.congreso.gob.pe/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/' + this_metadata['codigo'] + '?opendocument'
     try:
         this_metadata['link_to_pdf'] = link_to_pdf

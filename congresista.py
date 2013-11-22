@@ -111,7 +111,7 @@ def generate_congre_html(congre_data):
                     "{% titulo %}",
                     "<h2>" + congre_data['name'] + "</h2>")
         if config.base_url:
-            html = string.replace(html, "{% base_url %}", "/" + config.base_url)
+            html = string.replace(html, "{% base_url %}", config.base_url)
 
         # save as json object instead
         f = codecs.open(os.path.join(path, "html.json"), "w", "utf-8")

@@ -48,11 +48,11 @@ else {
                 page: 1,
                 maxVisible: 20
             }).on("page", function(event, /* page number here */ num) {
-                console.log(num);
+                //console.log(num);
                 var start = 20;
                 var end = start*num;
-                console.log(end - 20);
-                console.log(end);
+                //console.log(end - 20);
+                //console.log(end);
 
                 $.getJSON( "http://{% base_url %}data_handler.py", { start: end - 20, end: end } )
                     .done(function(data) {

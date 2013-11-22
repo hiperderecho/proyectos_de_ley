@@ -13,7 +13,7 @@ $( 'form' ).submit(function(e) {
         var out = '';
         $.getJSON( "http://{% base_url %}data_handler.py", { search: keyword } )
             .done(function(data) {
-            console.log(data);
+            //console.log(data);
             $.each(data, function(i, v) {
         
                     out += '\n<p>' + v.titulo;

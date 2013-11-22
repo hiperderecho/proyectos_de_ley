@@ -318,29 +318,29 @@ def create_database():
 def insert_data():
     print "Inserting data to database"
     folder = os.path.join(config.current_folder, "pages")
-    files = glob.glob(os.path.join(folder, "*html"))
+    files = [f for f in os.listdir(folder) if re.search("\w{32}\.html", f)]
 
     db = dataset.connect('sqlite:///leyes.db')
     table = db['proyectos']
 
     for file in files:
-        res = re.search("^(.+)\.html", os.path.basename(file))
-        if res and len(res.groups()[0]) == 32:
-            met = extract_metadata(file)
-            #print congresista.myjson(met)
-            data_to_insert = []
-            if not table.find_one(codigo=met['codigo']):
-                data_to_insert.append(dict(
-                            codigo = met['codigo'],
-                            numero_proyecto = met['numero_proyecto'],
-                            congresistas = met['congresistas'],
-                            fecha_presentacion = met['fecha_presentacion'],
-                            link_to_pdf = met['link_to_pdf'],
-                            pdf_url = met['pdf_url'],
-                            titulo = met['titulo']
-                            ))
+        file = os.path.join("pages", file)
+        file = os.path.join(config.current_folder, file)
+        met = extract_metadata(file)
+        #print congresista.myjson(met)
+        data_to_insert = []
+        if not table.find_one(codigo=met['codigo']):
+            data_to_insert.append(dict(
+                        codigo = met['codigo'],
+                        numero_proyecto = met['numero_proyecto'],
+                        congresistas = met['congresistas'],
+                        fecha_presentacion = met['fecha_presentacion'],
+                        link_to_pdf = met['link_to_pdf'],
+                        pdf_url = met['pdf_url'],
+                        titulo = met['titulo']
+                        ))
 
-            table.insert_many(data_to_insert)    
+        table.insert_many(data_to_insert)    
 
 
 

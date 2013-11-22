@@ -536,8 +536,9 @@ def main():
 
     # We need to download the expediente page for each link page
     folder = os.path.join(config.current_folder, "pages")
-    pages = glob.glob(os.path.join(folder, "*html"))
+    pages = [f for f in os.listdir(folder) if re.search("\w{32}\.html", f)]
     for page in pages:
+        page = os.path.join(folder, page)
         link = extract_expediente_link(page)
         if link:
             local_exp_pagina = os.path.join(config.current_folder, "pages")

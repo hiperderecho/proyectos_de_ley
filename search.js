@@ -16,7 +16,9 @@ $( 'form' ).submit(function(e) {
             //console.log(data);
             $.each(data, function(i, v) {
         
-                    out += '\n<p>' + v.titulo;
+                    out += "\n<p><a href='http://{% base_url %}proyecto/" + v.codigo
+                    out += "' title='Permalink'>&para;</a> \n"
+                    out += v.titulo;
                     if( v.pdf_url ) {
                         out += ' <span class="glyphicon glyphicon-cloud-download"></span>';
                         out += ' <a href="' + v.pdf_url + '">PDF</a>';

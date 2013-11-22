@@ -48,7 +48,10 @@ def myjson(data):
 def prettify(item):
     out = ""
     out += "\n<div>\n"
-    out += "<p><b>" + item['numero_proyecto'] + "</b>\n"
+    out += "<p>"
+    out += "<a href='http://" + config.base_url + "proyecto/" + item['codigo']
+    out += "' title='Permalink'>&para;</a> \n"
+    out += "<b>" + item['numero_proyecto'] + "</b>"
     out += "<h4>" + item['titulo'] +  "</h4>\n"
     out += "<p>" + hiperlink_congre(item['congresistas']) + "</p>\n"
 
@@ -144,6 +147,8 @@ def get_link(names):
         for item in data:
             to_data = {}
             if congre in item['congresistas']: 
+                if 'codigo' in item:
+                    to_data['codigo'] = item['codigo']
                 if 'titulo' in item:
                     to_data['titulo'] = item['titulo']
                 if 'numero_proyecto' in item:

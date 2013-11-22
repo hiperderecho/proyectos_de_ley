@@ -51,6 +51,8 @@ ya que no se ha actualizado recientemente.
 * Esos campos se usan para introducir en contenido en la plantilla y generar
   los archivos HTML.
 
-
+## Configuración Apache
+Hay que asegurarse que se ha copiado el archivo .htaccess y que Apache2 está
+configurado con los modulos requeridos, especialmente rewrite.
 
 

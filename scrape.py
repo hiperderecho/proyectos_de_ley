@@ -64,6 +64,8 @@ def generate_congresista_json():
         for item in res:
             to_data = {}
             if i in item['congresistas']: 
+                if 'codigo' in item:
+                    to_data['codigo'] = item['codigo']
                 if 'titulo' in item:
                     to_data['titulo'] = item['titulo']
                 if 'numero_proyecto' in item:
@@ -109,7 +111,7 @@ def generate_html():
 
 
     if config.base_url:
-        html = string.replace(base_html, "{% base_url %}", "/" + config.base_url)
+        html = string.replace(base_html, "{% base_url %}", config.base_url)
         html = string.replace(html, "{% titulo %}", "<h1 id='proyectos_de_ley'>Proyectos de Ley</h1>")
 
     f = codecs.open(os.path.join(config.base_folder, "index.html"), "w", "utf-8")
@@ -122,7 +124,7 @@ def update_search_engine():
     f.close()
 
     if config.base_url:
-        html = string.replace(base_html, "{% base_url %}", "/" + config.base_url)
+        html = string.replace(base_html, "{% base_url %}", config.base_url)
 
     f = codecs.open(os.path.join(config.base_folder, "search.js"), "w", "utf-8")
     f.write(html)
@@ -165,8 +167,11 @@ def convert_name_to_filename(name):
 
 def prettify(item):
     out = ""
-    out += "<div>\n"
-    out += "<p><b>" + item['numero_proyecto'] + "</b>\n"
+    out += "\n<div>\n"
+    out += "<p>"
+    out += "<a href='http://" + config.base_url + "proyecto/" + item['codigo']
+    out += "' title='Permalink'>&para;</a> \n"
+    out += "<b>" + item['numero_proyecto'] + "</b>"
     out += "<h4>" + item['titulo'] +  "</h4>\n"
     out += "<p>" + hiperlink_congre(item['congresistas']) + "</p>\n"
 
@@ -582,6 +587,10 @@ def main():
     f.write(html)
     f.close()
 
+    shutil.copy2(os.path.join(config.current_folder, "config.py"),
+                    os.path.join(config.base_folder, "config.py"))
+    shutil.copy2(os.path.join(config.current_folder, "base.html"),
+                    os.path.join(config.base_folder, "base.html"))
     shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
                     os.path.join(config.base_folder, "jquery.bootpag.js"))
     shutil.copy2(os.path.join(config.current_folder, "highlighter.js"),

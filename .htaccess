@@ -25,3 +25,6 @@ ExpiresByType application/x-font-woff "access plus 1 year"
     SetOutputFilter DEFLATE
     </FilesMatch>
 </IfModule>
+
+RewriteEngine on
+RewriteRule ^proyecto/(.+)   data_handler.py?codigo=$1 [NC,L]

@@ -1,185 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<title>Expedientes Virtuales</title>
-<script language="JavaScript" type="text/javascript">
-<!-- 
-function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t) {
-  var returnValue = false;
-  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00710?OpenDocument&Click=" + v;
-  if (o.href != null) {
-    o.href = url;
-    returnValue = true;
-  } else {
-    if (t == null)
-      t = document._domino_target;
-    window.open(url, t);
-  }
-  return returnValue;
-}
-// -->
-</script>
-</head>
-<body text="#000000" bgcolor="#FFFFFF">
-
-<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
-<! here starts the portal code>
-<style>
-<!--
-a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
-a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
--->
-</style>
-<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
-</head>
-<body>
-<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="677" colspan="2">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-</table>
-</td></tr>
-</table>
-<br>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="552">
-<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
-<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
-<div align="center"><b><font size="2" face="Verdana">LEY QUE DICTA DISPOSICIONES A FIN DE PROMOVER LA MASIFICACIÓN DEL GAS NATURAL</font></b><br>
-<br>
-<b><font size="2" face="Verdana">Ley N° 29969</font></b><br>
-</div><br>
-
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/8cc02265bf4154bd05257ae0005801f6/$FILE/L29969.pdf"><b><font size="1" face="Verdana">Publicación de la Ley 29969</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">21/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/aeeeeb846a88bf6e05257adc000bc6c4/$FILE/AU00584211212.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/f28e810f3d045e8f05257afe006036ab/$FILE/ESV0058406122012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Exoneración de segunda votación</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/afa26a8570e224f005257afe006096ac/$FILE/AV0058406122012.-.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Primera votación</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/441a9b744344e00f05257acd0058c7c8/$FILE/TS01365061212.-.pdf"><b><font size="1" face="Verdana">Texto sustitutorio de la Comisión de Energía y Minas </font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/45765d0459186d5305257afe0060b0e9/$FILE/AVCP0058406122012.pdf"><b><font size="1" face="Verdana">Cuestión previa - Dar por agotado el debate (Aprobado)</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/d0d3d90875676de705257afe00606f9f/$FILE/AV0058406122012.pdf"><b><font size="1" face="Verdana">Cuestión de orden - Determinar a la Comisión de Energía y Minas como comisión principal (Aprobado)</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/91ebd6c0442f82a705257acc0008422c/$FILE/AJP00584051212.pdf"><b><font size="1" face="Verdana">Junta de Portavoces - Exoneración del dictamen de la Comisión de Energía y Minas, respecto del proyecto de ley 584, la exoneración del plazo de publicación del dictamen de la Comisión de Descentralización, Regionalización, Gobiernos Locales y Modernización de la Gestión del Estado en el Portal del Congreso y la ampliación de agenda</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/e50d39a00337c7f905257ac600702bb4/$FILE/00584DC08MAY301112.PDF"><b><font size="1" face="Verdana">Dictamen de la Comisión de Descentralización, Regionalización, Gobiernos Locales y Modernización de la Gestión del Estado sobre los proyectos de ley 00584 y 01365</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/14412694cddcbe8005257abc006aa963/$FILE/01365DC11MIN201112.PDF"><b><font size="1" face="Verdana">Dictamen en Minoría de la Comisión de Energía y Minas sobre el proyecto de ley 01365</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">18/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/149f7a127c8a0f5805257a9b00645862/$FILE/01365DCMAY18102012.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Energía y Minas sobre el proyecto de ley 01365</font></b></a></td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
-<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
-<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00584</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">02/12/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/9ad6618a398de0e60525795a006d3685/$FILE/PL00584021211.-.pdf"><b><font size="1" face="Verdana">Ley que declara de interés público la prestación del servicio de distribución de gas natural por red de ductos, haciendo impulsoras de este servicio a las municipalidades y gobiernos regionales</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00710</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/01/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/00790df30e9394af0525797d000755a1/$FILE/PL00710050112.pdf"><b><font size="1" face="Verdana">Ley de impulso al proceso de masificación del gas natural</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00770</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">25/01/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/0c7e5f96d57d30b405257990005e792b/$FILE/PL00770250112.pdf"><b><font size="1" face="Verdana">Ley que declara de necesidad pública e interés nacional la masificación del consumo del gas natural y la ejecución de proyectos de infraestructura de transporte y distribución</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01365</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">28/07/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/14efef5ea189d0b905257a4b007a7a23/$FILE/01365280712.pdf"><b><font size="1" face="Verdana">Ley que dicta disposiciones a fin de promover la masificación del gas natural</font></b></a></td></tr>
-</table>
-<br>
-<b><font size="1">Documentación Anexa</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/06/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/26c22d2579f8a8e605257ae0005acb78/$FILE/00584PL05062013.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso de la Ley 29969</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">19/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/de81c927f1a6e92b05257b81004edbd3/$FILE/BAU0058414122012.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley revisada por el Presidente de la Comisión de Energía y Minas</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257ACD005CF92B/$FILE/PLO-2012-22F.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">27/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc02_2011_2.nsf/d99575da99ebfbe305256f2e006d1cf0/1881d58b9af4689205257bc7006c6894/$FILE/CDRGLMGE01365271112.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Descentralización, Regionalización, Gobiernos Locales y Modernización de la Gestión del Estado</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/5aced6668952980905257ab500553e46/$FILE/OF-135-2012-2013-CDRGLMGE-CR.PDF"><b><font size="1" face="Verdana">Oficio N° 135-2012-2013-CDRGLMGE-CR, solicita que no se exonere del estudio y dictamen de la Comisión de Descentralización, Regionalización, Gobiernos Locales y Modernización de la Gestión del Estado</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">09/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/6710af15cad42df805257abb006ce86e/$FILE/Oficio%20247.pdf"><b><font size="1" face="Verdana">Oficio N° 247-2012-PCM-DM  solicita priorizar los proyectos remitidos  por el Poder Ejecutivo</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/aa982fdeeb5ffaf805257aad00836d7c/$FILE/OF-175-2012-JRC-CR.pdf"><b><font size="1" face="Verdana">Oficio N° 175-2012-JRC-CR, Congresista J. Rimarachín Cabrera solicita retirar su firma del dictamen de la Comisión de Energía y Minas recaído en el proyecto de ley 01365</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">31/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/358d0ec5deb2d33505257aa80069939f/$FILE/Oficio%20266-2012-2013-CEM-CR.PDF"><b><font size="1" face="Verdana">Oficio 266-2012-2013-CEM-CR, solicita inclusión de dictamen en la agenda del Pleno</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">19/10/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/c978e270036d10fe05257b810050d872/$FILE/Oficio%20255.pdf"><b><font size="1" face="Verdana">Oficio N° 255-2012-2013-CEM/CR, Presidente de la Comisión de Energía y Minas solicita subsanar error material en la página 7 del dictamen</font></b></a></td></tr>
-</table>
-<br>
-
-</div> 
-</td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
-
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
-<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
-<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
-</table>
-</td></tr>
-</table>
-</td></tr>
-</table>
-
-<input name="NombreDelEstado" type="hidden" value="Si">
-<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
-<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
-<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
-<input name="IdO" type="hidden" value="B2FD6EF513A974570525797D00081B90">
-<input name="Fecha_1" type="hidden" value="">
-<input name="nombre" type="hidden" value="">
-<input name="fechasign" type="hidden" value="">
-<input name="publi" type="hidden" value="">
-<input name="fechapub" type="hidden" value="">
-<input name="fecha" type="hidden" value="">
-<input name="dia" type="hidden" value="">
-<input name="modi" type="hidden" value="08/19/2013 10:04:58 AM">
-<input name="estado" type="hidden" value="">
-<input name="parlamento" type="hidden" value="2011-2016">
-<input name="Periodo" type="hidden" value="">
-<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/EXPVIRT_2011.nsf/vf07web/B2FD6EF513A974570525797D00081B90?opendocument">
-<input name="tesauro" type="hidden" value="">
-<input name="nivel1" type="hidden" value="Proyecto de Ley">
-<input name="titulo" type="hidden" value="Ley que dicta Disposiciones a fin de promover la masificación de Gas Natural">
-<input name="numexp" type="hidden" value="00710">
-<input name="num" type="hidden" value="">
-<input name="nivel2" type="hidden" value="">
-<input name="numley" type="hidden" value="">
-<input name="control2" type="hidden" value="">
-<input name="control21" type="hidden" value="">
-<input name="control22" type="hidden" value="">
-<input name="control" type="hidden" value="No">
-<input name="control11" type="hidden" value="">
-<input name="control12" type="hidden" value="">
-<input name="control13" type="hidden" value="">
-<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
-<input name="bd2" type="hidden" value="Sicr/TraDocEstProc/EXPVIRT_2011.nsf">
-<input name="servidor" type="hidden" value="W2KLEG01">
-<input name="usuario" type="hidden" value="Anonymous">
-<input name="edita" type="hidden" value="0">
-<input name="asig" type="hidden" value="0">
-<input name="logregistro" type="hidden" value=""></form>
-</body>
-</html>

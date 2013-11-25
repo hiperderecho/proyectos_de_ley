@@ -1,173 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<title>Expedientes Virtuales</title>
-<script language="JavaScript" type="text/javascript">
-<!-- 
-function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t) {
-  var returnValue = false;
-  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00583?OpenDocument&Click=" + v;
-  if (o.href != null) {
-    o.href = url;
-    returnValue = true;
-  } else {
-    if (t == null)
-      t = document._domino_target;
-    window.open(url, t);
-  }
-  return returnValue;
-}
-// -->
-</script>
-</head>
-<body text="#000000" bgcolor="#FFFFFF">
-
-<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
-<! here starts the portal code>
-<style>
-<!--
-a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
-a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
--->
-</style>
-<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
-</head>
-<body>
-<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="677" colspan="2">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-</table>
-</td></tr>
-</table>
-<br>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="552">
-<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
-<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
-<div align="center"><b><font size="2" face="Verdana">LEY QUE MODIFICA EL ARTÍCULO 99 DE LA LEY 28611, LEY GENERAL DEL AMBIENTE, E INCORPORA LOS PÁRAMOS Y JALCAS AL CONJUNTO DE ECOSISTEMAS FRÁGILES</font></b><br>
-<br>
-<b><font size="2" face="Verdana">Ley N° 29895</font></b><br>
-</div><br>
-
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/07/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/2100aa4a1004891f05257a33004c5214/$FILE/29895.-.pdf"><b><font size="1" face="Verdana">Publicación de la Ley 29895</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">18/06/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/40c5dca0297bad0605257a21007c352b/$FILE/AU00003180612.PDF"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/06/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/6d535d6702be907205257a1e0058c58c/$FILE/ESV0000307062012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Exoneración de segunda votación</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/06/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/bf57cda410ee63a005257a1e0058a802/$FILE/AV0000307062012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Primera Votación</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/06/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/3ea29aff34287b0205257a1600762a9b/$FILE/AJP00003070612.pdf"><b><font size="1" face="Verdana">Junta de Portavoces - Ampliación de agenda</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">16/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/ab284dda42cbbd8905257a010051cbc7/$FILE/00101DC01MAY160512.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión Agraria  sobre los proyectos de ley 101, 119, 209, 321, 371 y 531 (No aprobación)</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">19/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/cf76a5af8aeaa1b1052579c60056ea75/$FILE/00003DC19MAY190312.-.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Pueblos Andinos, Amazónicos y Afroperuanos, Ambiente y Ecología</font></b></a></td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
-<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
-<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00003</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">03/08/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/243cef88a2bb15bf052578e10073154c/$FILE/00003.pdf"><b><font size="1" face="Verdana">Ley Gestión del Páramo o Jalca</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00119</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">31/08/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/dd6d6be770497d59052578fd00707104/$FILE/PL00119310811.pdf"><b><font size="1" face="Verdana">Ley que declara de interés nacional y necesidad pública la conservación y protección de los páramos o jalca y los bosques de neblina en los territorios de las regiones de Piura y Cajamarca</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00583</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">02/12/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/3485c001a3d64efc0525795a005efab6/$FILE/PL00583021211.-.pdf"><b><font size="1" face="Verdana">Ley que declara de interés nacional y de necesidad pública establecer como zona reservada los páramos y bosques húmedos de montaña ubicados en los departamentos de Piura y Cajamarca</font></b></a></td></tr>
-</table>
-<br>
-<b><font size="1">Documentación Anexa</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">02/01/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/00a23c1676c3b28c05257a36005a83af/$FILE/00003PL02012013.-.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso de la Ley 29895</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">11/06/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/d80b1c738044da9805257ae700674ad0/$FILE/BA00003110612..pdf"><b><font size="1" face="Verdana">Autógrafa de Ley revisada por el Presidente de la Comisión de Pueblos Andinos, Amazónicos y Afroperuanos, Ambiente y Ecología</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">07/06/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257A17000DE20F/$FILE/SLO-2011-19A.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/d3c5a8b2bbe07e1205257ae70069f0c0/$FILE/Oficio%2001032.pdf"><b><font size="1" face="Verdana">Oficio N° 01032-2011-2012/DC-LHN-CR- solicita que dictamen se priorice en la agenda </font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">16/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/9a5e5f2db54793ad05257bb1005169bd/$FILE/TSCA160512.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión Agraria</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/66c2e4911883686005257aed0066a620/$FILE/OF536100512.pdf"><b><font size="1" face="Verdana">Oficio N° 536-2011-2012/TZB-CR, congresista T. Zamudio Briceño solicita adherirse al proyecto de ley 00003</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">19/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/4decc80b32c2385505257ae7006a2ab1/$FILE/Oficio%201438.pdf"><b><font size="1" face="Verdana">Oficio N° 1438-2011-2012-CPAAAA-CR, solicita dispensa de dictamen de la Comisión Agraria y priorización en la agenda del proyecto de ley 00119</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a423578f110f0ca605257a4c0053da9e/$FILE/CPAAAAE00003130312.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Pueblos Andinos, Amazónicos y Afroperuanos, Ambiente y Ecología</font></b></a></td></tr>
-</table>
-<br>
-
-</div> 
-</td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
-
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
-<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
-<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
-</table>
-</td></tr>
-</table>
-</td></tr>
-</table>
-
-<input name="NombreDelEstado" type="hidden" value="Si">
-<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
-<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
-<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
-<input name="IdO" type="hidden" value="DC8F4B5023886D550525795A0060D77B">
-<input name="Fecha_1" type="hidden" value="">
-<input name="nombre" type="hidden" value="">
-<input name="fechasign" type="hidden" value="">
-<input name="publi" type="hidden" value="">
-<input name="fechapub" type="hidden" value="">
-<input name="fecha" type="hidden" value="">
-<input name="dia" type="hidden" value="">
-<input name="modi" type="hidden" value="01/09/2013 10:28:33 AM">
-<input name="estado" type="hidden" value="">
-<input name="parlamento" type="hidden" value="2011-2016">
-<input name="Periodo" type="hidden" value="">
-<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/EXPVIRT_2011.nsf/vf07web/DC8F4B5023886D550525795A0060D77B?opendocument">
-<input name="tesauro" type="hidden" value="">
-<input name="nivel1" type="hidden" value="Proyecto de Ley">
-<input name="titulo" type="hidden" value="Ley que proponen la intangibilidad, conservación y protección de determinadas zonas">
-<input name="numexp" type="hidden" value="00583">
-<input name="num" type="hidden" value="00583">
-<input name="nivel2" type="hidden" value="">
-<input name="numley" type="hidden" value="">
-<input name="control2" type="hidden" value="">
-<input name="control21" type="hidden" value="">
-<input name="control22" type="hidden" value="">
-<input name="control" type="hidden" value="No">
-<input name="control11" type="hidden" value="">
-<input name="control12" type="hidden" value="">
-<input name="control13" type="hidden" value="">
-<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
-<input name="bd2" type="hidden" value="Sicr/TraDocEstProc/EXPVIRT_2011.nsf">
-<input name="servidor" type="hidden" value="W2KLEG01">
-<input name="usuario" type="hidden" value="Anonymous">
-<input name="edita" type="hidden" value="0">
-<input name="asig" type="hidden" value="0">
-<input name="logregistro" type="hidden" value=""></form>
-</body>
-</html>

@@ -1,198 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<title>Expedientes Virtuales</title>
-<script language="JavaScript" type="text/javascript">
-<!-- 
-function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t) {
-  var returnValue = false;
-  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/00367?OpenDocument&Click=" + v;
-  if (o.href != null) {
-    o.href = url;
-    returnValue = true;
-  } else {
-    if (t == null)
-      t = document._domino_target;
-    window.open(url, t);
-  }
-  return returnValue;
-}
-// -->
-</script>
-</head>
-<body text="#000000" bgcolor="#FFFFFF">
-
-<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
-<! here starts the portal code>
-<style>
-<!--
-a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
-a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
--->
-</style>
-<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
-</head>
-<body>
-<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="677" colspan="2">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-</table>
-</td></tr>
-</table>
-<br>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="552">
-<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
-<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
-<div align="center"><b><u><font size="2" face="Verdana">Expediente del Proyecto de Ley 00367</font></u></b><br>
-<br>
-<br>
-<b><font size="2" face="Verdana">LEY QUE ESTABLECE LA ELIMINACIÓN PROGRESIVA DEL RÉGIMEN ESPECIAL DEL DECRETO LEGISLATIVO 1057 Y OTORGA DERECHOS LABORALES</font></b>
-<p><b><font size="2" face="Verdana">Ley N° 29849</font></b><br>
-</div><br>
-
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/04/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/33fed5c372a62a8a052579db00528e5a/$FILE/L29849.pdf"><b><font size="1" face="Verdana">Publicación de la Ley 29849</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/53648643edea42b0052579c80003eb28/$FILE/AU00086200312..pdf"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/89da5530ac694cb605257a0c00731187/$FILE/ESV0008615032012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Exoneración de la segunda votación - Dictamen en Minoría</font></b></a><b><font size="1" color="#0000FF" face="Verdana"> </font></b></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/0be647779595e17b05257a0c0072af2e/$FILE/AV0008615032012.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Primera votación - Dictamen en Minoría </font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/b90cb23c142d4b56052579c30004bb23/$FILE/TS00086150312.pdf"><b><font size="1" face="Verdana">Texto sustitutorio presentado por el Vicepresidente de la Comisión de Trabajo y Seguridad Social</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/723210be1ee57c5205257a0c0072e5de/$FILE/AV0008615032012.-.pdf"><b><font size="1" face="Verdana">Asistencia y votación - Dictamen en Mayoría (Rechazado</font></b></a><b><font size="1" color="#0000FF" face="Verdana">)</font></b></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/303b68e0e1dc6792052579c20076e44b/$FILE/00086DC22MIN150312.-.pdf"><b><font size="1" face="Verdana">Dictamen en Minoría de la Comisión de Trabajo y Seguridad Social</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/12/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/1baf6172ee5dc6b905257a1400589634/$FILE/DJP00086051211.pdf"><b><font size="1" face="Verdana">Decreto de Junta de Portavoces - Exoneración del plazo de publicación del dictamen de la Comisión de Trabajo y Seguridad Social, y la ampliación de agenda</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01/12/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/6569de352ae57b22052579590071711c/$FILE/00086DC22MAY011211.-.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Trabajo y Seguridad Social</font></b></a></td></tr>
-</table>
-<br>
-<br>
-<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
-<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
-<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00086</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/08/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/262dbcce3e5477bf052578f5000888d1/$FILE/PL00086220811...pdf"><b><font size="1" face="Verdana">Ley que modifica el Decreto Legislativo 1057</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00237</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/09/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/0cf13b06626ead330525791100798e7c/$FILE/PL00237200911.pdf"><b><font size="1" face="Verdana">Ley que deroga el Decreto Legislativo 1057 que regula el Régimen Especial de Contratación Administrativa de Servicios</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00367</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/10/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/c01eb70ebad8ce7305257929005776f8/$FILE/PL00367131011.pdf"><b><font size="1" face="Verdana">Ley que incorpora a los Servidores de Salud que hayan cumplido 2 años de contrato Decreto Legislativo 1057 - CAS al régimen laboral del Decreto Legislativo 276 o Decreto Legislativo 728 según corresponda</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00468</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">03/11/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/bf570cb360c9f1380525793d007bf5ca/$FILE/PL00468031111.pdf"><b><font size="1" face="Verdana">Derogación del Decreto Legislativo 1057 que regula el Régimen Especial de Contratación Administrativa de Servicios, de su reglamento D.S. 075-2008-PCM</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00514</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/11/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/af2ff4b82e11414405257945000249f3/$FILE/PL00514101111.-.pdf"><b><font size="1" face="Verdana">Ley que deroga el Decreto Legislativo 1057, que creó el Régimen Especial de Contratación Administrativa de Servicios - CAS</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00573</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/11/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/a3802cf911a372fa05257959000411c6/$FILE/PL00573301111.-.pdf"><b><font size="1" face="Verdana">Ley que autoriza el nombramiento del personal contratado profesional y no profesional que se encuentre prestando servicios mediante la modalidad de Contratación Administrativa de Servicios (CAS) en entidades del Estado</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00666</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">29/12/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/be68adfea28d33bd05257976004f91d3/$FILE/PL0066629122011-..pdf"><b><font size="1" face="Verdana">Ley que otorga derechos laborales y establece la eliminación del Régimen Especial de Contratación Administrativa de Servicios</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00676</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">04/01/2012</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/5431f8552f42ab230525797c0008bd82/$FILE/PL00676412012.pdf"><b><font size="1" face="Verdana">Ley que deroga el Decreto Legislativo 1057, referido a Régimen Especial de Contratación Administrativa de Servicios (CAS)</font></b></a></td></tr>
-</table>
-<br>
-<br>
-<b><font size="1">Documentación Anexa</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">29/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/1fa9adcdca0a9574052579db00535b69/$FILE/00086PL29052012.-.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso de la Ley 29849</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">20/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/fbe1417c7c671d5705257a0c0070918c/$FILE/Oficio%2030.pdf"><b><font size="1" face="Verdana">Opinión del Sindicato de Trabajadores de la Universidad Nacional Mayor de San Marcos </font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">19/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/7d52e3c7449f027205257a0c00702869/$FILE/BAU0008619032012.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley revisada por el Vicepresidente de la Comisión de Trabajo y Seguridad Social</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE9052579C300172213/$FILE/SLO-2011-2.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/9b3bbe5d31f81e7a05257a0c00727a5f/$FILE/AVCP0008615032012.pdf"><b><font size="1" face="Verdana">Cuestión previa - Para que se postergue el debate (Rechazado)</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/b3a526dc58d4e13e05257a140060af11/$FILE/OFV00086150312..pdf"><b><font size="1" face="Verdana">Oficio s/n, congresistas Gastañadui Ramírez, Apaza Condori, Apaza Ordóñez y Portugal Catacora solicitan retiro de firma de dictamen</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/03/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/348b5dfb8b6d09e005257a14005df939/$FILE/OFV00086150312.pdf"><b><font size="1" face="Verdana">Oficio s/n, congresista Cecilia Chacón de Vettori solicita postergar debate del dictamen</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/22b3ca8d500fedcb05257a140062213d/$FILE/OFV00086130112.pdf"><b><font size="1" face="Verdana">Oficio N° 1005-2011-2012-CTSS/CR, remite para su acumulación el proyecto de ley 00666</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">09/01/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/7208b81f11d79f6d05257a0d004f59e8/$FILE/Documento.pdf"><b><font size="1" face="Verdana">Opinión de la Central Unitaria de Trabajadores del Perú</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/12/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/93c0da0a41ccc11805257a14005d5aa8/$FILE/OFV00086051211.pdf"><b><font size="1" face="Verdana">Oficio N° 744-2011-2012-CT/CR, solicita dispensa de publicación y prioridad en el debate</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/12/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/4f2eed84b3b7fc4605257a14006df4eb/$FILE/OFV00514051211.pdf"><b><font size="1" face="Verdana">Oficio N° 0060-2011-FCCL/CR, congresista Francisco Ccama Layme se adhiere al proyecto de ley 00514</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/11/11</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/0c35bffbc62827430525797c004225c6/$FILE/CTSS00086301111.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Trabajo y Seguridad Social</font></b></a></td></tr>
-</table>
-<div align="center">
-</div> 
-</div></td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
-
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
-<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
-<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
-</table>
-</td></tr>
-</table>
-</td></tr>
-</table>
-
-<input name="NombreDelEstado" type="hidden" value="Si">
-<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
-<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
-<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
-<input name="IdO" type="hidden" value="7C68021DCAA52E41052579290053CC38">
-<input name="Fecha_1" type="hidden" value="">
-<input name="nombre" type="hidden" value="">
-<input name="fechasign" type="hidden" value="">
-<input name="publi" type="hidden" value="">
-<input name="fechapub" type="hidden" value="">
-<input name="fecha" type="hidden" value="">
-<input name="dia" type="hidden" value="">
-<input name="modi" type="hidden" value="05/29/2012 10:21:53 AM">
-<input name="estado" type="hidden" value="">
-<input name="parlamento" type="hidden" value="2011-2016">
-<input name="Periodo" type="hidden" value="">
-<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Expvirt_2011.nsf/vf07web/7C68021DCAA52E41052579290053CC38?opendocument">
-<input name="tesauro" type="hidden" value="">
-<input name="nivel1" type="hidden" value="Proyecto de Ley">
-<input name="titulo" type="hidden" value="Propone derogar el decreto Legislativo 1057, que regula el régimen de contratación administrativa de servicios CAS">
-<input name="numexp" type="hidden" value="00367">
-<input name="num" type="hidden" value="">
-<input name="nivel2" type="hidden" value="">
-<input name="numley" type="hidden" value="">
-<input name="control2" type="hidden" value="">
-<input name="control21" type="hidden" value="">
-<input name="control22" type="hidden" value="">
-<input name="control" type="hidden" value="No">
-<input name="control11" type="hidden" value="">
-<input name="control12" type="hidden" value="">
-<input name="control13" type="hidden" value="">
-<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
-<input name="bd2" type="hidden" value="sicr/tradocestproc/Expvirt_2011.nsf">
-<input name="servidor" type="hidden" value="W2KLEG01">
-<input name="usuario" type="hidden" value="Anonymous">
-<input name="edita" type="hidden" value="0">
-<input name="asig" type="hidden" value="0">
-<input name="logregistro" type="hidden" value=""></form>
-</body>
-</html>

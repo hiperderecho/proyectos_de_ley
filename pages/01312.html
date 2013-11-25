@@ -1,161 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<title>Expedientes Virtuales</title>
-<script language="JavaScript" type="text/javascript">
-<!-- 
-function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t) {
-  var returnValue = false;
-  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/01312?OpenDocument&Click=" + v;
-  if (o.href != null) {
-    o.href = url;
-    returnValue = true;
-  } else {
-    if (t == null)
-      t = document._domino_target;
-    window.open(url, t);
-  }
-  return returnValue;
-}
-// -->
-</script>
-</head>
-<body text="#000000" bgcolor="#FFFFFF">
-
-<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
-<! here starts the portal code>
-<style>
-<!--
-a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
-a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
--->
-</style>
-<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
-</head>
-<body>
-<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="677" colspan="2">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-</table>
-</td></tr>
-</table>
-<br>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="552">
-<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
-<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
-<div align="center"><b><font size="2" face="Verdana">LEY QUE AUTORIZA AL GOBIERNO REGIONAL DEL DEPARTAMENTO DE MADRE DE DIOS PARA LA CONTRATACIÓN DE DOCENTES, AUXILIARES DE EDUCACIÓN Y PERSONAL ADMINISTRATIVO, Y DICTA OTRAS MEDIDAS</font></b><br>
-<br>
-<b><font size="2" face="Verdana">Ley  N° 29913</font></b><br>
-</div><br>
-
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">06/09/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/274269ac75b3621505257a71005e3bd7/$FILE/L29913.pdf"><b><font size="1" face="Verdana">Publicación de la Ley 29913</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/09/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/9d08d57f5124b49605257a7100038eda/$FILE/AU01312050912.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">23/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/c3fcacc74bbdd37405257a7600715eb6/$FILE/AV0131223082012.pdf"><b><font size="1" face="Verdana">Asistencia y votación</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">23/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/284c683615b2c78305257a6300582092/$FILE/AJP01312230812.pdf"><b><font size="1" face="Verdana">Junta de Portavoces - Exoneración de dictamen de la Comisión de Educación, Juventud y Deporte y la exoneración del plazo de publicación del dictamen de la Comisión de Presupuesto y Cuenta General de la República en el Portal del Congreso</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">22/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/44c9b0934d7dd8a405257a6200716f80/$FILE/01312DC17MAY220812.-.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Presupuesto y Cuenta General de la República</font></b></a></td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
-<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
-<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01312</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">04/07/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/5b90ab505ec2961405257a310060c80e/$FILE/PL01312040712.PDF"><b><font size="1" face="Verdana">Ley que autoriza al Gobierno Regional de Madre de Dios para la contratación de docentes, auxiliares de educación y personal administrativo</font></b></a></td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Documentación Anexa</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">21/02/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/eb09a1b7365fc98e05257a71005e64f6/$FILE/01312PL21022013.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso de la Ley 29913</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">29/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a4c01ff64c41693e05257b19006cc511/$FILE/BAU0131229082012.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley revisada por el Presidente de la Comisión de Presupuesto y Cuenta General de la República</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">23/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257A640057A840/$FILE/PLO-2012-7.pdf"><b><font size="1" face="Verdana">Diario de los Debates - Sesión del Pleno</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">21/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a7052cea8a9e4eb305257bb200527039/$FILE/TSCPCGR210812.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Presupuesto y Cuenta General de la República</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/08/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/953143e8c90b479105257b19006eb637/$FILE/Oficio%20164.pdf"><b><font size="1" face="Verdana">Oficio N° 164-2012-EARR-CR, solicita la exoneración del trámite de envío a comisión </font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">16/07/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/a6cf72ad012a16d805257b19006e84f1/$FILE/Oficio%20146.pdf"><b><font size="1" face="Verdana">Oficio N° 146-2012-EARR-CR, solicita inclusión en la agenda de la Comisión   Permanente</font></b></a></td></tr>
-</table>
-<br>
-
-</div> 
-</td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
-
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
-<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
-<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
-</table>
-</td></tr>
-</table>
-</td></tr>
-</table>
-
-<input name="NombreDelEstado" type="hidden" value="Si">
-<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
-<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
-<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
-<input name="IdO" type="hidden" value="8AD99A57387FFC3F05257A31005D335F">
-<input name="Fecha_1" type="hidden" value="">
-<input name="nombre" type="hidden" value="">
-<input name="fechasign" type="hidden" value="">
-<input name="publi" type="hidden" value="">
-<input name="fechapub" type="hidden" value="">
-<input name="fecha" type="hidden" value="">
-<input name="dia" type="hidden" value="">
-<input name="modi" type="hidden" value="11/08/2013 11:57:57 AM">
-<input name="estado" type="hidden" value="">
-<input name="parlamento" type="hidden" value="2011-2016">
-<input name="Periodo" type="hidden" value="">
-<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Expvirt_2011.nsf/vf07web/8AD99A57387FFC3F05257A31005D335F?opendocument">
-<input name="tesauro" type="hidden" value="">
-<input name="nivel1" type="hidden" value="Proyecto de Ley">
-<input name="titulo" type="hidden" value="Ley que autoriza al Gobierno Regional del Departamento de Madre de Dios para la contratación de docentes, auxiliares de educación y personal administrativo, y dicta otras medidas">
-<input name="numexp" type="hidden" value="01312">
-<input name="num" type="hidden" value="01312">
-<input name="nivel2" type="hidden" value="Ley">
-<input name="numley" type="hidden" value="29913">
-<input name="control2" type="hidden" value="Si">
-<input name="control21" type="hidden" value="08/11/2013">
-<input name="control22" type="hidden" value="Pepe Ludmir Gomero Alvarado">
-<input name="control" type="hidden" value="Si">
-<input name="control11" type="hidden" value="08/11/2013">
-<input name="control12" type="hidden" value="Julian Saul Ramos Paulett">
-<input name="control13" type="hidden" value="">
-<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
-<input name="bd2" type="hidden" value="Sicr/TraDocEstProc/Expvirt_2011.nsf">
-<input name="servidor" type="hidden" value="W2KLEG01">
-<input name="usuario" type="hidden" value="Anonymous">
-<input name="edita" type="hidden" value="0">
-<input name="asig" type="hidden" value="0">
-<input name="logregistro" type="hidden" value=""></form>
-</body>
-</html>

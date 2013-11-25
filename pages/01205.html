@@ -1,175 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<title>Expedientes Virtuales</title>
-<script language="JavaScript" type="text/javascript">
-<!-- 
-function opinio(){num = document.forms[0].numexp.value;window.open( "http://www2.congreso.gob.pe/Sicr/ParCiudadana/Foro_pvp.nsf/RepOpiweb04?OpenForm&Db=" + num + "&View=yyyy&Col=zzzzz" ,"id3" ,"top=150,left=250, toolbar=no,location=no,scrollbars=yes,resize=yes,directories=no,height=600,width=1050")}function abredoc(a){path=location.href.toLowerCase();nsfPos=path.indexOf('.nsf');db=path.substring(0,nsfPos+5);filename = a window.open(filename,'dos','top=50,left=340, toolbar=no,location=no,scrollbars=yes,resizable=yes,directories=no,height=690,width=750')}function mapCat(a){window.open(a,'ventana','title="Documento de Dictamen", top=30,left=30, toolbar=no,location=no,scrollbars=yes,directories=no,height=500,width=740')}function derecha(e) {if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){alert('Botón derecho inhabilitado')return false;}else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){alert('Botón derecho inhabilitado')}}function jsPrompt(Style,Title,Prompt,DefaultChoice,ChoiceList,FieldName)/*Author:			Peter Presnell (Knowledge Horizons)Date Written:	5-Nov-2001Description:	Simulate the @Prompt function for a Web client.	Parameters	Style				The type of prompt to be displayed	Title				The text you want displayed in the dialog box's title bar	Prompt			The text you want displayed within the dialog box	DefaultChoice	The value that will be used as the default value for the user's input.						The input section of the dialog box will be primed with the value; the user can either						accept it by selecting OK or replace it with another value.	ChoiceList		The values that you want displayed in the dialog box's list box. 						The user can select one of these values as the input	FieldName		The name of the field into which the selected option is returned (must be on the form)*/{	path = location.pathname.toLowerCase();	dbpos = path.indexOf('.nsf')+4	db = path.substring(1,dbpos);	if (ChoiceList)	{		if (Style.indexOf(":") > 0)		{			if (Style.indexOf("[NoSort]") < 0)			{				ChoiceArray = ChoiceList.split(",");				ChoiceArray.sort();				ChoiceList = ChoiceArray.join(",");			}			Style = Style.substr(0,Style.indexOf(":"))		}		else		{			ChoiceArray = ChoiceList.split(",");			ChoiceArray.sort();			ChoiceList = ChoiceArray.join(",");		}	}	switch (Style)	{	case "[OK]":		alert(Prompt);		return 1;		break	case "[YesNo]":		width = Math.max(Math.min(5 + Prompt.length*0.4,50),12);		result = window.showModalDialog("/" + db + "/jsPromptYesNo?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[YesNoCancel]":		width = Math.max(Math.min(5 + Prompt.length*0.4,70),18);		result = window.showModalDialog("/" + db + "/jsPromptYesNoCancel?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:120px; dialogWidth:" + width);		return result		break	case "[OKCancelEdit]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEdit?OpenForm&Title="+Title,Prompt+";"+DefaultChoice,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelList]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelList?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:250px; dialogWidth:" + width);		return result		break	case "[OKCancelCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:130px; dialogWidth:" + width);		return result		break	case "[OKCancelEditCombo]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelEditCombo?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:150px; dialogWidth:" + width);		return result		break	case "[OKCancelListMult]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptOKCancelListMult?OpenForm&Title="+Title,Prompt+";"+DefaultChoice+";"+ChoiceList,"status:no; help:no; dialogHeight:350px; dialogWidth:" + width);		return result		break	case "[Password]":		width = 18;		result = window.showModalDialog("/" + db + "/jsPromptPassword?OpenForm&Title="+Title,Prompt,"status:no; help:no; dialogHeight:210px; dialogWidth:" + width);		return result		break	}}
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t) {
-  var returnValue = false;
-  var url="/sicr/tradocestproc/Expvirt_2011.nsf/visbusqptramdoc/01205?OpenDocument&Click=" + v;
-  if (o.href != null) {
-    o.href = url;
-    returnValue = true;
-  } else {
-    if (t == null)
-      t = document._domino_target;
-    window.open(url, t);
-  }
-  return returnValue;
-}
-// -->
-</script>
-</head>
-<body text="#000000" bgcolor="#FFFFFF">
-
-<form action=""><body topmargin="5" leftmargin="0" marginheight="5" marginwidth="5">
-<! here starts the portal code>
-<style>
-<!--
-a:visited    { font-family: Verdana; font-weight: bold; font-size: 7.5pt; text-decoration: none; color: #000066 }
-a:hover      { font-family: Verdana; font-weight: bold;font-size: 7.5pt; text-decoration: none; color: #ff6600 }
--->
-</style>
-<!--link href="http://www.congreso.gob.pe/proyectos_ley/stylesheets/estilos.css" rel="stylesheet" type="text/css" /-->
-</head>
-<body>
-<table height="1" cellspacing="1" border="0" cellpadding="5"  bordercolor="#00000" border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="677" colspan="2">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="140"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="93"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="85"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="94"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="95"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-</table>
-</td></tr>
-</table>
-<br>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="552"><div align="center"><img src="/sicr/tradocestproc/Expvirt_2011.nsf/e97bb2310d7f871705257b870000d278/$Body/1.4532?OpenElement&amp;FieldElemFormat=jpg" width="552" height="84"></div></td><td width="196"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="552">
-<table height="1" cellspacing="1" border="1" cellpadding="5"  bordercolor="#00000" width="100%" border="1">
-<tr valign="top"><td width="100%" bgcolor="#FFFFFF"><div align="justify">
-<div align="center"><b><u><font size="2" face="Verdana">Expediente del Proyecto de Ley 01205</font></u></b><br>
-<br>
-<br>
-<br>
-<b><font size="2" face="Verdana">LEY QUE ESTABLECE MEDIDAS EXTRAORDINARIAS PARA EL PERSONAL DOCENTE Y ADMINISTRATIVO DE INSTITUCIONES EDUCATIVAS PÚBLICAS Y PRIVADAS, IMPLICADO EN DELITOS DE TERRORISMO, APOLOGÍA DEL TERRORISMO, DELITOS DE VIOLACIÓN DE LA LIBERTAD SEXUAL Y DELITO DE TRAFICO ILÍCITO DE DROGAS, CREA EL REGISTRO DE PERSONAS CONDENADAS O PROCESADAS POR DELITO DE TERRORISMO, APOLOGÍA DEL TERRORISMO,DELITOS DE VIOLACIÓN DE LA LIBERTAD SEXUAL Y TRAFICO ILÍCITO DE DROGAS Y MODIFICA LOS ARTÍCULOS 36 Y 38 DEL CÓDIGO PENAL</font></b>
-<p><br>
-<b><font size="2" face="Verdana">Ley 29988</font></b><br>
-<br>
-</div><br>
-
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><th width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha </font></b></div></th><th width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></th></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">18/01/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/c6410607f6fd104e05257af7006a93ca/$FILE/L29988.pdf"><b><font size="1" face="Verdana">Publicación de la ley 29988</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">26/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/01d29675a11e86a605257ae0006de71d/$FILE/AU00436261212.pdf"><b><font size="1" face="Verdana">Autógrafa de Ley remitida al Poder Ejecutivo</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">05/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/42331f0efb978f4305257acc0018818d/$FILE/00436DC15MAY051212.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Justicia y Derechos Humanos</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">17/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/ca94bdb098b5cea405257a02004b027b/$FILE/00436DC10MAY170512.pdf"><b><font size="1" face="Verdana">Dictamen de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
-</table>
-<br>
-<br>
-<b><font size="1" face="Verdana">Proyectos de Ley</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Número de </font></b><br>
-<b><font size="1" face="Verdana">Proyecto</font></b></div></td><td width="19%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha de</font></b><br>
-<b><font size="1" face="Verdana">Presentación</font></b></div></td><td width="61%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">00436</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">02/11/11</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/70c9d6ff06360a200525793d00585ce0/$FILE/PL00436021111.pdf"><b><font size="1" face="Verdana">Ley que regula medidas extraordinarias para el personal docente o administrativo implicado en delitos de apología del terrorismo, terrorismo o sus formas agravadas</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01018</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/04/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/55847b4931353485052579e00003afee/$FILE/PL01018130412.PDF"><b><font size="1" face="Verdana">Ley que regula medidas extraordinarias para el personal docente y administrativo del sector educación implicado en delitos de terrorismo y sus formas agravadas; y, en delitos de violación de la libertad sexual</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01205</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">31/05/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/74d388eb8247bed305257a0f0082c511/$FILE/PL01205310512.pdf"><b><font size="1" face="Verdana">Ley que modifica los artículos 36 y 38 del Decreto Legislativo 635, que aprueba el Código Penal</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01341</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">19/07/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/499519d3e4bf64c305257a400055a185/$FILE/PL01341190712.PDF"><b><font size="1" face="Verdana">Ley que inhabilita por incapacidad definitiva los derechos políticos a los sentenciados por delito de terrorismo</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01427</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">16/08/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/4635dfc6c8a9dd2205257a5c007f2a38/$FILE/PL01427160812.pdf"><b><font size="1" face="Verdana">Ley que prohíbe el ingreso o reingreso a la administración pública a personas condenadas por delitos contra la administración pública o terrorismo</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">01496</font></div></td><td width="19%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">10/09/12</font></div></td><td width="61%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/25b2131b69e22e3b05257a750059cbbe/$FILE/PL01496100912.PDF"><b><font size="1" face="Verdana">Proyecto de Ley que modifica el artículo 36, 38 y 173 del Código Penal y crea el Registro Especial de Autores de Delitos de Violación de Libertad Sexual</font></b></a></td></tr>
-</table>
-<br>
-<br>
-<b><font size="1">Documentación Anexa</font></b>
-<table height='1' cellspacing='1' border='1' cellpadding='5'  bordercolor='#00000' width="100%" border="1">
-<tr valign="top"><td width="20%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Fecha</font></b></div></td><td width="80%" bgcolor="#D0B1A1"><div align="center"><b><font size="1" face="Verdana">Título </font></b></div></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">21/01/13</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/ccb0f5a33ef1ff9405257afa006eaa18/$FILE/00436PL21012013.pdf"><b><font size="1" face="Verdana">Seguimiento del proceso de la ley 29988</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">13/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/DiarioDebates/Publicad.nsf/SesionesPleno/05256D6E0073DFE905257AD4006483D3/$FILE/PLO-2012-22H.pdf"><b><font size="1" face="Verdana">Diario de los debates - Sesión de Pleno</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">04/12/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://w2kleg02/Sicr/DiarioDebates/pubcomis.nsf/comisionesportal/05256EEE006FC0D805257AD2004A8F69"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Justicia y Derechos Humanos</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">30/11/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/d99575da99ebfbe305256f2e006d1cf0/36ce614bfc4c465f05257ac600705db9/$FILE/OF248301112.PDF"><b><font size="1" face="Verdana">Oficio 248-2012-2013/TZB-CR-01  solicita se agende el dictamen para su debate y aprobación de los siguientes proyectos 00436 y 01136</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">04/09/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/108ea6b0ed7428ea05257aec007d1fc0/$FILE/OF-067-2012-2013-CEJD-CR.pdf"><b><font size="1" face="Verdana">Oficio -067-2012-2013-CEJD-CR, solicitad prioridad en el proyecto 00436</font></b></a></td></tr>
-
-<tr valign="top"><td width="20%" bgcolor="#FFFFFF"><div align="center"><font size="1" face="Verdana">15/05/12</font></div></td><td width="80%" bgcolor="#FFFFFF"><a href="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Contdoc01_2011.nsf/0/6271bbc96ea596a905257a770057b803/$FILE/CEJD00436150512.pdf"><b><font size="1" face="Verdana">Transcripción de la sesión de la Comisión de Educación, Juventud y Deporte</font></b></a></td></tr>
-</table>
-
-</div> 
-</td></tr>
-</table>
-<br>
-<b><font size="1" face="Verdana">Fue</font></b><b><font size="1" color="#2F2F2F" face="Verdana">nte</font></b><font size="1" color="#2F2F2F" face="Verdana">: Área de Trámite Documentario. </font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Ela</font></b><b><font size="1" color="#2F2F2F" face="Verdana">borado</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> Grupo Funcional de Documentación Virtual</font><br>
-<b><font size="1" color="#2F2F2F" face="Verdana">Revisión y publicación</font></b><b><font size="1" color="#2F2F2F" face="Verdana">:</font></b><font size="1" color="#2F2F2F" face="Verdana"> </font><font size="1" color="#2F2F2F" face="Verdana">Grupo Funcional de Antecedentes Legislativos y Legislación Comparada</font><font size="1" color="#2F2F2F" face="Verdana">.</font></td><td width="196">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173"><br></td></tr>
-
-<tr valign="top"><td width="23"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="173">
-<table CELLSPACING='0'  cellpadding="5" border="1"  border="1">
-<tr valign="top"><td width="142" bgcolor="#FFFFFF" valign="middle"><div align="center"><a onclick="opinio()return false;" href=""><font size="1" face="Verdana">Opiniones Ciudadanas Recibidas</font></a><font size="1" color="#808080" face="Verdana">.</font></div></td></tr>
-</table>
-</td></tr>
-</table>
-</td></tr>
-</table>
-
-<input name="NombreDelEstado" type="hidden" value="Si">
-<input name="NombreDelFormulario" type="hidden" value="Actas y agendas">
-<input name="NombreDeLaBaseDeDatos" type="hidden" value="Registros de Expedientes">
-<input name="NombreDelPeriodoParlamentario" type="hidden" value="2006-2011">
-<input name="IdO" type="hidden" value="8E09A79FE89D3F0C05257A0F0082E097">
-<input name="Fecha_1" type="hidden" value="">
-<input name="nombre" type="hidden" value="">
-<input name="fechasign" type="hidden" value="">
-<input name="publi" type="hidden" value="">
-<input name="fechapub" type="hidden" value="">
-<input name="fecha" type="hidden" value="">
-<input name="dia" type="hidden" value="">
-<input name="modi" type="hidden" value="10/31/2013 04:06:05 PM">
-<input name="estado" type="hidden" value="">
-<input name="parlamento" type="hidden" value="2011-2016">
-<input name="Periodo" type="hidden" value="">
-<input name="ruta" type="hidden" value="http://www2.congreso.gob.pe/Sicr/TraDocEstProc/Expvirt_2011.nsf/vf07web/8E09A79FE89D3F0C05257A0F0082E097?opendocument">
-<input name="tesauro" type="hidden" value="">
-<input name="nivel1" type="hidden" value="Proyecto de Ley">
-<input name="titulo" type="hidden" value="Ley que establece medidas extraordinarias para el personal docente y administrativo de Instituciones educativas públicas y privadas, implicado en delitos de terrorismo, apologia del terrorismo, delitos de violación de la libertad sexual y delito de trafico ilicito de drogas, crea el registro de personas condenadas o procesadas por delito de terrorismo, apología del terrorismo,delitos de violación de la libertad sexual y trafico ilícito de drogas y modifica los artículos 36 y 38 del Código Penal">
-<input name="numexp" type="hidden" value="01205">
-<input name="num" type="hidden" value="">
-<input name="nivel2" type="hidden" value="">
-<input name="numley" type="hidden" value="">
-<input name="control2" type="hidden" value="">
-<input name="control21" type="hidden" value="">
-<input name="control22" type="hidden" value="">
-<input name="control" type="hidden" value="No">
-<input name="control11" type="hidden" value="">
-<input name="control12" type="hidden" value="">
-<input name="control13" type="hidden" value="">
-<input name="ultimoestado" type="hidden" value="Publicado El Peruano">
-<input name="bd2" type="hidden" value="Sicr/TraDocEstProc/Expvirt_2011.nsf">
-<input name="servidor" type="hidden" value="W2KLEG01">
-<input name="usuario" type="hidden" value="Anonymous">
-<input name="edita" type="hidden" value="0">
-<input name="asig" type="hidden" value="0">
-<input name="logregistro" type="hidden" value=""></form>
-</body>
-</html>

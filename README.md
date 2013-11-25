@@ -45,6 +45,7 @@ ya que no se ha actualizado recientemente.
   necesario que este archivo se llame ``base.html`` y tenga los siguientes
   campos:
 
+     * ``{% base_url %}``
      * ``{% titulo %}``
      * ``{% content %}``
 

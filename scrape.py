@@ -64,6 +64,8 @@ def generate_congresista_json():
         for item in res:
             to_data = {}
             if i in item['congresistas']: 
+                if 'id' in item:
+                    to_data['id'] = item['id']
                 if 'codigo' in item:
                     to_data['codigo'] = item['codigo']
                 if 'titulo' in item:
@@ -169,9 +171,9 @@ def prettify(item):
     out = ""
     out += "\n<div>\n"
     out += "<p>"
-    out += "<a href='http://" + config.base_url + "proyecto/" + item['codigo']
-    out += "' title='Permalink'>&para;</a> \n"
-    out += "<b>" + item['numero_proyecto'] + "</b>"
+    out += "<a href='http://" + config.base_url + "proyecto/" + str(item['id'])
+    out += "' title='Permalink'>"
+    out += "<b>" + item['numero_proyecto'] + "</b></a>"
     out += "<h4>" + item['titulo'] +  "</h4>\n"
     out += "<p>" + hiperlink_congre(item['congresistas']) + "</p>\n"
 
@@ -593,6 +595,8 @@ def main():
                     os.path.join(config.base_folder, "base.html"))
     shutil.copy2(os.path.join(config.current_folder, "jquery.bootpag.js"),
                     os.path.join(config.base_folder, "jquery.bootpag.js"))
+    shutil.copy2(os.path.join(config.current_folder, "current_tab.js"),
+                    os.path.join(config.base_folder, "current_tab.js"))
     shutil.copy2(os.path.join(config.current_folder, "highlighter.js"),
                     os.path.join(config.base_folder, "highlighter.js"))
     shutil.copy2(os.path.join(config.current_folder, ".htaccess"),

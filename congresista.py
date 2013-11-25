@@ -49,9 +49,9 @@ def prettify(item):
     out = ""
     out += "\n<div>\n"
     out += "<p>"
-    out += "<a href='http://" + config.base_url + "proyecto/" + item['codigo']
-    out += "' title='Permalink'>&para;</a> \n"
-    out += "<b>" + item['numero_proyecto'] + "</b>"
+    out += "<a href='http://" + config.base_url + "proyecto/" + str(item['id'])
+    out += "' title='Permalink'>"
+    out += "<b>" + item['numero_proyecto'] + "</b></a>"
     out += "<h4>" + item['titulo'] +  "</h4>\n"
     out += "<p>" + hiperlink_congre(item['congresistas']) + "</p>\n"
 

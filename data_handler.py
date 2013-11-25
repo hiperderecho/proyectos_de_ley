@@ -42,7 +42,7 @@ elif 'search' in data:
     keyword = data['search'].value
 
     db = dataset.connect("sqlite:///leyes.db")
-    query = "SELECT codigo, titulo, pdf_url, link_to_pdf FROM proyectos WHERE "
+    query = "SELECT id, codigo, titulo, pdf_url, link_to_pdf FROM proyectos WHERE "
     query += "titulo like '%" + keyword + "%' ORDER BY codigo DESC" 
     res = db.query(query)
     out = []
@@ -51,11 +51,12 @@ elif 'search' in data:
     print "Content-Type: application/json\n"
     print json.dumps(out)
 elif 'codigo' in data:
+    # This is not codigo, it is actually ID
     keyword = data['codigo'].value
 
     db = dataset.connect("sqlite:///leyes.db")
     table = db['proyectos']
-    res = table.find_one(codigo=keyword)
+    res = table.find_one(id=keyword)
     if res:
         out = scrape.prettify(res)
 

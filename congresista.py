@@ -9,11 +9,13 @@ import sys
 import string
 import re
 import config
+from unidecode import unidecode
 
 def convert_name_to_filename(name):
     # takes a congresista name and returns its html filename
     name = name.replace(",", "").lower()
-    name = name.encode("ascii", "ignore")
+    name = unidecode(name)
+    #name = name.encode("ascii", "ignore")
     name = name.split(" ")
     
     if len(name) > 2:
@@ -82,7 +84,8 @@ def prettify(item):
 
 def generate_congre_html(congre_data):
     name = congre_data['name'].replace(",", "").lower()
-    name = name.encode("ascii", "ignore")
+    name = unidecode(name)
+    #name = name.encode("ascii", "ignore")
     name = name.split(" ")
     
     if len(name) > 2:

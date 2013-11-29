@@ -17,6 +17,7 @@ import codecs
 import glob
 import urllib2
 import time
+import datetime
 import random
 import string
 import os.path
@@ -24,6 +25,7 @@ import urlparse
 import congresista # script to create pages for each one
 import config # our folder paths
 import sqlite3 as lite
+from unidecode import unidecode
 
 
 random.seed();  
@@ -151,7 +153,8 @@ def hiperlink_congre(congresistas):
 def convert_name_to_filename(name):
     # takes a congresista name and returns its html filename
     name = name.replace(",", "").lower()
-    name = name.encode("ascii", "ignore")
+    name = unidecode(name)
+    #name = name.encode("ascii", "ignore")
     name = name.split(" ")
     
     if len(name) > 2:
@@ -333,11 +336,19 @@ def insert_data():
     for file in files:
         file = os.path.join("pages", file)
         file = os.path.join(config.current_folder, file)
-        met = extract_metadata(file)
-        #print congresista.myjson(met)
-        data_to_insert = []
-        if not table.find_one(codigo=met['codigo']):
-            data_to_insert.append(dict(
+
+        # get date modification of file
+        last_modified = os.stat(file).st_mtime
+        # was modified less than two days ago?
+        d = time.time() - last_modified
+        #print "last modified %i days ago" % datetime.timedelta(seconds=d).days
+
+        if datetime.timedelta(seconds=d).days < 3:
+            met = extract_metadata(file)
+            #print congresista.myjson(met)
+            data_to_insert = []
+            if not table.find_one(codigo=met['codigo']):
+                data_to_insert.append(dict(
                         codigo = met['codigo'],
                         numero_proyecto = met['numero_proyecto'],
                         congresistas = met['congresistas'],
@@ -347,7 +358,7 @@ def insert_data():
                         titulo = met['titulo']
                         ))
 
-        table.insert_many(data_to_insert)    
+            table.insert_many(data_to_insert)    
 
 
 

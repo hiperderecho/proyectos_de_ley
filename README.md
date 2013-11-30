@@ -7,6 +7,7 @@ necesitan que las siguientes dependencias estén instaladas.
 * bs4: ``sudo apt-get install python-bs4``
 * requests: ``sudo apt-get install python-requests``
 * dataset: ``sudo pip install dataset``
+* short_url: ``sudo pip install short_url``
 
 # Modo de ejecución
 
@@ -45,7 +46,6 @@ ya que no se ha actualizado recientemente.
   necesario que este archivo se llame ``base.html`` y tenga los siguientes
   campos:
 
-     * ``{% base_url %}``
      * ``{% titulo %}``
      * ``{% content %}``
 

@@ -16,7 +16,7 @@ $( 'form' ).submit(function(e) {
             //console.log(data);
             $.each(data, function(i, v) {
         
-                    out += "\n<p><a href='http://{% base_url %}proyecto/" + v.id;
+                    out += "\n<p><a href='http://{% base_url %}p/" + v.short_url;
                     out += "' title='Permalink'>";
                     out += v.codigo;
                     out += "</a> \n"

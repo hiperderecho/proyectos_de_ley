@@ -14,6 +14,7 @@ import sys
 import re
 from os import listdir
 import codecs
+import short_url
 import glob
 import urllib2
 import time
@@ -66,8 +67,8 @@ def generate_congresista_json():
         for item in res:
             to_data = {}
             if i in item['congresistas']: 
-                if 'id' in item:
-                    to_data['id'] = item['id']
+                if 'short_url' in item:
+                    to_data['short_url'] = item['short_url']
                 if 'codigo' in item:
                     to_data['codigo'] = item['codigo']
                 if 'titulo' in item:
@@ -174,7 +175,7 @@ def prettify(item):
     out = ""
     out += "\n<div>\n"
     out += "<p>"
-    out += "<a href='http://" + config.base_url + "proyecto/" + str(item['id'])
+    out += "<a href='http://" + config.base_url + "p/" + str(item['short_url'])
     out += "' title='Permalink'>"
     out += "<b>" + item['numero_proyecto'] + "</b></a>"
     out += "<h4>" + item['titulo'] +  "</h4>\n"
@@ -316,6 +317,7 @@ def create_database():
             db = dataset.connect('sqlite:///leyes.db')
             table = db.create_table("proyectos")
             table.create_column('codigo', sqlalchemy.String)
+            table.create_column('short_url', sqlalchemy.String)
             table.create_column('numero_proyecto', sqlalchemy.String)
             table.create_column('congresistas', sqlalchemy.Text)
             table.create_column('fecha_presentacion', sqlalchemy.String)
@@ -345,11 +347,16 @@ def insert_data():
 
         if datetime.timedelta(seconds=d).days < 3:
             met = extract_metadata(file)
-            #print congresista.myjson(met)
+            # construct this project's short-url
+            string = config.legislatura + met['codigo']
+            url = short_url.encode_url(int(string))
+            met['short_url'] = url
+
             data_to_insert = []
-            if not table.find_one(codigo=met['codigo']):
+            if not table.find_one(short_url=met['short_url']):
                 data_to_insert.append(dict(
                         codigo = met['codigo'],
+                        short_url = met['short_url'],
                         numero_proyecto = met['numero_proyecto'],
                         congresistas = met['congresistas'],
                         fecha_presentacion = met['fecha_presentacion'],
@@ -555,16 +562,26 @@ def main():
     # We need to download the expediente page for each link page
     folder = os.path.join(config.current_folder, "pages")
     pages = [f for f in os.listdir(folder) if re.search("\w{32}\.html", f)]
+
     for page in pages:
-        page = os.path.join(folder, page)
-        link = extract_expediente_link(page)
-        if link:
-            local_exp_pagina = os.path.join(config.current_folder, "pages")
-            local_exp_pagina = os.path.join(local_exp_pagina, link[1] + ".html")
+        file = os.path.join("pages", page)
+
+        # get date modification of file
+        last_modified = os.stat(file).st_mtime
+        # was modified less than two days ago?
+        d = time.time() - last_modified
+        #print "last modified %i days ago" % datetime.timedelta(seconds=d).days
+
+        if datetime.timedelta(seconds=d).days < 3:
+            page = os.path.join(folder, page)
+            link = extract_expediente_link(page)
+            if link:
+                local_exp_pagina = os.path.join(config.current_folder, "pages")
+                local_exp_pagina = os.path.join(local_exp_pagina, link[1] + ".html")
     
-            # Try to download if we dont have it locally
-            print "Need page %s" % link[1]
-            print download_exp_pagina(link)
+                # Try to download if we dont have it locally
+                print "Need page %s" % link[1]
+                print download_exp_pagina(link)
 
     # We need to add info to our SQLite database
     create_database()

@@ -30,7 +30,7 @@ if (loc.indexOf("congresista") >= 0) {
       });
    });
 }
-else if (loc.indexOf("proyecto") >= 0) {
+else if (loc.indexOf("/p/") >= 0) {
     console.log("permalink");
 }
 else {

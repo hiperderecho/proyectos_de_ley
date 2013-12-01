@@ -13,6 +13,16 @@ cgitb.enable()
 
 data = cgi.FieldStorage()
 
+def sanitize(s):
+    s = s.replace("'", "")
+    s = s.replace('"', "")
+    s = s.replace("/", "")
+    s = s.replace("\\", "")
+    s = s.replace(";", "")
+    s = s.replace("=", "")
+    s = s.replace("*", "")
+    s = s.replace("%", "")
+    return s
 
 if 'get' in data and data['get'].value == "number_of_pages":
     db = dataset.connect("sqlite:///leyes.db")
@@ -26,8 +36,8 @@ if 'get' in data and data['get'].value == "number_of_pages":
     print "Content-Type: application/json\n"
     print json.dumps(result)
 elif 'start' in data:
-    start = data['start'].value
-    end = data['end'].value
+    start = sanitize(data['start'].value)
+    end = sanitize(data['end'].value)
 
     db = dataset.connect("sqlite:///leyes.db")
     # We will limit to show only 20 results per page
@@ -39,7 +49,7 @@ elif 'start' in data:
     print "Content-Type: application/json\n"
     print json.dumps({"output": out})
 elif 'search' in data:
-    keyword = data['search'].value
+    keyword = sanitize(data['search'].value)
 
     db = dataset.connect("sqlite:///leyes.db")
     query = "SELECT short_url, codigo, titulo, pdf_url, link_to_pdf FROM proyectos WHERE "
@@ -52,7 +62,7 @@ elif 'search' in data:
     print json.dumps(out)
 elif 'codigo' in data:
     # This is not codigo, it is actually short_url
-    keyword = data['codigo'].value
+    keyword = sanitize(data['codigo'].value)
 
     db = dataset.connect("sqlite:///leyes.db")
     table = db['proyectos']

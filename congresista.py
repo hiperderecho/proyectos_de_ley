@@ -113,20 +113,25 @@ def generate_congre_html(congre_data):
         content = ""
         for i in congre_data['data']:
             content += prettify(i) + "----------"
-        html = string.replace(base_html, 
-                    "{% titulo %}",
-                    "<h2>" + congre_data['name'] + "</h2>")
+
+        html = string.replace(base_html, "{% titulo %}", "<h2>" + congre_data['name'] + "</h2>")
         if config.base_url:
             html = string.replace(html, "{% base_url %}", config.base_url)
 
-        # save as json object instead
+        # write first 20 items into their own html page
+        out_html = '"contenido" class="container">\n'
+        for i in content.strip().split("----------")[0:20]:
+            out_html += i
+        html = string.replace(html, '"contenido" class="container">', out_html)
+        f = codecs.open(filename, "w", "utf-8")
+        f.write(html)
+        f.close()
+
+        # save as json object also
         f = codecs.open(os.path.join(path, "html.json"), "w", "utf-8")
         f.write(json.dumps(content.strip().split("----------"), sort_keys=True, indent=4, separators=(',', ':')))
         f.close()
 
-        f = codecs.open(filename, "w", "utf-8")
-        f.write(html)
-        f.close()
 
 def get_link(names):
     json_file = os.path.join(config.base_folder, "proyectos_data.json")

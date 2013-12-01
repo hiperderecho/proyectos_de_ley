@@ -59,7 +59,8 @@ def generate_congresista_json():
             new_congresistas.append(i)
 
     for i in new_congresistas:
-        query = "SELECT * FROM proyectos WHERE congresistas like '%" + i + "%'"
+        query = "SELECT * FROM proyectos WHERE congresistas like '%" + i + "%' "
+        query += "ORDER BY codigo DESC"
         res = db.query(query)
 
         congre_data = {'name': i}
@@ -603,8 +604,16 @@ def main():
     f = codecs.open("base.html", "r", "utf-8")
     base_html = f.read()
     f.close()
+    # get latest 20 proyects
+    db = dataset.connect("sqlite:///leyes.db")
+    res = db.query("SELECT * FROM proyectos ORDER BY codigo DESC LIMIT 20")
+    out = ""
+    for i in res:
+        out += prettify(i)
+
     html = string.replace(base_html, "{% base_url %}", config.base_url)
     html = string.replace(html, "{% titulo %}", "<h1 id='proyectos_de_ley'>Proyectos de Ley</h1>")
+    html = string.replace(html, '"contenido" class="container">', '"contenido" class="container">' + out)
     f = codecs.open(os.path.join(config.base_folder, "index.html"), "w", "utf-8")
     f.write(html)
     f.close()

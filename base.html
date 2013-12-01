@@ -6,6 +6,8 @@ webpage: http://aniversarioperu.wordpress.com
 twitter: @aniversarioperu
 email: aniversarioperu1@gmail.com
 
+
+rss icon by: http://glyphicons.com/
 -->
 <!DOCTYPE html>
 <html lang="es">
@@ -25,10 +27,15 @@ email: aniversarioperu1@gmail.com
 
     <style type="text/css">
         .highlight { background-color: yellow }
+        .navbar .divider-vertical {
+            min-height: 50px;
+            margin: 0 9px;
+            border-right: 1px solid #ffffff;
+            border-left: 1px solid #f2f2f2;
+        }
     </style>
-    <!--
-   <link rel="alternate" type="application/atom+xml" title="RSS" href="feed.xml" /> 
-   -->
+
+   <link rel="alternate" type="application/rss+xml" title="Proyectos de Ley &raquo; RSS feed" href="http://{% base_url %}rss.xml" /> 
 
     <!-- Custom styles for this template -->
 
@@ -59,6 +66,8 @@ email: aniversarioperu1@gmail.com
             <li id="index"><a href="http://{% base_url %}">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li class="divider-vertical"></li>
+            <li><a href="http://{% base_url %}rss.xml"><img src="http://{% base_url %}g_rss.png" /></a></li>
           </ul>
           <form class="navbar-form navbar-right" role="search">
               <div class="form-group">

@@ -8,6 +8,7 @@ necesitan que las siguientes dependencias estén instaladas.
 * requests: ``sudo apt-get install python-requests``
 * dataset: ``sudo pip install dataset``
 * short_url: ``sudo pip install short_url``
+* PyRSS2Gen: ``sudo pip install pyrss2gen``
 
 # Modo de ejecución
 

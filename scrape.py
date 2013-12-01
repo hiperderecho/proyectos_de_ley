@@ -25,6 +25,7 @@ import os.path
 import urlparse
 import congresista # script to create pages for each one
 import config # our folder paths
+import create_rss # our RSS builder
 import sqlite3 as lite
 from unidecode import unidecode
 
@@ -587,8 +588,9 @@ def main():
     # We need to add info to our SQLite database
     create_database()
     insert_data()
-
     generate_congresista_json()
+
+    create_rss.create_rss()
 
     # copy files
     print "Copying files to base_folder..."
@@ -626,6 +628,16 @@ def main():
     f.write(html)
     f.close()
 
+    shutil.copy2(os.path.join(config.current_folder, "rss.xml"),
+                    os.path.join(config.base_folder, "rss.xml"))
+    shutil.copy2(os.path.join(config.current_folder, "g_rss.png"),
+                    os.path.join(config.base_folder, "g_rss.png"))
+    shutil.copy2(os.path.join(config.current_folder, "g_twitter.png"),
+                    os.path.join(config.base_folder, "g_twitter.png"))
+    shutil.copy2(os.path.join(config.current_folder, "g_facebook.png"),
+                    os.path.join(config.base_folder, "g_facebook.png"))
+    shutil.copy2(os.path.join(config.current_folder, "create_rss.py"),
+                    os.path.join(config.base_folder, "create_rss.py"))
     shutil.copy2(os.path.join(config.current_folder, "config.py"),
                     os.path.join(config.base_folder, "config.py"))
     shutil.copy2(os.path.join(config.current_folder, "base.html"),

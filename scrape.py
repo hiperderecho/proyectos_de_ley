@@ -26,6 +26,7 @@ import urlparse
 import congresista # script to create pages for each one
 import config # our folder paths
 import create_rss # our RSS builder
+import create_sitemap # our SITEMAP builder
 import sqlite3 as lite
 from unidecode import unidecode
 
@@ -185,7 +186,10 @@ def prettify(item):
 
     if 'pdf_url' in item:
         out += "<a class='btn btn-lg btn-primary'"
-        out += " href='" + item['pdf_url'] + "' role='button'>PDF</a>"
+        try:
+            out += " href='" + item['pdf_url'] + "' role='button'>PDF</a>"
+        except:
+            out += " disabled='disabled' href='#' role='button'>PDF</a>"
     else:
         out += "<a class='btn btn-lg btn-primary disabled'"
         out += " href='#' role='button'>Sin PDF</a>"
@@ -196,6 +200,12 @@ def prettify(item):
     else:
         out += " <a class='btn btn-lg btn-primary disabled'"
         out += " href='#' role='button'>Sin EXPEDIENTE</a>"
+
+    if 'seguimiento_page' in item:
+        if item['seguimiento_page'] != "":
+            out += " <a class='btn btn-lg btn-primary'"
+            out += " href='" + item['seguimiento_page'] + "' role='button'>Seguimiento</a>"
+
 
     out += "</div>\n"
     out += "<hr>\n"
@@ -325,6 +335,7 @@ def create_database():
             table.create_column('fecha_presentacion', sqlalchemy.String)
             table.create_column('link_to_pdf', sqlalchemy.Text)
             table.create_column('pdf_url', sqlalchemy.Text)
+            table.create_column('timestamp', sqlalchemy.String)
             table.create_column('titulo', sqlalchemy.Text)
         except:
             pass
@@ -338,6 +349,9 @@ def insert_data():
     table = db['proyectos']
 
     for file in files:
+        seguimiento_page = file
+        seguimiento_page = file.replace(".html", "")
+        seguimiento_page = "http://www2.congreso.gob.pe/Sicr/TraDocEstProc/CLProLey2011.nsf/Sicr/TraDocEstProc/CLProLey2011.nsf/PAporNumeroInverso/" + seguimiento_page + "?opendocument" 
         file = os.path.join("pages", file)
         file = os.path.join(config.current_folder, file)
 
@@ -353,6 +367,11 @@ def insert_data():
             string = config.legislatura + met['codigo']
             url = short_url.encode_url(int(string))
             met['short_url'] = url
+            if met['fecha_presentacion']:
+                s = met['fecha_presentacion']
+                met['timestamp'] = time.mktime(datetime.datetime.strptime(s, "%d/%m/%Y").timetuple())
+            else:
+                met['timestamp'] = time.mktime(datetime.datetime.now().timetuple())
 
             data_to_insert = []
             if not table.find_one(short_url=met['short_url']):
@@ -364,6 +383,8 @@ def insert_data():
                         fecha_presentacion = met['fecha_presentacion'],
                         link_to_pdf = met['link_to_pdf'],
                         pdf_url = met['pdf_url'],
+                        seguimiento_page = seguimiento_page,
+                        timestamp = met['timestamp'],
                         titulo = met['titulo']
                         ))
 
@@ -533,7 +554,7 @@ def main():
     urls = [url_inicio]
 
     # from 100 to 2900 to get from 0001/2011-CR
-    for i in range(100, 100, 100):
+    for i in range(100, 500, 100):
         urls.append(url_inicio + "&Start=" + str(i))
 
     # remove most recent pages from local disk
@@ -591,6 +612,7 @@ def main():
     generate_congresista_json()
 
     create_rss.create_rss()
+    create_sitemap.create_sitemap()
 
     # copy files
     print "Copying files to base_folder..."
@@ -628,8 +650,14 @@ def main():
     f.write(html)
     f.close()
 
+    shutil.copy2(os.path.join(config.current_folder, "create_sitemap.py"),
+                    os.path.join(config.base_folder, "create_sitemap.py"))
+    shutil.copy2(os.path.join(config.current_folder, "sitemap.xml"),
+                    os.path.join(config.base_folder, "sitemap.xml"))
     shutil.copy2(os.path.join(config.current_folder, "rss.xml"),
                     os.path.join(config.base_folder, "rss.xml"))
+    shutil.copy2(os.path.join(config.current_folder, "hd.png"),
+                    os.path.join(config.base_folder, "hd.png"))
     shutil.copy2(os.path.join(config.current_folder, "g_rss.png"),
                     os.path.join(config.base_folder, "g_rss.png"))
     shutil.copy2(os.path.join(config.current_folder, "g_twitter.png"),
@@ -666,6 +694,36 @@ def main():
     f = codecs.open(congre_dummy_index, "w", "utf-8")
     f.write("<html><head></head><body></body></html>")
     f.close()
+
+    # about page
+    about = os.path.join(config.base_folder, "about")
+    if not os.path.isdir(about):
+        os.mkdir(about)
+    about_page = os.path.join(about, "index.html")
+    f = codecs.open(os.path.join(config.current_folder, "base.html"), "r", "utf-8")
+    base_html = f.read()
+    f.close()
+    f = codecs.open(about_page, "w", "utf-8")
+    html = string.replace(base_html, "<script src=\"http://{% base_url %}paginator.js\"></script>", "")
+    html = string.replace(html, "{% base_url %}", config.base_url)
+    html = string.replace(html, "{% titulo %}", u"<h1 id='about'>Sobre esta página</h1>")
+    out_html = u'''"contenido" class="container">
+        <p><strong>proyectosdeley.pe</strong> es un intento de transparentar el
+        Congreso y poner al alcance de la mayor cantidad de personas los
+        proyectos de ley presentados y discutidos en el parlamento. La
+        información mostrada es tomada directamente de la página web del
+        Congreso.</p>
+
+        <p>Esta página ha sido desarrollada en forma independiente por la <a
+        href="http://www.hiperderecho.org">ONG Hiperderecho</a>, una organización civil
+        peruana sin fines de lucro dedicada a investigar, facilitar el entendimiento
+        público y promover el respeto de los derechos y libertades en entornos
+        digitales.</p>'''
+    html = string.replace(html, '"contenido" class="container">', out_html)
+    
+    f.write(html)
+    f.close()
+
     print "Copied all files to base_folder..."
     print "ready"
 

@@ -25,7 +25,10 @@ def create_rss():
             titulo += "..."
     
         document_links = "\n\n<br /><br />"
-        document_links += "<a href='" + i['pdf_url'] + "'>PDF</a> "
+        try:
+            document_links += "<a href='" + i['pdf_url'] + "'>PDF</a> "
+        except:
+            print ""
         document_links += "<a href='" + i['link_to_pdf'] + "'>Expediente</a>"
         this_rss = PyRSS2Gen.RSSItem(
                 title = titulo,

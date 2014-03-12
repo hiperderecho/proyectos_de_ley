@@ -59,7 +59,10 @@ def prettify(item):
 
     if 'pdf_url' in item:
         out += "<a class='btn btn-lg btn-primary'"
-        out += " href='" + item['pdf_url'] + "' role='button'>PDF</a>"
+        try:
+            out += " href='" + item['pdf_url'] + "' role='button'>PDF</a>"
+        except:
+            out += " disabled='disabled' href='#' role='button'>PDF</a>"
     else:
         out += "<a class='btn btn-lg btn-primary disabled'"
         out += " href='#' role='button'>Sin PDF</a>"

@@ -52,13 +52,17 @@ elif 'search' in data:
     keyword = sanitize(data['search'].value)
 
     db = dataset.connect("sqlite:///leyes.db")
-    query = "SELECT short_url, codigo, titulo, pdf_url, link_to_pdf FROM proyectos WHERE "
-    query += "titulo like '%" + keyword + "%' ORDER BY codigo DESC" 
+    query = "SELECT short_url, codigo, titulo, pdf_url, link_to_pdf, seguimiento_page FROM proyectos WHERE "
+    query += "codigo like \"%" + keyword + "%\" OR "
+    query += "congresistas like \"%" + keyword + "%\" OR "
+    query += "titulo like \"%" + keyword + "%\" ORDER BY codigo DESC" 
     res = db.query(query)
     out = []
     for i in res:
         out.append(i)
     print "Content-Type: application/json\n"
+    #print query
+    #print json.dumps({"query": query, "keyword": keyword})
     print json.dumps(out)
 elif 'codigo' in data:
     # This is not codigo, it is actually short_url

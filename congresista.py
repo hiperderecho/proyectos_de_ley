@@ -74,6 +74,11 @@ def prettify(item):
         out += " <a class='btn btn-lg btn-primary disabled'"
         out += " href='#' role='button'>Sin EXPEDIENTE</a>"
 
+    if 'seguimiento_page' in item:
+        if item['seguimiento_page'] != "" and item['seguimiento_page'] != None:
+            out += " <a class='btn btn-lg btn-primary'"
+            out += " href='" + item['seguimiento_page'] + "' role='button'>Seguimiento</a>"
+
     html_file = item['numero_proyecto'].replace("/", "_") + ".html"
     html_file = os.path.join("pdf", html_file)
     if os.path.isfile(html_file): 

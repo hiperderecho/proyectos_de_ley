@@ -78,6 +78,8 @@ def generate_congresista_json():
                     to_data['titulo'] = item['titulo']
                 if 'numero_proyecto' in item:
                     to_data['numero_proyecto'] = item['numero_proyecto']
+                if 'seguimiento_page' in item:
+                    to_data['seguimiento_page'] = item['seguimiento_page']
                 if 'pdf_url' in item:
                     to_data['pdf_url'] = item['pdf_url']
                 if 'link_to_pdf' in item:
@@ -229,8 +231,9 @@ def extract_pdf_url(link):
         f.close()
         pdf_soup = BeautifulSoup(html)
     try:
+        pattern = re.compile("/PL" + str(codigo) + "[0-9]+\.pdf$")
         for i in pdf_soup.find_all("a"):
-            if re.search("pdf$", i['href'], re.I):
+            if re.search(pattern, i['href']):
                 my_pdf_link = str(i['href'])
                 return my_pdf_link
     except:
@@ -238,13 +241,15 @@ def extract_pdf_url(link):
         return "none"
 
 def extract_pdf_url_from_local_file(filename):
+    codigo = re.search("([0-9]{5})\.html", filename).groups()[0]
     f = codecs.open(filename, "r", "utf-8")
     html = f.read()
     f.close()
     pdf_soup = BeautifulSoup(html)
     try:
+        pattern = re.compile("/PL" + str(codigo) + "[0-9]+\.+pdf$")
         for i in pdf_soup.find_all("a"):
-            if re.search("pdf$", i['href'], re.I):
+            if re.search(pattern, i['href']):
                 my_pdf_link = str(i['href'])
                 return my_pdf_link
     except:
